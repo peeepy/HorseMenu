@@ -4,7 +4,7 @@
 namespace YimMenu::Peds
 {
 	// Returns 0 if it fails
-	int SpawnPed(std::string model_name, Vector3 coords, float heading, bool blockNewPedMovement, bool spawnDead, bool invincible, bool invisible, int scale)
+	int SpawnPed(std::string model_name, Vector3 coords, float heading, bool blockNewPedMovement, bool spawnDead, bool invincible, bool invisible, int scale, bool companionMode)
 	{
 		Hash model = Joaat(model_name.c_str());
 
@@ -32,6 +32,12 @@ namespace YimMenu::Peds
 
 		if (spawnDead)
 			PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, YimMenu::Self::PlayerPed);
+
+		if (companionMode)
+        {
+            COMPANION::_ADD_COMPANION_FLAG(ped, 1);
+            PED::SET_PED_CAN_BE_TARGETTED(ped, 1)
+        }
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
 		return ped;
