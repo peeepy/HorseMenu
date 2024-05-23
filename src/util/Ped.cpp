@@ -36,8 +36,8 @@ namespace YimMenu::Peds
 		if (companionMode)
         {
             COMPANION::_ADD_COMPANION_FLAG(ped, 1);
-            PED::SET_PED_CAN_BE_TARGETTED(ped, 1)
-        }
+			PED::SET_PED_CAN_BE_TARGETTED(ped, 1);
+		}
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
 		return ped;
