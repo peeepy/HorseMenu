@@ -1,13 +1,18 @@
 name: CI
 
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 jobs:
   ci:
-    runs-on: [ self-hosted, Windows ]
+    runs-on: [self-hosted, Windows]
     name: CI
     steps:
       - uses: actions/checkout@v3
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@v3
+        with:
+          cmake-version: '3.27.0' # Specify your required CMake version here
 
       - name: Check CMake version
         run: cmake --version
@@ -26,7 +31,7 @@ jobs:
       - name: Check if DLL got built
         run: if (-Not (Test-Path -path "build/HorseMenu.dll")) {throw 1}
 
-      - name: Rename DLL to HorseMenu-dev-{GITHUB_SHA}.dll
+      - name: Rename DLL to HorseMenu-dev-${{github.sha}}.dll
         run: |
           del HorseMenu-dev-*.dll
           ren HorseMenu.dll HorseMenu-dev-${{github.sha}}.dll
