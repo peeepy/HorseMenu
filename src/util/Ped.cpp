@@ -36,7 +36,8 @@ namespace YimMenu::Peds
 		if (companionMode)
         {
             COMPANION::_ADD_COMPANION_FLAG(ped, 1);
-			PED::SET_PED_CAN_BE_TARGETTED(ped, 1);
+			AUDIO::SET_PED_IS_DRUNK(ped, 1);
+			TASK::TASK_FOLLOW_AND_CONVERSE_WITH_PED(ped, PLAYER::PLAYER_PED_ID(), 0, 0, 1.0f, 2.0f, -1, 0, 0, 5.0f, 5.0f)
 		}
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
