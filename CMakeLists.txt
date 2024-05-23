@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20.x)
+cmake_minimum_required(VERSION 3.27.x)
 
 project(HorseMenu VERSION 0.0.1 DESCRIPTION "A new base using new C++ features optimised for speed and ease of use")
 
