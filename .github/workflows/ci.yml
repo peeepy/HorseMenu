@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup CMake
-        uses: lukka/get-cmake@v3
+      - name: Get correct CMake version
+        uses: lukka/get-cmake@latest
         with:
-          cmake-version: '3.27.0' # Specify your required CMake version here
+          cmakeVersion: 3.27.0      # <--= optional, use the latest release candidate (notice the 'rc' suffix).
 
       - name: Check CMake version
         run: cmake --version
