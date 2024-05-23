@@ -3,6 +3,20 @@
 
 namespace YimMenu::Peds
 {
+	int companionActionState = 0;
+
+	void CompanionActions(Ped companion, int action) {
+    switch (action) {
+        case 1: // Make companion follow the player
+            TASK::TASK_FOLLOW_TO_OFFSET_OF_ENTITY(companion, YimMenu::Self::PlayerPed, 0, 0, 0, 1.0f, -1, 1.0f, true, false, false, false, false, false);
+            break;
+        case 2: // Make companion stay
+            TASK::TASK_STAND_STILL(companion, -1);
+            break;
+        // Add more cases for different actions
+    	}
+	}
+
 	// Returns 0 if it fails
 	int SpawnPed(std::string model_name, Vector3 coords, float heading, bool blockNewPedMovement, bool spawnDead, bool invincible, bool invisible, int scale, bool companionMode)
 	{
@@ -21,7 +35,7 @@ namespace YimMenu::Peds
 		}
 
 		auto ped = PED::CREATE_PED(model, coords.x, coords.y, coords.z, heading, 1, 0, 0, 0);
-
+		
 		PED::_SET_RANDOM_OUTFIT_VARIATION(ped, true);
 		ENTITY::PLACE_ENTITY_ON_GROUND_PROPERLY(ped, true);
 
@@ -35,9 +49,14 @@ namespace YimMenu::Peds
 
 		if (companionMode)
         {
-            COMPANION::_ADD_COMPANION_FLAG(ped, 1);
-			AUDIO::SET_PED_IS_DRUNK(ped, 1);
-			TASK::TASK_FOLLOW_AND_CONVERSE_WITH_PED(ped, PLAYER::PLAYER_PED_ID(), 0, 0, 1.0f, 2.0f, -1, 0, 0, 5.0f, 5.0f);
+			COMPANION::_ADD_COMPANION_FLAG(ped, 1);
+			// PED::_SET_PED_DRUNKNESS(ped, 1, 3.0f);
+			PED::SET_PED_CAN_BE_TARGETTED(ped, 1);
+
+			if (PLAYER::IS_PLAYER_TARGETTING_ENTITY(YimMenu::Self::PlayerPed, ped, 1)) {
+				companionActionState = (companionActionState == 1) ? 2 : 1;
+				CompanionActions(ped, companionActionState);
+			}
 		}
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
