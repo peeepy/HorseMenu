@@ -49,15 +49,21 @@ namespace YimMenu::Peds
 
 		if (companionMode)
         {
-			COMPANION::_ADD_COMPANION_FLAG(ped, 1);
-			// PED::_SET_PED_DRUNKNESS(ped, 1, 3.0f);
-			PED::SET_PED_CAN_BE_TARGETTED(ped, 1);
+            // Create a group and set the player as the leader
+            int groupID = PED::CREATE_GROUP(0);
+            PED::SET_PED_AS_GROUP_LEADER(YimMenu::Self::PlayerPed, groupID, 0);
+            PED::SET_PED_AS_GROUP_MEMBER(ped, groupID);
+            PED::SET_PED_CAN_TELEPORT_TO_GROUP_LEADER(ped, groupID, true);
+            PED::SET_GROUP_SEPARATION_RANGE(groupID, 999999.9f); // Very high range to prevent separation
 
-			if (PLAYER::IS_PLAYER_TARGETTING_ENTITY(YimMenu::Self::PlayerPed, ped, 1)) {
-				companionActionState = (companionActionState == 1) ? 2 : 1;
-				CompanionActions(ped, companionActionState);
-			}
-		}
+            // Set group formation and spacing
+            PED::SET_GROUP_FORMATION(groupID, 0); // Default formation
+            PED::SET_GROUP_FORMATION_SPACING(groupID, 1.0f, 1.0f, 1.0f);
+
+            // Make the ped follow the player and engage in combat
+            TASK::TASK_FOLLOW_TO_OFFSET_OF_ENTITY(ped, YimMenu::Self::PlayerPed, 0.0f, 0.0f, 0.0f, 1.0f, -1, 1.0f, true, false, false, true, false, true);
+            PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(ped, true);
+        }
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
 		return ped;
