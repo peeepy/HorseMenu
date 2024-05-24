@@ -95,13 +95,19 @@ namespace YimMenu::Peds
 			PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(ped, false);
 
 			// Add a blip to the ped
-			Blip blip = MAP::BLIP_ADD_FOR_ENTITY(Joaat("BLIP_STYLE_POSSE_MEMBER"), ped);
+			Blip blip = MAP::BLIP_ADD_FOR_ENTITY(Joaat("BLIP_STYLE_FRIENDLY"), ped);
 			MAP::SET_BLIP_NAME_FROM_TEXT_FILE(blip, "Companion");
 
 			// Give the ped a weapon if they're a human
 			if (PED::IS_PED_HUMAN(ped))
 			{
 				WEAPON::GIVE_WEAPON_TO_PED(ped, Joaat("WEAPON_SHOTGUN_DOUBLEBARREL"), 999, true, true, 0, false, 0.5f, 1.0f, Joaat("ADD_REASON_DEFAULT"), false, 0.0f, false);
+			}
+
+			// Have the companion mount a horse with you
+			if (PED::IS_PED_ON_MOUNT(YimMenu::Self::PlayerPed))
+			{
+				TASK::TASK_MOUNT_ANIMAL(ped, PED::GET_MOUNT(YimMenu::Self::PlayerPed), -1, -1, 1.0f, 1, 0, 0);
 			}
 		}
 
