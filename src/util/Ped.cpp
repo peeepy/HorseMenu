@@ -95,7 +95,7 @@ namespace YimMenu::Peds
 			PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(ped, false);
 
 			// Add a blip to the ped
-			Blip blip = MAP::BLIP_ADD_FOR_ENTITY(Joaat("BLIP_POSSE_MEMBER"), ped);
+			Blip blip = MAP::BLIP_ADD_FOR_ENTITY(Joaat("BLIP_STYLE_POSSE_MEMBER"), ped);
 			MAP::SET_BLIP_NAME_FROM_TEXT_FILE(blip, "Companion");
 
 			// Give the ped a weapon if they're a human
