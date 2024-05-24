@@ -109,6 +109,11 @@ namespace YimMenu::Peds
 			{
 				TASK::TASK_MOUNT_ANIMAL(ped, PED::GET_MOUNT(YimMenu::Self::PlayerPed), -1, -1, 1.0f, 1, 0, 0);
 			}
+
+			// Make animals not flee
+			if (!PED::IS_PED_HUMAN(ped)) {
+				PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(ped, true);
+			}
 		}
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
