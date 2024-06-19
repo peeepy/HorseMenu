@@ -4,7 +4,7 @@
 
 namespace YimMenu::Peds
 {
-	auto& companion = YimMenu::PersistentCompanion::Instance();
+//auto& companion = YimMenu::PersistentCompanion::Instance();
 
 
 	// Returns 0 if it fails
@@ -45,7 +45,7 @@ namespace YimMenu::Peds
 
 
 	// Returns 0 if it fails
-	int SpawnCompanion(std::string model_name, Vector3 coords, float heading, bool blockNewPedMovement, bool spawnDead, bool invincible, bool invisible, int scale, bool companionMode, bool persistent)
+	int SpawnCompanion(std::string model_name, Vector3 coords, float heading, bool blockNewPedMovement, bool spawnDead, bool invincible, bool invisible, int scale, bool persistent)
 	{
 		Hash model = Joaat(model_name.c_str());
 
@@ -145,7 +145,7 @@ namespace YimMenu::Peds
 		if (persistent)
 		{
 			PedInfo pedInfo = {ped, model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale, persistent};
-			companion::PersistCompanion(pedInfo);
+			PersistentCompanion::SharedInstance().PersistCompanion(pedInfo);
 		}
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);

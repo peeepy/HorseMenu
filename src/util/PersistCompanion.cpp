@@ -17,7 +17,7 @@ namespace YimMenu
 		virtual void OnTick() override
 		{
 			std::vector<PedInfo> pedList;
-			for (auto& pedInfo : pedList) 
+			for (auto& pedInfo : pedList)
 			{
 				// Example operation: check if ped is still valid
 				if (!ENTITY::DOES_ENTITY_EXIST(pedInfo.pedHandle))
@@ -33,6 +33,11 @@ namespace YimMenu
 					    pedInfo.persistent);
 			}
 		}
-	} 
 
+		void PersistCompanion(const YimMenu::PedInfo& pedInfo)
+		{
+			std::vector<PedInfo> pedList;
+			pedList.push_back(pedInfo); // Add pedInfo to the pedList vector
+		}
+	};
 };

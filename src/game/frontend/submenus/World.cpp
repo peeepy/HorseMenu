@@ -5,8 +5,6 @@
 #include "game/frontend/items/Items.hpp"
 #include "util/Ped.hpp"
 #include "util/libraries/PedModels.hpp"
-est
-hello t
 
 namespace YimMenu::Submenus
 {
@@ -97,7 +95,7 @@ namespace YimMenu::Submenus
 	{
 		static std::string pedModelBuffer;
 		static float scale = 1;
-		static bool dead, invis, godmode, freeze;
+		static bool dead, invis, godmode, freeze, persistent;
 		InputTextWithHint("##pedmodel", "Ped Model", &pedModelBuffer, ImGuiInputTextFlags_CallbackCompletion, nullptr, PedSpawnerInputCallback)
 		    .Draw();
 		if (ImGui::IsItemHovered())
@@ -130,7 +128,7 @@ namespace YimMenu::Submenus
 		if (ImGui::Button("Spawn"))
 		{
 			FiberPool::Push([] {
-				Peds::SpawnPed(pedModelBuffer, ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Self::PlayerPed, 0, 3, 0), 0, freeze, dead, godmode, invis, scale, persistent);
+				Peds::SpawnCompanion(pedModelBuffer, ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Self::PlayerPed, 0, 3, 0), 0, freeze, dead, godmode, invis, scale, persistent);
 			});
 		}
 	}

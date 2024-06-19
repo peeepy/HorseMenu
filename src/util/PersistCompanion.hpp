@@ -27,22 +27,25 @@ namespace YimMenu
 	{
 		using LoopedCommand::LoopedCommand;
 
-	public:
-		virtual void OnTick() override;
+		public:
+			virtual void OnTick() override;
 
-		const std::vector<PedInfo>& GetPedList() const
-		{
-			return pedList;
-		}
+			void PersistCompanion(const YimMenu::PedInfo& pedInfo);
 
-		static PersistentCompanion& Instance()
-		{
-			static PersistentCompanion instance;
-			return instance;
-		}
+			const std::vector<PedInfo>& GetPedList() const
+			{
+				return pedList;
+			}
 
-	private:
-		std::vector<PedInfo> pedList;
+			static PersistentCompanion& SharedInstance()
+			{
+				static PersistentCompanion instance;
+				return instance;
+			}
+
+		private:
+			std::vector<PedInfo> pedList;
+		    PersistentCompanion()
 	};
 	
 }
