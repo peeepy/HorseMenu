@@ -2,19 +2,14 @@
 
 #include "core/frontend/Notifications.hpp"
 #include "game/backend/ScriptMgr.hpp"
-#include "core/commands/LoopedCommand.hpp"
 #include "game/features/Features.hpp"
 #include "game/rdr/Natives.hpp"
 #include <vector>
 
 namespace YimMenu
 {
-	class PersistentCompanion : public LoopedCommand
-	{
-		using LoopedCommand::LoopedCommand;
 
-
-		virtual void OnTick() override
+		void PersistentCompanion::OnTick()
 		{
 			std::vector<PedInfo> pedList;
 			for (auto& pedInfo : pedList)
@@ -34,10 +29,9 @@ namespace YimMenu
 			}
 		}
 
-		void PersistCompanion(const YimMenu::PedInfo& pedInfo)
+		void PersistentCompanion::PersistCompanion(const YimMenu::PedInfo& pedInfo)
 		{
 			std::vector<PedInfo> pedList;
 			pedList.push_back(pedInfo); // Add pedInfo to the pedList vector
 		}
-	};
 };

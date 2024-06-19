@@ -1,10 +1,10 @@
 #pragma once
 
-#include "core/commands/LoopedCommand.hpp"
 #include "game/features/Features.hpp"
 #include "game/rdr/Natives.hpp"
 #include "util/Ped.hpp"
 
+#include <string>
 #include <vector>
 
 namespace YimMenu
@@ -23,29 +23,27 @@ namespace YimMenu
 		bool persistent;
 	};
 
-	class PersistentCompanion : public LoopedCommand
+	class PersistentCompanion
 	{
-		using LoopedCommand::LoopedCommand;
 
-		public:
-			virtual void OnTick() override;
+	public:
+		void OnTick();
 
-			void PersistCompanion(const YimMenu::PedInfo& pedInfo);
+		void PersistCompanion(const YimMenu::PedInfo& pedInfo);
 
-			const std::vector<PedInfo>& GetPedList() const
-			{
-				return pedList;
-			}
+		const std::vector<PedInfo>& GetPedList() const
+		{
+			return pedList;
+		}
 
-			static PersistentCompanion& SharedInstance()
-			{
-				static PersistentCompanion instance;
-				return instance;
-			}
+		static PersistentCompanion& SharedInstance()
+		{
+			static PersistentCompanion instance;
+			return instance;
+		}
 
-		private:
-			std::vector<PedInfo> pedList;
-		    PersistentCompanion()
+	private:
+		std::vector<PedInfo> pedList;
+		PersistentCompanion() = default;
 	};
-	
 }
