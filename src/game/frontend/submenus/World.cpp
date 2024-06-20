@@ -5,6 +5,9 @@
 #include "game/frontend/items/Items.hpp"
 #include "util/Ped.hpp"
 #include "util/libraries/PedModels.hpp"
+#include "game/features/Features.hpp"
+#include "core/commands/BoolCommand.hpp"
+#include "core/commands/Commands.hpp"
 
 
 namespace YimMenu::Submenus
@@ -164,6 +167,7 @@ namespace YimMenu::Submenus
 			FiberPool::Push([] {
 				Peds::SpawnCompanion(pedModelBuffer, ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Self::PlayerPed, 0, 3, 0), 0, freeze, dead, godmode, invis, scale, persistent);
 			});
+
 		}
 	}
 
@@ -184,6 +188,7 @@ namespace YimMenu::Submenus
 		companionSpawnerGroup->AddItem(std::make_shared<ImGuiItem>([] {
 			CompanionSpawnerGroup();
 		}));
+		companionSpawnerGroup->AddItem(std::make_shared<BoolCommandItem>("persistped"_J));
 		
 		spawners->AddItem(std::make_shared<ImGuiItem>([] {
 			drawPedList();
