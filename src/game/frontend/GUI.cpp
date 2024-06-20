@@ -1,6 +1,7 @@
 #include "GUI.hpp"
 #include "Menu.hpp"
 #include "ESP.hpp"
+#include "game/frontend/submenus/World.hpp"
 #include "ContextMenu.hpp"
 #include "core/renderer/Renderer.hpp"
 #include "core/frontend/Notifications.hpp"
@@ -34,6 +35,13 @@ namespace YimMenu
 			    ContextMenu::DrawContextMenu();
 		    },
 		    -4);
+
+		// Add a renderer callback for drawPedList
+		Renderer::AddRendererCallBack(
+		    [&] {
+			    YimMenu::Submenus::drawPedList();
+		    },
+		    -5);
 	}
 
 	GUI::~GUI()

@@ -6,8 +6,42 @@
 #include "util/Ped.hpp"
 #include "util/libraries/PedModels.hpp"
 
+
 namespace YimMenu::Submenus
 {
+
+#include <algorithm>
+#include <imgui.h>
+#include <vector>
+
+	void drawPedList(float offset = 15.0f)
+	{
+		// Comparator for sorting PedInfo by pedHandle
+		auto comparePedModels = [](const PedInfo& a, const PedInfo& b) {
+			return a.model_name < b.model_name;
+		};
+
+		auto pedList = PersistentCompanion::SharedInstance().GetPedList(); // Get the list of PedInfo objects
+
+		// Sort the pedList using the comparator
+		std::sort(pedList.begin(), pedList.end(), comparePedModels);
+
+		// Set up the external window
+		ImGui::SetNextWindowPos(
+		    ImVec2(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x + offset, ImGui::GetWindowPos().y));
+		ImGui::SetNextWindowSize(ImVec2(150, ImGui::GetWindowSize().y));
+		ImGui::Begin("Ped List", nullptr, ImGuiWindowFlags_NoDecoration);
+		ImGui::Text("Ped List"); // Add a title
+		// Iterate over sorted pedList and display their handles
+		for (const auto& ped : pedList)
+		{
+			ImGui::Text("%d", ped.model_name);
+		}
+		ImGui::End();
+	}
+
+
+
 	bool is_ped_model_in_ped_model_list(std::string model)
 	{
 		for (const auto& pedModel : pedModels)
@@ -149,10 +183,11 @@ namespace YimMenu::Submenus
 
 		companionSpawnerGroup->AddItem(std::make_shared<ImGuiItem>([] {
 			CompanionSpawnerGroup();
-		
 		}));
-
 		
+		spawners->AddItem(std::make_shared<ImGuiItem>([] {
+			drawPedList();
+		}));
 		spawners->AddItem(pedSpawnerGroup);
 		spawners->AddItem(companionSpawnerGroup);
 

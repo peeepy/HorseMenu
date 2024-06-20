@@ -12,7 +12,7 @@ namespace YimMenu
 	struct PedInfo
 	{
 		int pedHandle;
-		std::string model;
+		std::string model_name;
 		Vector3 coords;
 		float heading;
 		bool blockNewPedMovement;
@@ -29,7 +29,7 @@ namespace YimMenu
 	public:
 		void OnTick();
 
-		void PersistCompanion(const YimMenu::PedInfo& pedInfo);
+		void PersistCompanion(const PedInfo& pedInfo);
 
 		const std::vector<PedInfo>& GetPedList() const
 		{

@@ -17,7 +17,7 @@ namespace YimMenu
 				// Example operation: check if ped is still valid
 				if (!ENTITY::DOES_ENTITY_EXIST(pedInfo.pedHandle))
 					// Respawn ped if it doesn't exist
-					pedInfo.pedHandle = YimMenu::Peds::SpawnCompanion(pedInfo.model,
+					pedInfo.pedHandle = YimMenu::Peds::SpawnCompanion(pedInfo.model_name,
 					    pedInfo.coords,
 					    pedInfo.heading,
 					    pedInfo.blockNewPedMovement,
@@ -29,7 +29,7 @@ namespace YimMenu
 			}
 		}
 
-		void PersistentCompanion::PersistCompanion(const YimMenu::PedInfo& pedInfo)
+		void PersistentCompanion::PersistCompanion(const PedInfo& pedInfo)
 		{
 			std::vector<PedInfo> pedList;
 			pedList.push_back(pedInfo); // Add pedInfo to the pedList vector
