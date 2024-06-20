@@ -36,6 +36,11 @@ namespace YimMenu
 			return pedList;
 		}
 
+		std::vector<PedInfo>& GetPedListForModification()
+		{
+			return pedList;
+		}
+
 		static PersistentCompanion& SharedInstance()
 		{
 			static PersistentCompanion instance;

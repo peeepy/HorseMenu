@@ -2,6 +2,8 @@
 #include "game/features/Features.hpp"
 #include "game/rdr/Enums.hpp"
 #include "game/rdr/Natives.hpp"
+#include "util/Ped.hpp"
+#include "util/PersistCompanion.hpp"
 
 namespace YimMenu::Features
 {
@@ -12,10 +14,11 @@ namespace YimMenu::Features
 
 		virtual void OnTick() override
 		{
-			for (auto& pedInfo : pedList)
+			for (auto& pedInfo : PersistentCompanion::SharedInstance().GetPedListForModification())
 			{
 				// Example operation: check if ped is still valid
 				if (!ENTITY::DOES_ENTITY_EXIST(pedInfo.pedHandle))
+				{
 					// Respawn ped if it doesn't exist
 					pedInfo.pedHandle = YimMenu::Peds::SpawnCompanion(pedInfo.model_name,
 					    pedInfo.coords,
@@ -26,6 +29,7 @@ namespace YimMenu::Features
 					    pedInfo.invisible,
 					    pedInfo.scale,
 					    pedInfo.persistent);
+				}
 			}
 		}
 	};
