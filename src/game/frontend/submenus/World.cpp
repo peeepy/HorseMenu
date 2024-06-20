@@ -35,7 +35,7 @@ namespace YimMenu::Submenus
 		// Iterate over sorted pedList and display their handles
 		for (const auto& ped : pedList)
 		{
-			ImGui::Text("%d", ped.model_name);
+			ImGui::Text("%s", ped.model_name.c_str());
 		}
 		ImGui::End();
 	}

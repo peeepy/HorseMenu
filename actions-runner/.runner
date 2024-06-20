@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "PC",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus11.actions.githubusercontent.com/tWn9LJnveLBX9rqBenvjEk1Mk2OvobLa5sFjTrzypZeLw7gUif/",
+  "gitHubUrl": "https://github.com/peeepy/HorseMenu",
+  "workFolder": "_work"
+}

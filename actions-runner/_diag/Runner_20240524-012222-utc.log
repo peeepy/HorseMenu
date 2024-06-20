@@ -1,0 +1,240 @@
+[2024-05-24 01:22:22Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2024-05-24 01:22:22Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:22Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:22Z INFO HostContext] Well known config file 'Credentials': 'D:\HorseMenu\actions-runner\.credentials'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO HostContext] Well known config file 'Runner': 'D:\HorseMenu\actions-runner\.runner'
+[2024-05-24 01:22:23Z INFO Listener] Runner is built for Windows (X64) - win-x64.
+[2024-05-24 01:22:23Z INFO Listener] RuntimeInformation: Microsoft Windows 10.0.26120.
+[2024-05-24 01:22:23Z INFO Listener] Version: 2.316.1
+[2024-05-24 01:22:23Z INFO Listener] Commit: 9ac138d10eac15c71493f004f1b1bc919ead40de
+[2024-05-24 01:22:23Z INFO Listener] Culture: en-US
+[2024-05-24 01:22:23Z INFO Listener] UI Culture: en-GB
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO Listener] Validating directory permissions for: 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO CommandLineParser] Parse
+[2024-05-24 01:22:23Z INFO CommandLineParser] Parsing 1 args
+[2024-05-24 01:22:23Z INFO CommandLineParser] parsing argument
+[2024-05-24 01:22:23Z INFO CommandLineParser] HasArgs: False
+[2024-05-24 01:22:23Z INFO CommandLineParser] Adding Command: run
+[2024-05-24 01:22:23Z INFO Listener] Arguments parsed
+[2024-05-24 01:22:23Z INFO Runner] ExecuteCommand
+[2024-05-24 01:22:23Z INFO ConfigurationStore] currentAssemblyLocation: D:\HorseMenu\actions-runner\bin\Runner.Listener.dll
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO ConfigurationStore] binPath: D:\HorseMenu\actions-runner\bin
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO ConfigurationStore] RootFolder: D:\HorseMenu\actions-runner
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO HostContext] Well known config file 'Runner': 'D:\HorseMenu\actions-runner\.runner'
+[2024-05-24 01:22:23Z INFO ConfigurationStore] ConfigFilePath: D:\HorseMenu\actions-runner\.runner
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO HostContext] Well known config file 'Credentials': 'D:\HorseMenu\actions-runner\.credentials'
+[2024-05-24 01:22:23Z INFO ConfigurationStore] CredFilePath: D:\HorseMenu\actions-runner\.credentials
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO HostContext] Well known config file 'MigratedCredentials': 'D:\HorseMenu\actions-runner\.credentials_migrated'
+[2024-05-24 01:22:23Z INFO ConfigurationStore] MigratedCredFilePath: D:\HorseMenu\actions-runner\.credentials_migrated
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO HostContext] Well known config file 'Service': 'D:\HorseMenu\actions-runner\.service'
+[2024-05-24 01:22:23Z INFO ConfigurationStore] ServiceConfigFilePath: D:\HorseMenu\actions-runner\.service
+[2024-05-24 01:22:23Z INFO CommandSettings] Flag 'help': 'False'
+[2024-05-24 01:22:23Z INFO CommandSettings] Flag 'version': 'False'
+[2024-05-24 01:22:23Z INFO CommandSettings] Flag 'commit': 'False'
+[2024-05-24 01:22:23Z INFO CommandSettings] Flag 'check': 'False'
+[2024-05-24 01:22:23Z INFO CommandSettings] Command 'configure': 'False'
+[2024-05-24 01:22:23Z INFO CommandSettings] Command 'remove': 'False'
+[2024-05-24 01:22:23Z INFO CommandSettings] Command 'warmup': 'False'
+[2024-05-24 01:22:23Z INFO ConfigurationManager] LoadSettings
+[2024-05-24 01:22:23Z INFO ConfigurationStore] IsConfigured()
+[2024-05-24 01:22:23Z INFO ConfigurationStore] IsConfigured: True
+[2024-05-24 01:22:23Z INFO ConfigurationManager] Is configured: True
+[2024-05-24 01:22:23Z INFO ConfigurationStore] Read setting file: 293 chars
+[2024-05-24 01:22:23Z INFO ConfigurationManager] Settings Loaded
+[2024-05-24 01:22:23Z INFO ConfigurationStore] IsServiceConfigured()
+[2024-05-24 01:22:23Z INFO ConfigurationStore] IsServiceConfigured: False
+[2024-05-24 01:22:23Z INFO CommandSettings] Command 'run': 'True'
+[2024-05-24 01:22:23Z INFO ConfigurationStore] IsConfigured()
+[2024-05-24 01:22:23Z INFO ConfigurationStore] IsConfigured: True
+[2024-05-24 01:22:23Z INFO ConfigurationManager] Is configured: True
+[2024-05-24 01:22:23Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2024-05-24 01:22:23Z INFO Runner] Set runner startup type - Manual
+[2024-05-24 01:22:23Z INFO CommandSettings] Flag 'once': 'False'
+[2024-05-24 01:22:23Z INFO CommandSettings] Flag 'once': 'False'
+[2024-05-24 01:22:23Z INFO Runner] RunAsync
+[2024-05-24 01:22:23Z INFO ConfigurationManager] LoadSettings
+[2024-05-24 01:22:23Z INFO ConfigurationStore] IsConfigured()
+[2024-05-24 01:22:23Z INFO ConfigurationStore] IsConfigured: True
+[2024-05-24 01:22:23Z INFO ConfigurationManager] Is configured: True
+[2024-05-24 01:22:23Z INFO ConfigurationManager] Settings Loaded
+[2024-05-24 01:22:23Z INFO MessageListener] {
+  "AgentId": 2,
+  "AgentName": "PC",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelinesghubeus11.actions.githubusercontent.com/tWn9LJnveLBX9rqBenvjEk1Mk2OvobLa5sFjTrzypZeLw7gUif/",
+  "GitHubUrl": "https://github.com/peeepy/HorseMenu",
+  "WorkFolder": "_work"
+}
+[2024-05-24 01:22:23Z INFO MessageListener] Loading Credentials
+[2024-05-24 01:22:23Z INFO ConfigurationStore] HasCredentials()
+[2024-05-24 01:22:23Z INFO ConfigurationStore] stored True
+[2024-05-24 01:22:23Z INFO CredentialManager] GetCredentialProvider
+[2024-05-24 01:22:23Z INFO CredentialManager] Creating type OAuth
+[2024-05-24 01:22:23Z INFO CredentialManager] Creating credential type: OAuth
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:23Z INFO HostContext] Well known directory 'Root': 'D:\HorseMenu\actions-runner'
+[2024-05-24 01:22:23Z INFO HostContext] Well known config file 'RSACredentials': 'D:\HorseMenu\actions-runner\.credentials_rsaparams'
+[2024-05-24 01:22:23Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 01:22:23Z INFO MessageListener] Attempt to create session.
+[2024-05-24 01:22:23Z INFO MessageListener] Connecting to the Runner Server...
+[2024-05-24 01:22:23Z INFO RunnerServer] EstablishVssConnection
+[2024-05-24 01:22:23Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2024-05-24 01:22:23Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2024-05-24 01:22:23Z INFO RunnerServer] EstablishVssConnection
+[2024-05-24 01:22:23Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2024-05-24 01:22:23Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2024-05-24 01:22:23Z INFO RunnerServer] EstablishVssConnection
+[2024-05-24 01:22:23Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2024-05-24 01:22:23Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2024-05-24 01:22:24Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2024-05-24 01:22:24Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2024-05-24 01:22:25Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2024-05-24 01:22:25Z INFO MessageListener] VssConnection created
+[2024-05-24 01:22:25Z INFO Terminal] WRITE LINE: 
+[2024-05-24 01:22:25Z INFO Terminal] WRITE LINE: 
+[2024-05-24 01:22:25Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 01:22:25Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 01:22:25Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 01:22:26Z INFO MessageListener] Session created.
+[2024-05-24 01:22:26Z INFO Terminal] WRITE LINE: Current runner version: '2.316.1'
+[2024-05-24 01:22:26Z INFO Terminal] WRITE LINE: 2024-05-24 01:22:26Z: Listening for Jobs
+[2024-05-24 01:22:26Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2024-05-24 01:22:28Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 01:22:28Z INFO MessageListener] Message '13' received from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a'.
+[2024-05-24 01:22:28Z INFO Runner] Received job message of length 26069 from service, with hash 'a1c1fec23a88974f22df99235dda93ebc6add05c3c880cd504282f8c6b240d91'
+[2024-05-24 01:22:29Z INFO JobDispatcher] Job request 13 for plan b9d9d905-6c78-4f57-a9cb-8e89a09eeab0 job 6614165d-8168-5766-9db6-f35f537f8e36 received.
+[2024-05-24 01:22:29Z INFO JobDispatcher] Pull OrchestrationId b9d9d905-6c78-4f57-a9cb-8e89a09eeab0.ci.__default from JWT claims
+[2024-05-24 01:22:29Z INFO MessageListener] Received job status event. JobState: Busy
+[2024-05-24 01:22:29Z INFO MessageListener] _getMessagesTokenSource is already disposed.
+[2024-05-24 01:22:29Z INFO Terminal] WRITE LINE: 2024-05-24 01:22:29Z: Running job: CI
+[2024-05-24 01:22:29Z INFO JobDispatcher] Start renew job request 13 for job 6614165d-8168-5766-9db6-f35f537f8e36.
+[2024-05-24 01:22:29Z INFO JobDispatcher] Successfully renew job request 13, job is valid till 5/24/2024 1:32:27 AM
+[2024-05-24 01:22:29Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper] Starting process:
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   File name: 'D:\HorseMenu\actions-runner\bin\Runner.Worker.exe'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2156 2168'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   Working directory: 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2024-05-24 01:22:29Z INFO ProcessInvokerWrapper] Process started with process id 1495652, waiting for process exit.
+[2024-05-24 01:22:29Z INFO JobDispatcher] Send job request message to worker for job 6614165d-8168-5766-9db6-f35f537f8e36.
+[2024-05-24 01:22:29Z INFO ProcessChannel] Sending message of length 26069, with hash 'a1c1fec23a88974f22df99235dda93ebc6add05c3c880cd504282f8c6b240d91'
+[2024-05-24 01:22:29Z INFO JobNotification] Entering JobStarted Notification
+[2024-05-24 01:22:29Z INFO JobNotification] Entering StartMonitor
+[2024-05-24 01:23:29Z INFO JobDispatcher] Successfully renew job request 13, job is valid till 5/24/2024 1:33:27 AM
+[2024-05-24 01:24:29Z INFO JobDispatcher] Successfully renew job request 13, job is valid till 5/24/2024 1:34:27 AM
+[2024-05-24 01:25:29Z INFO JobDispatcher] Successfully renew job request 13, job is valid till 5/24/2024 1:35:27 AM
+[2024-05-24 01:26:29Z INFO JobDispatcher] Successfully renew job request 13, job is valid till 5/24/2024 1:36:27 AM
+[2024-05-24 01:27:29Z INFO JobDispatcher] Successfully renew job request 13, job is valid till 5/24/2024 1:37:27 AM
+[2024-05-24 01:28:23Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-05-24 01:28:23Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-05-24 01:28:23Z INFO ProcessInvokerWrapper] Finished process 1495652 with exit code 100, and elapsed time 00:05:53.7987318.
+[2024-05-24 01:28:23Z INFO JobDispatcher] Worker finished for job 6614165d-8168-5766-9db6-f35f537f8e36. Code: 100
+[2024-05-24 01:28:23Z INFO JobDispatcher] finish job request for job 6614165d-8168-5766-9db6-f35f537f8e36 with result: Succeeded
+[2024-05-24 01:28:23Z INFO Terminal] WRITE LINE: 2024-05-24 01:28:23Z: Job CI completed with result: Succeeded
+[2024-05-24 01:28:23Z INFO JobDispatcher] Stop renew job request for job 6614165d-8168-5766-9db6-f35f537f8e36.
+[2024-05-24 01:28:23Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 13.
+[2024-05-24 01:28:23Z INFO JobNotification] Entering JobCompleted Notification
+[2024-05-24 01:28:23Z INFO JobNotification] Entering EndMonitor
+[2024-05-24 01:28:23Z INFO MessageListener] Received job status event. JobState: Online
+[2024-05-24 01:28:23Z WARN GitHubActionsService] GET request to https://pipelinesghubeus11.actions.githubusercontent.com/tWn9LJnveLBX9rqBenvjEk1Mk2OvobLa5sFjTrzypZeLw7gUif/_apis/distributedtask/pools/1/messages?sessionId=688ace31-59d9-4e1b-9672-6c39ec6a7a5a&lastMessageId=13&status=Busy&runnerVersion=2.316.1&os=Windows&architecture=X64&disableUpdate=false has been cancelled.
+[2024-05-24 01:28:23Z INFO MessageListener] Get messages has been cancelled using local token source. Continue to get messages with new status.
+[2024-05-24 01:28:24Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 01:28:24Z INFO MessageListener] Message '14' received from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a'.
+[2024-05-24 01:28:24Z INFO Runner] Received job message of length 26093 from service, with hash 'cd8a96b9d09e1491d3e2446690896b9da0b1fcbcc33114a8fa03912b0666f558'
+[2024-05-24 01:28:24Z INFO JobDispatcher] Job request 14 for plan c2c0e19d-ed51-44fb-ac8a-d19164b7cd7b job 6614165d-8168-5766-9db6-f35f537f8e36 received.
+[2024-05-24 01:28:24Z INFO JobDispatcher] Pull OrchestrationId c2c0e19d-ed51-44fb-ac8a-d19164b7cd7b.ci.__default from JWT claims
+[2024-05-24 01:28:24Z INFO MessageListener] Received job status event. JobState: Busy
+[2024-05-24 01:28:24Z INFO MessageListener] _getMessagesTokenSource is already disposed.
+[2024-05-24 01:28:24Z INFO JobDispatcher] Job request 6614165d-8168-5766-9db6-f35f537f8e36 processed succeed.
+[2024-05-24 01:28:24Z INFO Terminal] WRITE LINE: 2024-05-24 01:28:24Z: Running job: CI
+[2024-05-24 01:28:24Z INFO JobDispatcher] Start renew job request 14 for job 6614165d-8168-5766-9db6-f35f537f8e36.
+[2024-05-24 01:28:24Z INFO JobDispatcher] Successfully renew job request 14, job is valid till 5/24/2024 1:38:22 AM
+[2024-05-24 01:28:24Z INFO HostContext] Well known directory 'Bin': 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper] Starting process:
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   File name: 'D:\HorseMenu\actions-runner\bin\Runner.Worker.exe'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2080 1392'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   Working directory: 'D:\HorseMenu\actions-runner\bin'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2024-05-24 01:28:24Z INFO ProcessInvokerWrapper] Process started with process id 627604, waiting for process exit.
+[2024-05-24 01:28:24Z INFO JobDispatcher] Send job request message to worker for job 6614165d-8168-5766-9db6-f35f537f8e36.
+[2024-05-24 01:28:24Z INFO ProcessChannel] Sending message of length 26093, with hash 'cd8a96b9d09e1491d3e2446690896b9da0b1fcbcc33114a8fa03912b0666f558'
+[2024-05-24 01:28:25Z INFO JobNotification] Entering JobStarted Notification
+[2024-05-24 01:28:25Z INFO JobNotification] Entering StartMonitor
+[2024-05-24 01:29:24Z INFO JobDispatcher] Successfully renew job request 14, job is valid till 5/24/2024 1:39:22 AM
+[2024-05-24 01:30:24Z INFO JobDispatcher] Successfully renew job request 14, job is valid till 5/24/2024 1:40:23 AM
+[2024-05-24 01:31:25Z INFO JobDispatcher] Successfully renew job request 14, job is valid till 5/24/2024 1:41:23 AM
+[2024-05-24 01:32:25Z INFO JobDispatcher] Successfully renew job request 14, job is valid till 5/24/2024 1:42:23 AM
+[2024-05-24 01:33:25Z INFO JobDispatcher] Successfully renew job request 14, job is valid till 5/24/2024 1:43:23 AM
+[2024-05-24 01:34:07Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-05-24 01:34:07Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2024-05-24 01:34:07Z INFO ProcessInvokerWrapper] Finished process 627604 with exit code 100, and elapsed time 00:05:42.8402204.
+[2024-05-24 01:34:07Z INFO JobDispatcher] Worker finished for job 6614165d-8168-5766-9db6-f35f537f8e36. Code: 100
+[2024-05-24 01:34:07Z INFO JobDispatcher] finish job request for job 6614165d-8168-5766-9db6-f35f537f8e36 with result: Succeeded
+[2024-05-24 01:34:07Z INFO Terminal] WRITE LINE: 2024-05-24 01:34:07Z: Job CI completed with result: Succeeded
+[2024-05-24 01:34:07Z INFO JobDispatcher] Stop renew job request for job 6614165d-8168-5766-9db6-f35f537f8e36.
+[2024-05-24 01:34:07Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 14.
+[2024-05-24 01:34:07Z INFO JobNotification] Entering JobCompleted Notification
+[2024-05-24 01:34:07Z INFO JobNotification] Entering EndMonitor
+[2024-05-24 01:34:07Z INFO MessageListener] Received job status event. JobState: Online
+[2024-05-24 01:34:07Z WARN GitHubActionsService] GET request to https://pipelinesghubeus11.actions.githubusercontent.com/tWn9LJnveLBX9rqBenvjEk1Mk2OvobLa5sFjTrzypZeLw7gUif/_apis/distributedtask/pools/1/messages?sessionId=688ace31-59d9-4e1b-9672-6c39ec6a7a5a&lastMessageId=14&status=Busy&runnerVersion=2.316.1&os=Windows&architecture=X64&disableUpdate=false has been cancelled.
+[2024-05-24 01:34:07Z INFO MessageListener] Get messages has been cancelled using local token source. Continue to get messages with new status.
+[2024-05-24 01:59:11Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 02:17:34Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 02:17:35Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 02:29:16Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 02:59:21Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 03:12:43Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 03:12:44Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 03:29:26Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 03:59:31Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 04:07:52Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 04:07:53Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 04:29:36Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 04:59:41Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 05:03:01Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 05:03:02Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 05:29:46Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 05:58:10Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 05:58:11Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 05:59:51Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 06:29:56Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 06:53:19Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 06:53:20Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 07:00:01Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 07:30:05Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 07:48:29Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 07:48:29Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 08:00:11Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 08:30:15Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 08:43:38Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\HorseMenu\actions-runner\.credentials_rsaparams
+[2024-05-24 08:43:38Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2024-05-24 09:00:21Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
+[2024-05-24 09:30:26Z INFO MessageListener] No message retrieved from session '688ace31-59d9-4e1b-9672-6c39ec6a7a5a' within last 30 minutes.
