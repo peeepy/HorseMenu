@@ -11,7 +11,6 @@ namespace YimMenu
 
 		void PersistentCompanion::OnTick()
 		{
-			std::vector<PedInfo> pedList;
 			for (auto& pedInfo : pedList)
 			{
 				// Example operation: check if ped is still valid
@@ -31,7 +30,6 @@ namespace YimMenu
 
 		void PersistentCompanion::PersistCompanion(const PedInfo& pedInfo)
 		{
-			std::vector<PedInfo> pedList;
 			pedList.push_back(pedInfo); // Add pedInfo to the pedList vector
 		}
 };
