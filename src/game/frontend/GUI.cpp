@@ -35,13 +35,6 @@ namespace YimMenu
 			    ContextMenu::DrawContextMenu();
 		    },
 		    -4);
-
-		// Add a renderer callback for drawPedList
-		Renderer::AddRendererCallBack(
-		    [&] {
-			    YimMenu::Submenus::drawPedList();
-		    },
-		    -5);
 	}
 
 	GUI::~GUI()
