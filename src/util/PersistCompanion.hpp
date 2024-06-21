@@ -4,6 +4,9 @@
 #include "game/rdr/Natives.hpp"
 #include "util/Ped.hpp"
 
+#include <fstream>
+#include <iterator>
+#include <ranges>
 #include <string>
 #include <vector>
 
@@ -11,7 +14,6 @@ namespace YimMenu
 {
 	struct PedInfo
 	{
-		int pedHandle;
 		std::string model_name;
 		Vector3 coords;
 		float heading;
@@ -25,9 +27,8 @@ namespace YimMenu
 
 	class PersistentCompanion
 	{
-
 	public:
-		void OnTick();
+		void SpawnSavedCompanions();
 
 		void PersistCompanion(const PedInfo& pedInfo);
 

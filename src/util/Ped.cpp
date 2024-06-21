@@ -144,11 +144,12 @@ namespace YimMenu::Peds
 
 		if (persistent)
 		{
-			PedInfo pedInfo = {ped, model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale, persistent};
+			PedInfo pedInfo = {model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale, persistent};
 			PersistentCompanion::SharedInstance().PersistCompanion(pedInfo);
 			Notifications::Show("Spawner", "Companion persisted", NotificationType::Success);
 		}
 
+		
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
 
 

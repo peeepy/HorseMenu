@@ -5,6 +5,7 @@
 #include "ContextMenu.hpp"
 #include "core/renderer/Renderer.hpp"
 #include "core/frontend/Notifications.hpp"
+#include "util/PersistCompanion.hpp"
 
 namespace YimMenu
 {
@@ -14,6 +15,8 @@ namespace YimMenu
 		Menu::SetupFonts();
 		Menu::SetupStyle();
 		Menu::Init();
+
+		//PersistentCompanion::SharedInstance().LoadPedListFromFile("ped_list.txt");
 
 		Renderer::AddWindowProcedureCallback([this](HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
 			GUI::WndProc(hwnd, msg, wparam, lparam);

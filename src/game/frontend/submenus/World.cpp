@@ -1,5 +1,6 @@
 #include "World.hpp"
 
+#include "util/PedListMgr.hpp"
 #include "util/PersistCompanion.hpp"
 #include "game/backend/FiberPool.hpp"
 #include "game/frontend/items/Items.hpp"
@@ -25,6 +26,7 @@ namespace YimMenu::Submenus
 		};
 
 		auto pedList = PersistentCompanion::SharedInstance().GetPedList(); // Get the list of PedInfo objects
+		PedListMgr Mgr;
 
 		// Sort the pedList using the comparator
 		std::sort(pedList.begin(), pedList.end(), comparePedModels);
@@ -34,11 +36,40 @@ namespace YimMenu::Submenus
 		    ImVec2(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x + offset, ImGui::GetWindowPos().y));
 		ImGui::SetNextWindowSize(ImVec2(150, ImGui::GetWindowSize().y));
 		ImGui::Begin("Ped List", nullptr, ImGuiWindowFlags_NoDecoration);
+		if (ImGui::Button("Save"))
+		{
+			Mgr.Save(pedList);
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Load"))
+		{
+			Mgr.Load();
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Spawn"))
+		{
+			Mgr.Spawn();
+		}
 		ImGui::Text("Ped List"); // Add a title
 		// Iterate over sorted pedList and display their handles
+
 		for (const auto& ped : pedList)
 		{
 			ImGui::Text("%s", ped.model_name.c_str());
+
+			if (ImGui::IsItemClicked(ImGuiMouseButton_Right))
+			{
+				// TODO: Fix this. It doesn't do what I want yet
+				auto it = std::find_if(pedList.begin(), pedList.end(), [&ped](const PedInfo& p) {
+					return p.model_name == ped.model_name;
+				});
+
+				if (it != pedList.end())
+				{
+					pedList.erase(it);
+				}
+				break; // Exit loop to avoid invalid iterator issues
+			}
 		}
 		ImGui::End();
 	}
@@ -188,7 +219,7 @@ namespace YimMenu::Submenus
 		companionSpawnerGroup->AddItem(std::make_shared<ImGuiItem>([] {
 			CompanionSpawnerGroup();
 		}));
-		companionSpawnerGroup->AddItem(std::make_shared<BoolCommandItem>("persistped"_J));
+		//companionSpawnerGroup->AddItem(std::make_shared<BoolCommandItem>("persistped"_J));
 		
 		spawners->AddItem(std::make_shared<ImGuiItem>([] {
 			drawPedList();
