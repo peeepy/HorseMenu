@@ -9,12 +9,12 @@ namespace YimMenu
 	class PedListMgr
 	{
 	public:
-		void Save(const std::vector<PedInfo>& pedList);
+		void Save(const std::vector<CompanionInfo>& pedList);
 		void Load();
 		void Spawn();
 	};
 
-	// Declare stream operators for PedInfo
-	std::ostream& operator<<(std::ostream& strm, const PedInfo& ped);
-	std::istream& operator>>(std::istream& strm, PedInfo& ped);
+	// Declare stream operators for CompanionInfo
+	std::ostream& operator<<(std::ostream& strm, const CompanionInfo& ped);
+	std::istream& operator>>(std::istream& strm, CompanionInfo& ped);
 }

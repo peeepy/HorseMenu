@@ -10,14 +10,14 @@
 
 namespace YimMenu
 {
-	// Define stream operators for PedInfo
-	std::ostream& operator<<(std::ostream& strm, const PedInfo& ped)
+	// Define stream operators for CompanionInfo
+	std::ostream& operator<<(std::ostream& strm, const CompanionInfo& ped)
 	{
 		strm << ped.model_name << " " << ped.coords.x << " " << ped.coords.y << " " << ped.coords.z << " " << ped.heading << " " << ped.blockNewPedMovement << " " << ped.spawnDead << " " << ped.invincible << " " << ped.invisible << " " << ped.scale << " " << ped.persistent;
 		return strm;
 	}
 
-	std::istream& operator>>(std::istream& strm, PedInfo& ped)
+	std::istream& operator>>(std::istream& strm, CompanionInfo& ped)
 	{
 		strm >> ped.model_name >> ped.coords.x >> ped.coords.y >> ped.coords.z >> ped.heading >> ped.blockNewPedMovement >> ped.spawnDead >> ped.invincible >> ped.invisible >> ped.scale >> ped.persistent;
 		return strm;
@@ -52,7 +52,7 @@ namespace YimMenu
 		return filePath;
 	}
 
-	void PedListMgr::Save(const std::vector<PedInfo>& pedList)
+	void PedListMgr::Save(const std::vector<CompanionInfo>& pedList)
 	{
 		std::string filePath = GetFilePath();
 		std::ofstream out(filePath);
@@ -61,7 +61,7 @@ namespace YimMenu
 		{
 			for (const auto& ped : pedList)
 			{
-				out << ped << "\n"; // This will call the operator<< for PedInfo
+				out << ped << "\n"; // This will call the operator<< for CompanionInfo
 			}
 			out.close();
 		}
@@ -77,14 +77,14 @@ namespace YimMenu
 		std::string filePath = GetFilePath();
 
 		// Obtain the central pedList vector for modification
-		std::vector<PedInfo>& pedList = PersistentCompanion::SharedInstance().GetPedListForModification();
+		std::vector<CompanionInfo>& pedList = PersistentCompanion::SharedInstance().GetCompanionListForModification();
 		pedList.clear(); // Clear existing content if needed
 
 		std::ifstream in(filePath);
 
 		if (in.is_open())
 		{
-			PedInfo ped;
+			CompanionInfo ped;
 			while (in >> ped)
 			{
 				pedList.push_back(ped);
@@ -100,19 +100,20 @@ namespace YimMenu
 
 	void PedListMgr::Spawn()
 	{
-		for (auto& pedInfo : PersistentCompanion::SharedInstance().GetPedList())
+		for (auto& CompanionInfo : PersistentCompanion::SharedInstance().GetCompanionListForModification())
 		{
 			// Respawn ped
-			FiberPool::Push([pedInfo] {
-				YimMenu::Peds::SpawnCompanion(pedInfo.model_name,
+			FiberPool::Push([&CompanionInfo] {
+				CompanionInfo.current_handle = YimMenu::Peds::SpawnCompanion(CompanionInfo.model_name,
 				    ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Self::PlayerPed, 0, 3, 0),
-				    pedInfo.heading,
-				    pedInfo.blockNewPedMovement,
-				    pedInfo.spawnDead,
-				    pedInfo.invincible,
-				    pedInfo.invisible,
-				    pedInfo.scale,
+				    CompanionInfo.heading,
+				    CompanionInfo.blockNewPedMovement,
+				    CompanionInfo.spawnDead,
+				    CompanionInfo.invincible,
+				    CompanionInfo.invisible,
+				    CompanionInfo.scale,
 				    false);
+				
 			});
 		}
 	}

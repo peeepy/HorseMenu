@@ -6,7 +6,6 @@ namespace YimMenu::Peds
 {
 //auto& companion = YimMenu::PersistentCompanion::Instance();
 
-
 	// Returns 0 if it fails
 	int SpawnPed(std::string model_name, Vector3 coords, float heading, bool blockNewPedMovement, bool spawnDead, bool invincible, bool invisible, int scale)
 	{
@@ -40,6 +39,9 @@ namespace YimMenu::Peds
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
 
+		SpawnedPedInfo spawnedPedInfo = {model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale};
+		spawnedPedInfo.currentHandle = ped;
+		PersistentCompanion::SharedInstance().PushPedsToTrackingList(spawnedPedInfo);
 		return ped;
 	}
 
@@ -82,10 +84,10 @@ namespace YimMenu::Peds
 		PED::SET_PED_AS_GROUP_LEADER(YimMenu::Self::PlayerPed, groupID, 0);
 		PED::SET_PED_AS_GROUP_MEMBER(ped, groupID);
 		PED::SET_PED_CONFIG_FLAG(ped, 152 /*PCF_0x79114A20*/, true);
-		PED::SET_PED_CAN_TELEPORT_TO_GROUP_LEADER(ped, groupID, true);
+		// PED::SET_PED_CAN_TELEPORT_TO_GROUP_LEADER(ped, groupID, true);
 		PED::SET_GROUP_SEPARATION_RANGE(groupID, 999999.9f); // Very high range to prevent separation
 		PED::SET_PED_CONFIG_FLAG(ped, 156 /*PCF_EnableCompanionAISupport*/, true);
-		PED::SET_PED_CONFIG_FLAG(ped, 279 /*PCF_NeverLeavesGroup*/, true);
+		// PED::SET_PED_CONFIG_FLAG(ped, 279 /*PCF_NeverLeavesGroup*/, true);
 
 
 		// Create a custom relationship group for the player and the companion
@@ -111,7 +113,7 @@ namespace YimMenu::Peds
 		PED::SET_PED_SEEING_RANGE(ped, 50.0f);         // Increase seeing range
 
 		// Allow talking
-		PED::SET_PED_CONFIG_FLAG(ped, 130, true);
+		// PED::SET_PED_CONFIG_FLAG(ped, 130, true);
 
 		// Make the ped follow the player and engage in combat
 		TASK::TASK_FOLLOW_TO_OFFSET_OF_ENTITY(ped, YimMenu::Self::PlayerPed, 0.0f, 0.0f, 0.0f, 1.0f, -1, 1.0f, true, false, false, true, false, true);
@@ -127,12 +129,15 @@ namespace YimMenu::Peds
 			WEAPON::GIVE_WEAPON_TO_PED(ped, Joaat("WEAPON_SHOTGUN_DOUBLEBARREL"), 999, true, true, 0, false, 0.5f, 1.0f, Joaat("ADD_REASON_DEFAULT"), false, 0.0f, false);
 		}
 
-		// Have the companion mount a horse with you
+		// Have the companion mount a different horse with you (spawns their own horse to mount)
+		// NOTE: ONLY WORKS IF YOU SPAWN THEM WHILE YOU ARE ON A HORSE
+		// TODO: Make an option to spawn them their own horse (in companionOptions in world.cpp)
 		if (ENTITY::DOES_ENTITY_EXIST(Self::Mount))
 		{
 			if (PED::GET_MOUNT(Self::PlayerPed) == Self::Mount)
 			{
-				TASK::TASK_MOUNT_ANIMAL(ped, Self::Mount, -1, -1, 1.0f, 1, 0, 0);
+				// Place the ped onto the mount as a passenger
+				PED::SET_PED_ONTO_MOUNT(ped, Self::Mount, -1, false);
 			}
 		}
 
@@ -144,8 +149,9 @@ namespace YimMenu::Peds
 
 		if (persistent)
 		{
-			PedInfo pedInfo = {model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale, persistent};
-			PersistentCompanion::SharedInstance().PersistCompanion(pedInfo);
+			CompanionInfo CompanionInfo = {model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale, persistent};
+			CompanionInfo.current_handle = ped;
+			PersistentCompanion::SharedInstance().PersistCompanion(CompanionInfo);
 			Notifications::Show("Spawner", "Companion persisted", NotificationType::Success);
 		}
 

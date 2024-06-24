@@ -9,8 +9,13 @@
 namespace YimMenu
 {
 
-		void PersistentCompanion::PersistCompanion(const PedInfo& pedInfo)
+		void PersistentCompanion::PersistCompanion(const CompanionInfo& CompanionInfo)
 		{
-			pedList.push_back(pedInfo); // Add pedInfo to the pedList vector
+			pedList.push_back(CompanionInfo); // Add CompanionInfo to the pedList vector
 		}
+
+		void PersistentCompanion::PushPedsToTrackingList(const SpawnedPedInfo& SpawnedPedInfo)
+	    {
+		    spawnedPedList.push_back(SpawnedPedInfo); // Add spawnedCompanionInfo to the spawnedPedList vector
+	    }
 };
