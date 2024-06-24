@@ -18,14 +18,23 @@ namespace YimMenu::Submenus
 #include <imgui.h>
 #include <vector>
 
+	struct DeleteRequest
+	{
+		std::string pedName;
+	};
+
 	void drawPedList(float offset = 15.0f)
 	{
+		static DeleteRequest deleteRequest;
+
+		// Get a reference to the original list
+		auto& pedList = PersistentCompanion::SharedInstance().GetPedListForModification();
+
 		// Comparator for sorting PedInfo by pedHandle
 		auto comparePedModels = [](const PedInfo& a, const PedInfo& b) {
 			return a.model_name < b.model_name;
 		};
 
-		auto pedList = PersistentCompanion::SharedInstance().GetPedList(); // Get the list of PedInfo objects
 		PedListMgr Mgr;
 
 		// Sort the pedList using the comparator
@@ -36,6 +45,7 @@ namespace YimMenu::Submenus
 		    ImVec2(ImGui::GetWindowPos().x + ImGui::GetWindowSize().x + offset, ImGui::GetWindowPos().y));
 		ImGui::SetNextWindowSize(ImVec2(150, ImGui::GetWindowSize().y));
 		ImGui::Begin("Ped List", nullptr, ImGuiWindowFlags_NoDecoration);
+
 		if (ImGui::Button("Save"))
 		{
 			Mgr.Save(pedList);
@@ -51,36 +61,61 @@ namespace YimMenu::Submenus
 			Mgr.Spawn();
 		}
 		ImGui::Text("Ped List"); // Add a title
+
 		// Iterate over sorted pedList and display their handles
-
-		for (auto it = pedList.begin(); it != pedList.end();)
+		for (const auto& ped : pedList)
+		{
+			ImGui::PushID(&ped);
+			if (ImGui::Selectable(ped.model_name.c_str(), false))
 			{
-				const auto& ped = *it;
-				bool deleted    = false;
-
-				ImGui::PushID(&ped);
-			    ImGui::Selectable(ped.model_name.c_str(), false);
-
-				if (ImGui::BeginPopupContextItem("ped_context_menu")) // defaults to MouseButtonRight flag
+				// Left-click behavior if needed
+			}
+			if (ImGui::IsItemHovered())
+			{
+				if (GetAsyncKeyState(VK_BACK) & 0x8000)
 				{
-					if (ImGui::MenuItem("Delete"))
-					{
-						it      = pedList.erase(it);
-						deleted = true;
-					}
-					ImGui::EndPopup();
-				}
-
-				ImGui::PopID();
-
-				if (!deleted)
-				{
-					++it;
+					deleteRequest.pedName = ped.model_name;
 				}
 			}
-
-			ImGui::End();
+			ImGui::PopID();
 		}
+
+		// Handle popup outside the loop
+		if (!deleteRequest.pedName.empty())
+		{
+			ImGui::OpenPopup("DeleteConfirmation");
+		}
+
+		if (ImGui::BeginPopupModal("DeleteConfirmation", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+		{
+			ImGui::Text("Are you sure you want to delete %s?", deleteRequest.pedName.c_str());
+			ImGui::Spacing();
+			if (ImGui::Button("Yes", ImVec2(120, 0)))
+			{
+				// Find the exact ped to delete
+				auto it = std::find_if(pedList.begin(), pedList.end(), [&](const PedInfo& p) {
+					return p.model_name == deleteRequest.pedName;
+				});
+
+				if (it != pedList.end())
+				{
+					// Only erase this specific ped
+					pedList.erase(it);
+				}
+				deleteRequest = DeleteRequest{}; // Reset the request
+				ImGui::CloseCurrentPopup();
+			}
+			ImGui::SameLine();
+			if (ImGui::Button("No", ImVec2(120, 0)))
+			{
+				deleteRequest = DeleteRequest{}; // Reset the request
+				ImGui::CloseCurrentPopup();
+			}
+			ImGui::EndPopup();
+		}
+
+		ImGui::End();
+	}
 
 
 
