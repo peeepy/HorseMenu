@@ -53,26 +53,34 @@ namespace YimMenu::Submenus
 		ImGui::Text("Ped List"); // Add a title
 		// Iterate over sorted pedList and display their handles
 
-		for (const auto& ped : pedList)
-		{
-			ImGui::Text("%s", ped.model_name.c_str());
-
-			if (ImGui::IsItemClicked(ImGuiMouseButton_Right))
+		for (auto it = pedList.begin(); it != pedList.end();)
 			{
-				// TODO: Fix this. It doesn't do what I want yet
-				auto it = std::find_if(pedList.begin(), pedList.end(), [&ped](const PedInfo& p) {
-					return p.model_name == ped.model_name;
-				});
+				const auto& ped = *it;
+				bool deleted    = false;
 
-				if (it != pedList.end())
+				ImGui::PushID(&ped);
+			    ImGui::Selectable(ped.model_name.c_str(), false);
+
+				if (ImGui::BeginPopupContextItem("ped_context_menu")) // defaults to MouseButtonRight flag
 				{
-					pedList.erase(it);
+					if (ImGui::MenuItem("Delete"))
+					{
+						it      = pedList.erase(it);
+						deleted = true;
+					}
+					ImGui::EndPopup();
 				}
-				break; // Exit loop to avoid invalid iterator issues
+
+				ImGui::PopID();
+
+				if (!deleted)
+				{
+					++it;
+				}
 			}
+
+			ImGui::End();
 		}
-		ImGui::End();
-	}
 
 
 

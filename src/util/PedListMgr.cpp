@@ -13,8 +13,7 @@ namespace YimMenu
 	// Define stream operators for PedInfo
 	std::ostream& operator<<(std::ostream& strm, const PedInfo& ped)
 	{
-		strm << ped.model_name << " " << ped.coords.x << " " << ped.coords.y << " "
-		     << ped.coords.z << " " << ped.heading << " " << ped.blockNewPedMovement << " " << ped.spawnDead << " " << ped.invincible << " " << ped.invisible << " " << ped.scale << " " << ped.persistent;
+		strm << ped.model_name << " " << ped.coords.x << " " << ped.coords.y << " " << ped.coords.z << " " << ped.heading << " " << ped.blockNewPedMovement << " " << ped.spawnDead << " " << ped.invincible << " " << ped.invisible << " " << ped.scale << " " << ped.persistent;
 		return strm;
 	}
 
@@ -117,3 +116,4 @@ namespace YimMenu
 			});
 		}
 	}
+}
