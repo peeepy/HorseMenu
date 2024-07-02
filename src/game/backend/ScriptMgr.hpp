@@ -1,6 +1,8 @@
 #pragma once
+#include <functional>
+#include "common.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	class Script
 	{
@@ -11,7 +13,7 @@ namespace YimMenu
 		HANDLE m_MainFiber;
 		std::optional<std::chrono::high_resolution_clock::time_point> m_WakeTime;
 
-		public:
+	public:
 		explicit Script(std::function<void()> callback);
 		~Script();
 
@@ -30,9 +32,9 @@ namespace YimMenu
 			DestroyImpl();
 		};
 
-		ScriptMgr(const ScriptMgr&)            = delete;
-		ScriptMgr(ScriptMgr&&) noexcept        = delete;
-		ScriptMgr& operator=(const ScriptMgr&) = delete;
+		ScriptMgr(const ScriptMgr&)                = delete;
+		ScriptMgr(ScriptMgr&&) noexcept            = delete;
+		ScriptMgr& operator=(const ScriptMgr&)     = delete;
 		ScriptMgr& operator=(ScriptMgr&&) noexcept = delete;
 
 		static void Init()

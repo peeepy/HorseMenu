@@ -14,12 +14,12 @@
 #include <map>
 
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	BoolCommand _RecoveryEnabled("recoveryenabled", "Recovery Enabled", "Is the recovery feature enabled");
 }
 
-namespace YimMenu::Submenus
+namespace RDONatives::Submenus
 {
 	void RenderAnimationsCategory()
 	{
@@ -42,14 +42,14 @@ namespace YimMenu::Submenus
 					ScriptMgr::Yield();
 				}
 
-				TASK::TASK_PLAY_ANIM(YimMenu::Self::PlayerPed, dict.c_str(), anim.c_str(), 8.0f, -8.0f, -1, 0, 0, false, false, false, "", 0);
+				TASK::TASK_PLAY_ANIM(RDONatives::Self::PlayerPed, dict.c_str(), anim.c_str(), 8.0f, -8.0f, -1, 0, 0, false, false, false, "", 0);
 			});
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Stop"))
 		{
 			FiberPool::Push([=] {
-				TASK::CLEAR_PED_TASKS(YimMenu::Self::PlayerPed, true, false);
+				TASK::CLEAR_PED_TASKS(RDONatives::Self::PlayerPed, true, false);
 			});
 		}
 	}
@@ -91,7 +91,7 @@ namespace YimMenu::Submenus
 		toolsGroup->AddItem(std::make_shared<ImGuiItem>([] {
 			if (ImGui::Button("Unfreeze"))
 				FiberPool::Push([] {
-					ENTITY::FREEZE_ENTITY_POSITION(YimMenu::Self::PlayerPed, false);
+					ENTITY::FREEZE_ENTITY_POSITION(RDONatives::Self::PlayerPed, false);
 				});
 		}));
 
@@ -123,7 +123,7 @@ namespace YimMenu::Submenus
 			ImGui::Text("Horse Scale");
 			if (ImGui::InputInt(" ", &horseScale))
 				FiberPool::Push([] {
-					PED::_SET_PED_SCALE(YimMenu::Self::Mount, (float)horseScale);
+					PED::_SET_PED_SCALE(RDONatives::Self::Mount, (float)horseScale);
 				});
 		}));
 		horseColumns->AddItem(horseGlobalsGroup);

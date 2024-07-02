@@ -1,7 +1,7 @@
 #pragma once
 #include "core/memory/BytePatch.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	class Byte_Patch_Manager
 	{

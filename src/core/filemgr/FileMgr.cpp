@@ -2,7 +2,7 @@
 #include "File.hpp"
 #include "Folder.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
     void FileMgr::Init(const std::filesystem::path& rootFolder)
     {

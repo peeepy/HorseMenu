@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseObj.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
     class Folder final : public BaseObj
     {

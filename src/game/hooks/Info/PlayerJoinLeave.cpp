@@ -4,7 +4,7 @@
 #include "game/rdr/Natives.hpp"
 #include "network/CNetGamePlayer.hpp"
 
-namespace YimMenu::Hooks
+namespace RDONatives::Hooks
 {
 	void Info::PlayerHasJoined(CNetGamePlayer* player)
 	{

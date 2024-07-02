@@ -1,7 +1,7 @@
 #include "Ped.hpp"
 #include "Natives.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	Ped Ped::GetMount()
 	{

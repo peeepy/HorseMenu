@@ -1,7 +1,7 @@
 #include "game/pointers/Pointers.hpp"
 #include "ScriptGlobal.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
     void* ScriptGlobal::Get() const
     {

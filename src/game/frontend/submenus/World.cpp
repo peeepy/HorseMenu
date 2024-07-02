@@ -11,7 +11,7 @@
 #include "core/commands/Commands.hpp"
 
 
-namespace YimMenu::Submenus
+namespace RDONatives::Submenus
 {
 
 #include <algorithm>
@@ -74,7 +74,7 @@ namespace YimMenu::Submenus
 			ImGui::PushID(&ped);
 			if (ImGui::Selectable(ped.model_name.c_str(), false))
 			{
-				YimMenu::PersistentCompanion::SharedInstance().SetSelected(ped);
+				RDONatives::PersistentCompanion::SharedInstance().SetSelected(ped);
 			}
 			if (ImGui::IsItemHovered())
 			{
@@ -402,7 +402,7 @@ namespace YimMenu::Submenus
 		companionOptions->AddItem(std::make_shared<ImGuiItem>([] {
 			if (ImGui::Button("Make Drunk"))
 			{
-				if (auto selectedPed = YimMenu::PersistentCompanion::GetSelected())
+				if (auto selectedPed = RDONatives::PersistentCompanion::GetSelected())
 				{
 					AUDIO::SET_PED_IS_DRUNK(selectedPed->current_handle, true);
 					PED::_SET_PED_DRUNKNESS(selectedPed->current_handle, true, 1.0f);

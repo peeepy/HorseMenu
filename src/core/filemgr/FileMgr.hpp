@@ -3,7 +3,7 @@
 #include "File.hpp"
 #include "Folder.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
     class FileMgr final
     {

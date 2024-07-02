@@ -4,7 +4,7 @@
 #include <iostream> // For std::ostream and std::istream
 #include <vector>
 
-namespace YimMenu
+namespace RDONatives
 {
 	class PedListMgr
 	{

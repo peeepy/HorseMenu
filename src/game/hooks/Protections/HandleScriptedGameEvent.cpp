@@ -1,17 +1,18 @@
 #include "core/commands/BoolCommand.hpp"
 #include "core/hooking/DetourHook.hpp"
+#include "core/logger/LogHelper.hpp"
 #include "game/backend/Protections.hpp"
 #include "game/hooks/Hooks.hpp"
 
 #include <network/CNetGamePlayer.hpp>
 #include <network/CScriptedGameEvent.hpp>
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	BoolCommand _LogScriptEvents("logtses", "Log Script Events", "Log script events");
 }
 
-namespace YimMenu::Hooks
+namespace RDONatives::Hooks
 {
 	bool Protections::HandleScriptedGameEvent(CScriptedGameEvent* event, CNetGamePlayer* src, CNetGamePlayer* dst)
 	{

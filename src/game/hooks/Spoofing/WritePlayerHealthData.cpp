@@ -6,12 +6,12 @@
 
 #include <network/sync/player/CPlayerHealthData.hpp>
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	BoolCommand _HideGod("hidegod", "Hide Godmode", "Hides godmode from other players");
 }
 
-namespace YimMenu::Hooks
+namespace RDONatives::Hooks
 {
 	void Spoofing::WritePlayerHealthData(void* iface, CPlayerHealthData* data)
 	{

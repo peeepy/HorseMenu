@@ -3,7 +3,7 @@
 #include <span>
 #include <vector>
 
-namespace YimMenu
+namespace RDONatives
 {
 	template<typename T>
 	concept SpanCompatibleType = requires(T a) { std::span{a}; };

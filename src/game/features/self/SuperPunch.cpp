@@ -2,7 +2,7 @@
 #include "game/features/Features.hpp"
 #include "game/rdr/Natives.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class Superpunch : public LoopedCommand
 	{

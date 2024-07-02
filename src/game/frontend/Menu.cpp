@@ -15,7 +15,7 @@
 #include "submenus/Teleport.hpp"
 #include "submenus/World.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	void Menu::Init()
 	{

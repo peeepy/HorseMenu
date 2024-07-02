@@ -2,7 +2,7 @@
 
 #include "LogSink.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	void LogHelper::Destroy()
 	{
@@ -107,5 +107,28 @@ namespace YimMenu
 		if (m_AttachConsole)
 			m_ConsoleOut.open("CONOUT$", std::ios_base::out | std::ios_base::app);
 		m_FileOut.open(m_File, std::ios::out | std::ios::trunc);
+	}
+}
+extern "C"
+{
+	bool Logger_Init(const char* consoleName, const char* filePath, bool attachConsole)
+	{
+		return RDONatives::LogHelper::Init(consoleName, filePath, attachConsole);
+	}
+
+	void Logger_Destroy()
+	{
+		RDONatives::LogHelper::Destroy();
+	}
+
+	void Logger_ToggleConsole(bool toggle)
+	{
+		RDONatives::LogHelper::ToggleConsole(toggle);
+	}
+
+	void Logger_Log(int level, const char* message)
+	{
+		// Assuming LOG is accessible here and eLogLevel is in the correct namespace
+		LOG(static_cast<eLogLevel>(level)) << message;
 	}
 }

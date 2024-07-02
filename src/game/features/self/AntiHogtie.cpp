@@ -3,7 +3,7 @@
 #include "game/rdr/Enums.hpp"
 #include "game/features/Features.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
     //Needs testing
 	class AntiHogtie : public LoopedCommand

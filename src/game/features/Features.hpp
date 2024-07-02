@@ -1,7 +1,7 @@
 #pragma once
 #include <script/types.hpp>
 
-namespace YimMenu
+namespace RDONatives
 {
 	namespace Self
 	{

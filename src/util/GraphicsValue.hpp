@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 
-namespace YimMenu
+namespace RDONatives
 {
 	inline const char* GetGraphicsValue(int value)
 	{

@@ -3,7 +3,7 @@
 #include "Crossmap.hpp"
 #include "game/pointers/Pointers.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	void NativeInvoker::CacheHandlers()
 	{

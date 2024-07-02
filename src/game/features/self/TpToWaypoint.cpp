@@ -5,7 +5,7 @@
 #include "util/teleport.hpp"
 #include "core/frontend/Notifications.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 
 	class TpToWaypoint : public Command
@@ -16,8 +16,8 @@ namespace YimMenu::Features
 		{
 			if (MAP::IS_WAYPOINT_ACTIVE())
 			{
-				auto waypointCoords = YimMenu::Teleport::GetWaypointCoords();
-				YimMenu::Teleport::TeleportEntity(Self::PlayerPed, {waypointCoords.x, waypointCoords.y, 0.0f}, true);
+				auto waypointCoords = RDONatives::Teleport::GetWaypointCoords();
+				RDONatives::Teleport::TeleportEntity(Self::PlayerPed, {waypointCoords.x, waypointCoords.y, 0.0f}, true);
 			}
 			else
 			{

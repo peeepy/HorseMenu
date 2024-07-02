@@ -54,7 +54,7 @@ class NativeFunc:
         if self.variadic:
             var_template = "template <typename... Args> "
 
-        return f"{var_template}FORCEINLINE constexpr {self.return_type} {self.name}({param_decl}) {{ return YimMenu::NativeInvoker::Invoke<{self.native_index}, {self.return_type}>({param_pass}); }}"
+        return f"{var_template}FORCEINLINE constexpr {self.return_type} {self.name}({param_decl}) {{ return RDONatives::NativeInvoker::Invoke<{self.native_index}, {self.return_type}>({param_pass}); }}"
     
 def load_natives_data():
     global natives
@@ -69,7 +69,7 @@ def write_crossmap_header():
         open("Crossmap.hpp", "w+").write(f"""#pragma once
 #include <script/scrNativeHandler.hpp>
 
-namespace YimMenu
+namespace RDONatives
 {{
 	constexpr std::array<rage::scrNativeHash, {len(hash_list)}> g_Crossmap = {{{",".join([f"0x{x:X}" for x in hash_list])}}};
 }}

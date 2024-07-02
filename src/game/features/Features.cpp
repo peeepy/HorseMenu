@@ -10,7 +10,7 @@
 #include "game/frontend/GUI.hpp"
 #include "game/frontend/ContextMenu.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	static void UpdateSelfVars()
 	{

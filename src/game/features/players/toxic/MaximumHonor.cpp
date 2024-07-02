@@ -4,7 +4,7 @@
 #include "game/backend/ScriptMgr.hpp"
 #include "game/rdr/Enums.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	void MaxHonor(int bits)
 	{

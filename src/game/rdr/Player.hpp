@@ -9,7 +9,7 @@ namespace rage
 	class rlGamerInfo;
 }
 
-namespace YimMenu
+namespace RDONatives
 {
 	class Player
 	{

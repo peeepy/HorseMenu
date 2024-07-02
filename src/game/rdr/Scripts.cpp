@@ -4,7 +4,7 @@
 #include "game/pointers/Pointers.hpp"
 #include "game/rdr/Natives.hpp"
 
-namespace YimMenu::Scripts
+namespace RDONatives::Scripts
 {
 	rage::scrThread* FindScriptThread(joaat_t hash)
 	{

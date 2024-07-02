@@ -1,6 +1,6 @@
 #include "BytePatch.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
     BytePatch::~BytePatch()
     {

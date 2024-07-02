@@ -4,7 +4,7 @@
 #include "game/rdr/Natives.hpp"
 #include "game/backend/ScriptMgr.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	static constexpr eNativeInputs controls[] = {eNativeInputs::INPUT_SPRINT, eNativeInputs::INPUT_MOVE_UP_ONLY, eNativeInputs::INPUT_MOVE_DOWN_ONLY, eNativeInputs::INPUT_MOVE_LEFT_ONLY, eNativeInputs::INPUT_MOVE_RIGHT_ONLY, eNativeInputs::INPUT_DUCK, eNativeInputs::INPUT_HORSE_STOP};
 	static constexpr float speed = 0.57f;

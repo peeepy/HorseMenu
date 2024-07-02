@@ -5,7 +5,7 @@
 #include <script/scrNativeHandler.hpp>
 #include <script/types.hpp>
 
-namespace YimMenu
+namespace RDONatives
 {
 	class CustomCallContext : public rage::scrNativeCallContext
 	{
@@ -47,7 +47,7 @@ namespace YimMenu
 		}
 
 		template<typename T>
-		constexpr void PushArg(T&& value)
+		void PushArg(T&& value)
 		{
 			m_CallContext.push_arg(std::forward<T>(value));
 		}

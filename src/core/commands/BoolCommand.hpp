@@ -1,7 +1,7 @@
 #pragma once
 #include "Command.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	class BoolCommand : public Command
 	{

@@ -1,7 +1,7 @@
 #pragma once
 #include "game/frontend/GUI.hpp"
 
-namespace YimMenu::Menu
+namespace RDONatives::Menu
 {
 	extern void Init();
 	extern void SetupStyle();

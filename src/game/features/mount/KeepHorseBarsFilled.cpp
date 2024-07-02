@@ -3,7 +3,7 @@
 #include "game/rdr/Enums.hpp"
 #include "game/rdr/Natives.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	// TODO: this should be moved out of self
 	class KeepHorseBarsFilled : public LoopedCommand

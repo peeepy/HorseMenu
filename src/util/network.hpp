@@ -7,7 +7,7 @@
 
 // TODO: remove this file
 
-namespace YimMenu::Network
+namespace RDONatives::Network
 {
 	inline bool NetWorkHasControlEntity(int ent)
 	{

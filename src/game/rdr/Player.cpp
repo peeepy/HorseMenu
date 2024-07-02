@@ -7,7 +7,7 @@
 #include <player/CPlayerInfo.hpp>
 
 
-namespace YimMenu
+namespace RDONatives
 {
 	Player::Player(uint8_t id)
 	{

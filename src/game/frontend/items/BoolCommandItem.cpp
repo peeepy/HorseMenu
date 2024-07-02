@@ -4,7 +4,7 @@
 #include "core/commands/LoopedCommand.hpp"
 #include "core/frontend/widgets/toggle/imgui_toggle.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	BoolCommandItem::BoolCommandItem(joaat_t id) :
 	    m_Command(Commands::GetCommand<BoolCommand>(id))

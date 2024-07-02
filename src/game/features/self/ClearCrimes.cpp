@@ -2,7 +2,7 @@
 #include "game/rdr/Natives.hpp"
 #include "game/features/Features.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class ClearCrimes : public Command
 	{

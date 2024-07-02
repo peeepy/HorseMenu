@@ -8,12 +8,12 @@
 #include "core/commands/BoolCommand.hpp"
 #include "core/commands/Commands.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	BoolCommand _ContextMenu("ctxmenu", "Context Menu", "Enables a context menu that allows you to perform actions on nearby entities and players");
 }
 
-namespace YimMenu
+namespace RDONatives
 {
 	inline double CumulativeDistanceToMiddleOfScreen(rage::fvector2 screenPos)
 	{
@@ -39,7 +39,7 @@ namespace YimMenu
 
 		if (includePlayers && *Pointers.IsSessionStarted)
 		{
-			for (auto& [id, plyr] : YimMenu::Players::GetPlayers())
+			for (auto& [id, plyr] : RDONatives::Players::GetPlayers())
 			{
 				if (plyr.IsValid() || plyr.GetPed().GetPointer<void*>())
 					updateClosestEntity(PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(id));

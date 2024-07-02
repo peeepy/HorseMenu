@@ -4,7 +4,7 @@
 #include "game/rdr/Natives.hpp"
 
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class NPCIgnore : public LoopedCommand
 	{

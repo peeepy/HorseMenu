@@ -25,12 +25,12 @@ namespace
 	}
 }
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	BoolCommand _LogEvents("logevents", "Log Network Events", "Log network events");
 }
 
-namespace YimMenu::Hooks
+namespace RDONatives::Hooks
 {
 	void Protections::HandleNetGameEvent(rage::netEventMgr* eventMgr, CNetGamePlayer* sourcePlayer, CNetGamePlayer* targetPlayer, NetEventType type, int index, int handledBits, std::int16_t unk, rage::datBitBuffer* buffer)
 	{
@@ -85,7 +85,7 @@ namespace YimMenu::Hooks
 
 		if (type == NetEventType::GIVE_CONTROL_EVENT && sourcePlayer)
 		{
-			YimMenu::Protections::SetSyncingPlayer(sourcePlayer);
+			RDONatives::Protections::SetSyncingPlayer(sourcePlayer);
 		}
 
 		BaseHook::Get<Protections::HandleNetGameEvent, DetourHook<decltype(&Protections::HandleNetGameEvent)>>()->Original()(eventMgr, sourcePlayer, targetPlayer, type, index, handledBits, unk, buffer);

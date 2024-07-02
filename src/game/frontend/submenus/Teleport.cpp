@@ -7,7 +7,7 @@
 #include "core/frontend/Notifications.hpp"
 #include "game/backend/FiberPool.hpp"
 
-namespace YimMenu::Submenus
+namespace RDONatives::Submenus
 {
 	Telelocation GetLocationPlayerIsClosestTo()
 	{
@@ -156,7 +156,7 @@ namespace YimMenu::Submenus
 							{
 								FiberPool::Push([l] {
 									rage::fvector3 l_ = {l.x, l.y, l.z};
-									YimMenu::Teleport::TeleportEntity(Self::PlayerPed,l_, false);
+									RDONatives::Teleport::TeleportEntity(Self::PlayerPed,l_, false);
 								});
 							}
 						}

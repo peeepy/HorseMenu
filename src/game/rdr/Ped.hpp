@@ -1,6 +1,6 @@
 #include "Entity.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	class Ped : public Entity
 	{

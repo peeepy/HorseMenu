@@ -6,7 +6,7 @@
 #include "game/rdr/ScriptGlobal.hpp"
 
 
-namespace YimMenu::Submenus
+namespace RDONatives::Submenus
 {
 	enum GlobalAppendageType : int
 	{
@@ -85,9 +85,9 @@ namespace YimMenu::Submenus
 			else if (item.type == GlobalAppendageType_PlayerId)
 			{
 				if (item.size != 0)
-					global_to_read = global_to_read.At(YimMenu::Self::Id, item.size);
+					global_to_read = global_to_read.At(RDONatives::Self::Id, item.size);
 				else
-					global_to_read = global_to_read.At(YimMenu::Self::Id);
+					global_to_read = global_to_read.At(RDONatives::Self::Id);
 			}
 		}
 		auto retn_val = global_to_read.As<int64_t*>();

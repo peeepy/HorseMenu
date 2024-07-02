@@ -2,9 +2,9 @@
 #include "Joaat.hpp"
 #include "PersistCompanion.hpp"
 
-namespace YimMenu::Peds
+namespace RDONatives::Peds
 {
-//auto& companion = YimMenu::PersistentCompanion::Instance();
+//auto& companion = RDONatives::PersistentCompanion::Instance();
 
 	// Returns 0 if it fails
 	int SpawnPed(std::string model_name, Vector3 coords, float heading, bool blockNewPedMovement, bool spawnDead, bool invincible, bool invisible, int scale)
@@ -34,7 +34,7 @@ namespace YimMenu::Peds
 		PED::_SET_PED_SCALE(ped, (float)scale);
 
 		if (spawnDead)
-			PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, YimMenu::Self::PlayerPed);
+			PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, RDONatives::Self::PlayerPed);
 
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
@@ -74,14 +74,14 @@ namespace YimMenu::Peds
 		PED::_SET_PED_SCALE(ped, (float)scale);
 
 		if (spawnDead) {
-			PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, YimMenu::Self::PlayerPed);
+			PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, RDONatives::Self::PlayerPed);
 	}
 
 		PED::SET_PED_ACCURACY(ped, 80);
 
 		// Create a group and set the player as the leader
-		int groupID = PLAYER::GET_PLAYER_GROUP(YimMenu::Self::PlayerPed);
-		PED::SET_PED_AS_GROUP_LEADER(YimMenu::Self::PlayerPed, groupID, 0);
+		int groupID = PLAYER::GET_PLAYER_GROUP(RDONatives::Self::PlayerPed);
+		PED::SET_PED_AS_GROUP_LEADER(RDONatives::Self::PlayerPed, groupID, 0);
 		PED::SET_PED_AS_GROUP_MEMBER(ped, groupID);
 		PED::SET_PED_CONFIG_FLAG(ped, 152 /*PCF_0x79114A20*/, true);
 		// PED::SET_PED_CAN_TELEPORT_TO_GROUP_LEADER(ped, groupID, true);
@@ -101,7 +101,7 @@ namespace YimMenu::Peds
 		PED::SET_RELATIONSHIP_BETWEEN_GROUPS(1, playerGroup, companionGroup);
 		PED::SET_RELATIONSHIP_BETWEEN_GROUPS(5, companionGroup, hatesPlayer); // hates player group
 
-		PED::SET_PED_RELATIONSHIP_GROUP_HASH(YimMenu::Self::PlayerPed, playerGroup);
+		PED::SET_PED_RELATIONSHIP_GROUP_HASH(RDONatives::Self::PlayerPed, playerGroup);
 		PED::SET_PED_RELATIONSHIP_GROUP_HASH(ped, companionGroup);
 
 		PED::SET_PED_AS_GROUP_MEMBER(ped, PLAYER::GET_PLAYER_GROUP(PLAYER::PLAYER_ID()));
@@ -116,7 +116,7 @@ namespace YimMenu::Peds
 		// PED::SET_PED_CONFIG_FLAG(ped, 130, true);
 
 		// Make the ped follow the player and engage in combat
-		TASK::TASK_FOLLOW_TO_OFFSET_OF_ENTITY(ped, YimMenu::Self::PlayerPed, 0.0f, 0.0f, 0.0f, 1.0f, -1, 1.0f, true, false, false, true, false, true);
+		TASK::TASK_FOLLOW_TO_OFFSET_OF_ENTITY(ped, RDONatives::Self::PlayerPed, 0.0f, 0.0f, 0.0f, 1.0f, -1, 1.0f, true, false, false, true, false, true);
 		PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(ped, false);
 
 		// Add a blip to the ped

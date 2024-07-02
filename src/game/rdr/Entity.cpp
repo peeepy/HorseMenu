@@ -4,13 +4,12 @@
 #include <entity/fwEntity.hpp>
 #include <network/netObject.hpp>
 
-namespace YimMenu
+namespace RDONatives
 {
 	void Entity::PopulatePointer()
 	{
 		m_Pointer = Pointers.HandleToPtr(m_Handle);
 	}
-
 	void Entity::PopulateHandle()
 	{
 		if (m_Pointer)

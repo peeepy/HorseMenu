@@ -7,7 +7,7 @@
 #include "core/renderer/Renderer.hpp"
 #include "util/GraphicsValue.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	void patch_byte(PVOID address, const unsigned char* bytes, int numBytes) //TODO: make service
 	{

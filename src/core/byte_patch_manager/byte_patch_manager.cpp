@@ -1,6 +1,6 @@
 #include "byte_patch_manager.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	void Byte_Patch_Manager::InitImpl()
 	{

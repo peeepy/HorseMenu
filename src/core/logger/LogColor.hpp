@@ -1,6 +1,6 @@
 #pragma once
 
-namespace YimMenu
+namespace RDONatives
 {
 	enum class LogColor
 	{

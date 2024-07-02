@@ -1,10 +1,11 @@
 #include "PatternScanner.hpp"
 
 #include "Module.hpp"
+#include "core/logger/LogHelper.hpp"
 
 #include <future>
 
-namespace YimMenu
+namespace RDONatives
 {
 	PatternScanner::PatternScanner(const Module* module) :
 	    m_Module(module),

@@ -4,7 +4,7 @@
 #include "game/backend/FiberPool.hpp"
 #include "game/backend/Players.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	PlayerCommandItem::PlayerCommandItem(joaat_t id) :
 	    m_Command(Commands::GetCommand<PlayerCommand>(id))

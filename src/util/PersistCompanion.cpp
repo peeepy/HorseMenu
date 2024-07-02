@@ -6,7 +6,7 @@
 #include "game/rdr/Natives.hpp"
 #include <vector>
 
-namespace YimMenu
+namespace RDONatives
 {
 
 		void PersistentCompanion::PersistCompanion(const CompanionInfo& CompanionInfo)

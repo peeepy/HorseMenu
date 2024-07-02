@@ -3,7 +3,7 @@
 #include "core/commands/Command.hpp"
 #include "game/backend/FiberPool.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	CommandItem::CommandItem(joaat_t id) :
 	    m_Command(Commands::GetCommand<Command>(id))

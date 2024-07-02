@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <string_view>
 
-namespace YimMenu
+namespace RDONatives
 {
 	using joaat_t = std::uint32_t;
 

@@ -22,7 +22,7 @@ namespace rage
 	class netObject;
 }
 
-namespace YimMenu
+namespace RDONatives
 {
 	namespace Functions
 	{
@@ -131,5 +131,5 @@ namespace YimMenu
 		void Restore();
 	};
 
-	inline YimMenu::Pointers Pointers;
+	inline RDONatives::Pointers Pointers;
 }

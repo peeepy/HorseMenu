@@ -7,7 +7,7 @@
 #include <vector>
 
 
-namespace YimMenu::Rewards
+namespace RDONatives::Rewards
 {
 
 	struct RewardInfo

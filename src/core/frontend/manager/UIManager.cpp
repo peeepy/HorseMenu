@@ -1,6 +1,6 @@
 #include "UIManager.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	void UIManager::AddSubmenuImpl(const std::shared_ptr<Submenu>&& submenu)
 	{

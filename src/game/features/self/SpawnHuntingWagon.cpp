@@ -4,7 +4,7 @@
 #include "util/VehicleSpawner.hpp"
 
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class SpawnHuntingWagon : public Command
 	{

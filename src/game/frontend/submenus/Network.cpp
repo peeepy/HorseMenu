@@ -11,7 +11,7 @@
 
 
 
-namespace YimMenu::Submenus
+namespace RDONatives::Submenus
 {
 	Network::Network() :
 	    Submenu::Submenu("Network")

@@ -4,7 +4,7 @@
 #include "game/backend/FiberPool.hpp"
 #include "game/frontend/Menu.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	Group::Group(const std::string& name, ImVec2 size) :
 	    m_Name(name),

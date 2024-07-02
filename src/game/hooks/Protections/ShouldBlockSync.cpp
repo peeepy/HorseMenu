@@ -1,5 +1,6 @@
 #include "core/commands/BoolCommand.hpp"
 #include "core/frontend/Notifications.hpp"
+#include "core/logger/LogHelper.hpp"
 #include "game/backend/Protections.hpp"
 #include "game/hooks/Hooks.hpp"
 #include "game/pointers/Pointers.hpp"
@@ -36,14 +37,14 @@
 	          << " W: " << ((node->GetData<type>().field)).w;
 #define LOG_FIELD_APPLY(type, field, func) LOG(INFO) << "\t" << #field << ": " << func((node->GetData<type>().field));
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	BoolCommand _LogClones("logclones", "Log Clones", "Log clone creates and clone syncs");
 }
 
 namespace
 {
-	using namespace YimMenu;
+	using namespace RDONatives;
 
 	void LogNode(CProjectBaseSyncDataNode* node, SyncNodeId id, eNetObjType type, rage::netObject* object)
 	{
@@ -396,7 +397,7 @@ namespace
 			if (!node->IsActive())
 				return false;
 
-			if (YimMenu::Features::_LogClones.GetState())
+			if (RDONatives::Features::_LogClones.GetState())
 				LogNode(node, Nodes::Find(type, (uint64_t)node), type, object);
 			return ShouldBlockNode(node, Nodes::Find(type, (uint64_t)node), type, object);
 		}
@@ -405,7 +406,7 @@ namespace
 	}
 }
 
-namespace YimMenu::Hooks::Protections
+namespace RDONatives::Hooks::Protections
 {
 	bool ShouldBlockSync(rage::netSyncTree* tree, eNetObjType type, rage::netObject* object)
 	{

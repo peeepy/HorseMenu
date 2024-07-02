@@ -5,7 +5,7 @@
 #include "game/rdr/Natives.hpp"
 
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class ExplodePlayer : public PlayerCommand
 	{

@@ -19,7 +19,7 @@ class CScriptedGameEvent;
 enum class eNetObjType;
 class CPlayerHealthData;
 
-namespace YimMenu::Hooks
+namespace RDONatives::Hooks
 {
 	class HttpRequest;
 

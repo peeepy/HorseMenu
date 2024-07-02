@@ -22,12 +22,12 @@ namespace
 	constexpr int rightKneeBone  = 63133;
 }
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	BoolCommand _ESP("esp", "ESP", "Draws lines to nearby players and shows their skeleton");
 }
 
-namespace YimMenu
+namespace RDONatives
 {
 	static ImColor death_bg         = ImColor(0.117f, 0.113f, 0.172f, .75f);
 	static ImColor armor_blue_bg    = ImColor(0.36f, 0.71f, 0.89f, .75f);

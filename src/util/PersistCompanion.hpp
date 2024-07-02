@@ -11,7 +11,7 @@
 #include <vector>
 #include <optional>
 
-namespace YimMenu
+namespace RDONatives
 {
 	struct CompanionInfo
 	{
@@ -58,12 +58,12 @@ namespace YimMenu
 			return pedList;
 		}
 
-		static void SetSelected(const YimMenu::CompanionInfo& ped)
+		static void SetSelected(const RDONatives::CompanionInfo& ped)
 		{
 			selectedPed = ped;
 		}
 
-		static std::optional<YimMenu::CompanionInfo> GetSelected()
+		static std::optional<RDONatives::CompanionInfo> GetSelected()
 		{
 			return selectedPed;
 		}
@@ -88,7 +88,7 @@ namespace YimMenu
 	private:
 		std::vector<CompanionInfo> pedList;
 		std::vector<SpawnedPedInfo> spawnedPedList;
-		static inline std::optional<YimMenu::CompanionInfo> selectedPed;
+		static inline std::optional<RDONatives::CompanionInfo> selectedPed;
 		PersistentCompanion() = default;
 	};
 }

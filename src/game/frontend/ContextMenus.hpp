@@ -8,7 +8,7 @@
 #include "util/teleport.hpp"
 
 
-namespace YimMenu
+namespace RDONatives
 {
 	inline ContextOperationsMenu ContextMenuDefault = ContextOperationsMenu("Default", {ContextMenuOperation{"Error", [&] (Entity){
 
@@ -18,11 +18,11 @@ namespace YimMenu
 	    {
 	        ContextMenuOperation{"Set Selected",
 	            [&] (Entity entity) {
-		            for (auto& [id, plyr] : YimMenu::Players::GetPlayers())
+		            for (auto& [id, plyr] : RDONatives::Players::GetPlayers())
 			            if (plyr.IsValid() && plyr.GetPed().GetPointer<void*>())
 				            if (entity == PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(id))
 				            {
-					            YimMenu::Players::SetSelected(id);
+					            RDONatives::Players::SetSelected(id);
 					            break;
 				            }
 	            }},
@@ -39,7 +39,7 @@ namespace YimMenu
 	        {"Explode",
 	            [&] (Entity entity) {
 		            int playerId = -1;
-		            for (auto& [id, plyr] : YimMenu::Players::GetPlayers())
+		            for (auto& [id, plyr] : RDONatives::Players::GetPlayers())
 			            if (plyr.IsValid() && plyr.GetPed().GetPointer<void*>())
 				            if (entity == PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(id))
 				            {
@@ -51,7 +51,7 @@ namespace YimMenu
 	        {"Set Defensive",
 	            [&] (Entity entity) {
 		            int playerId = -1;
-		            for (auto& [id, plyr] : YimMenu::Players::GetPlayers())
+		            for (auto& [id, plyr] : RDONatives::Players::GetPlayers())
 			            if (plyr.IsValid() && plyr.GetPed().GetPointer<void*>())
 				            if (entity == PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(id))
 				            {
@@ -63,7 +63,7 @@ namespace YimMenu
 	        {"Set Offensive",
 	            [&] (Entity entity) {
 		            int playerId = -1;
-		            for (auto& [id, plyr] : YimMenu::Players::GetPlayers())
+		            for (auto& [id, plyr] : RDONatives::Players::GetPlayers())
 			            if (plyr.IsValid() && plyr.GetPed().GetPointer<void*>())
 				            if (entity == PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(id))
 				            {

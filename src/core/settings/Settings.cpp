@@ -4,7 +4,7 @@
 #include "Settings.hpp"
 
 
-namespace YimMenu
+namespace RDONatives
 {
 	Settings::Settings() :
 	    m_SettingsFile(),

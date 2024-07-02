@@ -1,6 +1,6 @@
 #include "ScriptLocal.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	void* ScriptLocal::Get() const
 	{

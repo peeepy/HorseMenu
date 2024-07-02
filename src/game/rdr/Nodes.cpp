@@ -1,7 +1,7 @@
 #include "Nodes.hpp"
 #include "game/pointers/Pointers.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	SyncNodeId& Nodes::FindImpl(eNetObjType obj_type, uintptr_t addr)
 	{

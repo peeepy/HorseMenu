@@ -1,7 +1,7 @@
 #include "BoolCommand.hpp"
 #include "game/backend/FiberPool.hpp" // TODO: game import in core
 
-namespace YimMenu
+namespace RDONatives
 {
 	BoolCommand::BoolCommand(std::string name, std::string label, std::string description) :
 	    Command(name, label, description, 0)

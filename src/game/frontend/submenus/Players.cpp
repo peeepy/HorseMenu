@@ -24,14 +24,14 @@
 #include <script/scrThread.hpp>
 
 
-namespace YimMenu::Submenus
+namespace RDONatives::Submenus
 {
 	bool popPlayerList = true; //TODO make optional
 	void drawPlayerList(bool external, float offset = 15.0f)
 	{
 		struct ComparePlayerNames
 		{
-			bool operator()(YimMenu::Player a, YimMenu::Player b) const
+			bool operator()(RDONatives::Player a, RDONatives::Player b) const
 			{
 				std::string nameA = a.GetName();
 				std::string nameB = b.GetName();
@@ -39,8 +39,8 @@ namespace YimMenu::Submenus
 			}
 		};
 
-		std::map<uint8_t, Player, ComparePlayerNames> sortedPlayers(YimMenu::Players::GetPlayers().begin(),
-		    YimMenu::Players::GetPlayers().end());
+		std::map<uint8_t, Player, ComparePlayerNames> sortedPlayers(RDONatives::Players::GetPlayers().begin(),
+		    RDONatives::Players::GetPlayers().end());
 
 		if (external)
 		{
@@ -49,12 +49,12 @@ namespace YimMenu::Submenus
 			ImGui::SetNextWindowSize(ImVec2(150, ImGui::GetWindowSize().y));
 			ImGui::Begin("Player List", nullptr, ImGuiWindowFlags_NoDecoration);
 
-			ImGui::Checkbox("Spectate", &YimMenu::g_Spectating);
+			ImGui::Checkbox("Spectate", &RDONatives::g_Spectating);
 			for (auto& [id, player] : sortedPlayers)
 			{
-				if (ImGui::Selectable(player.GetName(), (YimMenu::Players::GetSelected() == player)))
+				if (ImGui::Selectable(player.GetName(), (RDONatives::Players::GetSelected() == player)))
 				{
-					YimMenu::Players::SetSelected(id);
+					RDONatives::Players::SetSelected(id);
 				}
 			}
 			ImGui::End();
@@ -63,9 +63,9 @@ namespace YimMenu::Submenus
 		{
 			for (auto& [id, player] : sortedPlayers)
 			{
-				if (ImGui::Selectable(player.GetName(), (YimMenu::Players::GetSelected() == player)))
+				if (ImGui::Selectable(player.GetName(), (RDONatives::Players::GetSelected() == player)))
 				{
-					YimMenu::Players::SetSelected(id);
+					RDONatives::Players::SetSelected(id);
 				}
 			}
 		}
@@ -85,26 +85,26 @@ namespace YimMenu::Submenus
 			}));
 
 			playerOptionsGroup->AddItem(std::make_shared<ImGuiItem>([] {
-				if (YimMenu::Players::GetSelected().IsValid())
+				if (RDONatives::Players::GetSelected().IsValid())
 				{
-					ImGui::Checkbox("Spectate", &YimMenu::g_Spectating);
-					ImGui::Text(YimMenu::Players::GetSelected().GetName());
+					ImGui::Checkbox("Spectate", &RDONatives::g_Spectating);
+					ImGui::Text(RDONatives::Players::GetSelected().GetName());
 				}
 				else
 				{
-					YimMenu::Players::SetSelected(Self::Id);
+					RDONatives::Players::SetSelected(Self::Id);
 				}
 				if (ImGui::Button("View SC Profile"))
 					FiberPool::Push([] {
 						uint64_t handle[18];
-						NETWORK::NETWORK_HANDLE_FROM_PLAYER(YimMenu::Players::GetSelected().GetId(), (Any*)&handle);
+						NETWORK::NETWORK_HANDLE_FROM_PLAYER(RDONatives::Players::GetSelected().GetId(), (Any*)&handle);
 						NETWORK::NETWORK_SHOW_PROFILE_UI((Any*)&handle);
 					});
 
 				if (ImGui::Button("Add Friend"))
 					FiberPool::Push([] {
 						uint64_t handle[18];
-						NETWORK::NETWORK_HANDLE_FROM_PLAYER(YimMenu::Players::GetSelected().GetId(), (Any*)&handle);
+						NETWORK::NETWORK_HANDLE_FROM_PLAYER(RDONatives::Players::GetSelected().GetId(), (Any*)&handle);
 						NETWORK::NETWORK_ADD_FRIEND((Any*)&handle, "");
 					});
 			}));
@@ -116,7 +116,7 @@ namespace YimMenu::Submenus
 				if (ImGui::Button("Teleport To"))
 				{
 					FiberPool::Push([] {
-						if (Teleport::TeleportEntity(Self::PlayerPed, YimMenu::Players::GetSelected().GetPed().GetPosition(), false))
+						if (Teleport::TeleportEntity(Self::PlayerPed, RDONatives::Players::GetSelected().GetPed().GetPosition(), false))
 							g_Spectating = false;
 					});
 				}
@@ -124,7 +124,7 @@ namespace YimMenu::Submenus
 				{
 					FiberPool::Push([] {
 						auto playerCoords = ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(
-						    PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(YimMenu::Players::GetSelected().GetId()),
+						    PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(RDONatives::Players::GetSelected().GetId()),
 						    0,
 						    -10,
 						    0);
@@ -136,7 +136,7 @@ namespace YimMenu::Submenus
 				{
 					FiberPool::Push([] {
 						auto playerVeh = PED::GET_VEHICLE_PED_IS_USING(
-						    PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(YimMenu::Players::GetSelected().GetId()));
+						    PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(RDONatives::Players::GetSelected().GetId()));
 						if (Teleport::WarpIntoVehicle(Self::PlayerPed, playerVeh))
 							g_Spectating = false;
 					});
@@ -159,14 +159,14 @@ namespace YimMenu::Submenus
 			}));
 
 			helpful->AddItem(std::make_shared<ImGuiItem>([] {
-				ImGui::Text(YimMenu::Players::GetSelected().GetName());
+				ImGui::Text(RDONatives::Players::GetSelected().GetName());
 			}));
 			helpful->AddItem(std::make_shared<ImGuiItem>([] {
 				if (ImGui::Button("Spawn Bounty Wagon for Player"))
 				{
 					FiberPool::Push([] {
-						Vector3 coords = ENTITY::GET_ENTITY_COORDS(YimMenu::Players::GetSelected().GetPed().GetHandle(), true, true);
-						float rot = ENTITY::GET_ENTITY_ROTATION(YimMenu::Players::GetSelected().GetPed().GetHandle(), 0).z;
+						Vector3 coords = ENTITY::GET_ENTITY_COORDS(RDONatives::Players::GetSelected().GetPed().GetHandle(), true, true);
+						float rot = ENTITY::GET_ENTITY_ROTATION(RDONatives::Players::GetSelected().GetPed().GetHandle(), 0).z;
 						SpawnVehicle("wagonarmoured01x", coords, rot);
 						Notifications::Show("Spawned Wagon", "Spawned Bounty Wagon for Player", NotificationType::Success);
 					});
@@ -174,7 +174,7 @@ namespace YimMenu::Submenus
 				if (ImGui::Button("Spawn Hunting Wagon for Player"))
 				{
 					FiberPool::Push([] {
-						int id   = YimMenu::Players::GetSelected().GetId();
+						int id   = RDONatives::Players::GetSelected().GetId();
 						auto ped = PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(id);
 						Vector3 dim1, dim2;
 						MISC::GET_MODEL_DIMENSIONS(MISC::GET_HASH_KEY("huntercart01"), &dim1, &dim2);
@@ -204,7 +204,7 @@ namespace YimMenu::Submenus
 			}));
 
 			trolling->AddItem(std::make_shared<ImGuiItem>([] {
-				ImGui::Text(YimMenu::Players::GetSelected().GetName());
+				ImGui::Text(RDONatives::Players::GetSelected().GetName());
 			}));
 
 			AddCategory(std::move(trolling));
@@ -218,7 +218,7 @@ namespace YimMenu::Submenus
 			}));
 
 			toxic->AddItem(std::make_shared<ImGuiItem>([] {
-				ImGui::Text(YimMenu::Players::GetSelected().GetName());
+				ImGui::Text(RDONatives::Players::GetSelected().GetName());
 			}));
 
 			toxic->AddItem(std::make_shared<PlayerCommandItem>("explode"_J));
@@ -240,7 +240,7 @@ namespace YimMenu::Submenus
 						{
 							if (!(i % 12))
 								ScriptMgr::Yield();
-							scf(YimMenu::Players::GetSelected().GetPed().GetPointer<void*>(), i, true, true);
+							scf(RDONatives::Players::GetSelected().GetPed().GetPointer<void*>(), i, true, true);
 						}
 					});
 				}
@@ -250,7 +250,7 @@ namespace YimMenu::Submenus
 					FiberPool::Push([] {
 						using Pd = void (*)(__int16 net);
 						Pd pd    = (Pd)((__int64)GetModuleHandleA(0) + 0x23f4eb8);
-						pd(YimMenu::Players::GetSelected().GetPed().GetNetworkObjectId());
+						pd(RDONatives::Players::GetSelected().GetPed().GetNetworkObjectId());
 					});
 				}
 
@@ -258,7 +258,7 @@ namespace YimMenu::Submenus
 				{
 					FiberPool::Push([] {
 						float test = 2345.0f;
-						PED::_0x09E378C52B1433B5(YimMenu::Players::GetSelected().GetPed().GetHandle(), *(int*)&test, *(int*)&test, *(int*)&test, *(int*)&test);
+						PED::_0x09E378C52B1433B5(RDONatives::Players::GetSelected().GetPed().GetHandle(), *(int*)&test, *(int*)&test, *(int*)&test, *(int*)&test);
 					});
 				}
 
@@ -267,7 +267,7 @@ namespace YimMenu::Submenus
 					FiberPool::Push([] {
 						using GE = void (*)(__int16 net, bool ghost);
 						GE ge    = (GE)((__int64)GetModuleHandleA(0) + 0x23f43f0);
-						ge(YimMenu::Players::GetSelected().GetPed().GetNetworkObjectId(), true);
+						ge(RDONatives::Players::GetSelected().GetPed().GetNetworkObjectId(), true);
 					});
 				}
 
@@ -284,7 +284,7 @@ namespace YimMenu::Submenus
 					FiberPool::Push([] {
 						using LP = void (*)(void* looter, void*, bool, bool);
 						LP lp    = (LP)((__int64)GetModuleHandleA(0) + 0x23f3324);
-						lp(YimMenu::Players::GetSelected().GetPed().GetPointer<void*>(), Pointers.GetLocalPed(), true, true);
+						lp(RDONatives::Players::GetSelected().GetPed().GetPointer<void*>(), Pointers.GetLocalPed(), true, true);
 					});
 				}
 
@@ -295,7 +295,7 @@ namespace YimMenu::Submenus
 						using SM = void (*)(void*, int, float, void*, bool); // PED::_SET_PED_MOTIVATION
 						GM gm    = (GM)((__int64)GetModuleHandleA(0) + 0xcb8ee8);
 						SM sm    = (SM)((__int64)GetModuleHandleA(0) + 0x9a2ab0);
-						sm(gm(YimMenu::Players::GetSelected().GetPed().GetPointer<void*>()), 10, 999.0f, nullptr, true);
+						sm(gm(RDONatives::Players::GetSelected().GetPed().GetPointer<void*>()), 10, 999.0f, nullptr, true);
 					});
 				}
 
@@ -304,8 +304,8 @@ namespace YimMenu::Submenus
 					FiberPool::Push([] {
 						using CS = void (*)(void*, void*, float);
 						CS cs    = (CS)((__int64)GetModuleHandleA(0) + 0x23f64d0);
-						cs(YimMenu::Players::GetSelected().GetPed().GetPointer<void*>(),
-						    YimMenu::Players::GetSelected().GetPed().GetPointer<void*>(),
+						cs(RDONatives::Players::GetSelected().GetPed().GetPointer<void*>(),
+						    RDONatives::Players::GetSelected().GetPed().GetPointer<void*>(),
 						    -9999.0f); // positive to add
 					});
 				}
@@ -350,7 +350,7 @@ namespace YimMenu::Submenus
 			}));
 
 			kick->AddItem(std::make_shared<ImGuiItem>([] {
-				ImGui::Text(YimMenu::Players::GetSelected().GetName());
+				ImGui::Text(RDONatives::Players::GetSelected().GetName());
 			}));
 
 			AddCategory(std::move(kick));

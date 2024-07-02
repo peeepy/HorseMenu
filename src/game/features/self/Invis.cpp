@@ -3,7 +3,7 @@
 #include "game/rdr/Enums.hpp"
 #include "game/rdr/Natives.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	//TODO: OnDisable doesn't call if menu is unloaded prematurely
 	class Invis : public LoopedCommand

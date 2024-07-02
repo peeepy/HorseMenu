@@ -2,7 +2,7 @@
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 
-#include <AsyncLogger/Logger.hpp>
+#include "AsyncLogger/Logger.hpp"
 #include <MinHook.h>
 #include <Windows.h>
 #include <array>
@@ -23,13 +23,11 @@
 #include <stack>
 
 #include <nlohmann/json.hpp>
-
 using namespace al;
-#include "core/logger/LogHelper.hpp"
 
 #undef Yield
 
-namespace YimMenu
+namespace RDONatives
 {
 	using namespace std::chrono_literals;
 	using namespace std::string_literals;

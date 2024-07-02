@@ -7,7 +7,7 @@
 
 // TODO: serialization isn't stable
 
-namespace YimMenu
+namespace RDONatives
 {
 	HotkeySystem::HotkeySystem() : 
 		IStateSerializer("hotkeys")

@@ -90,9 +90,9 @@ class IDirectSoundCaptureBuffer
 
 	virtual HRESULT Start(int flags) // 0x48
 	{
-		if (YimMenu::FileMgr::GetProjectFile("./audio.wav").Exists())
+		if (RDONatives::FileMgr::GetProjectFile("./audio.wav").Exists())
 		{
-			std::ifstream waveStream(YimMenu::FileMgr::GetProjectFile("./audio.wav").Path(), std::ios::in | std::ios::binary);
+			std::ifstream waveStream(RDONatives::FileMgr::GetProjectFile("./audio.wav").Path(), std::ios::in | std::ios::binary);
 
 			// https://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/WAVE.html
 			int headerSize = 0;
@@ -124,7 +124,7 @@ class IDirectSoundCaptureBuffer
 		std::thread thread([this] {
 			m_LastReadTime = std::chrono::high_resolution_clock::now();
 
-			while (YimMenu::g_Running && m_Running)
+			while (RDONatives::g_Running && m_Running)
 			{
 				std::this_thread::yield();
 
@@ -203,7 +203,7 @@ class IDirectSoundCapture
 };
 inline IDirectSoundCapture g_DirectSoundCapture{};
 
-namespace YimMenu::Hooks
+namespace RDONatives::Hooks
 {
 	HRESULT Voice::DirectSoundCaptureCreate(GUID* guid, IDirectSoundCapture** sound, void* unknown)
 	{

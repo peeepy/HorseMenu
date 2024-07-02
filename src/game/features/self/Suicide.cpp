@@ -9,7 +9,7 @@
 #include <network/rlGamerInfo.hpp>
 #include <script/scriptId.hpp>
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class Suicide : public Command
 	{

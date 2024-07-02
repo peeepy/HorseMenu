@@ -1,8 +1,11 @@
 #include "StackTrace.hpp"
+
+#include "LogHelper.hpp"
+
 #include <winternl.h>
 #include <DbgHelp.h>
 
-namespace YimMenu
+namespace RDONatives
 {
 	StackTrace::StackTrace() :
 	    m_FramePointers(32)

@@ -1,7 +1,7 @@
 #pragma once
 #include <rage/vector.hpp>
 
-namespace YimMenu
+namespace RDONatives
 {
 	class Entity
 	{

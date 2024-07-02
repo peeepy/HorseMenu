@@ -1,8 +1,9 @@
 #include "LogSink.hpp"
 
 #include "LogColor.hpp"
+#include "LogHelper.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	LogColor LogSink::GetColor(const eLogLevel level)
 	{

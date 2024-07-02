@@ -3,7 +3,7 @@
 #include <network/CNetworkPlayerMgr.hpp>
 #include "game/pointers/Pointers.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	void Players::TickImpl()
 	{

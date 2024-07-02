@@ -3,7 +3,7 @@
 #include "game/rdr/Enums.hpp"
 #include "game/rdr/Natives.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	//Horse still kicks player off on max agitation on online
 	class KeepHorseAgitationLow : public LoopedCommand

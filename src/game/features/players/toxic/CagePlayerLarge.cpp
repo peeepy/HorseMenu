@@ -4,7 +4,7 @@
 #include "util/SpawnObject.hpp"
 
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class CagePlayerLarge : public PlayerCommand
 	{

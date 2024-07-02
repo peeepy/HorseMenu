@@ -11,7 +11,7 @@
 #include <imgui.h>
 
 
-namespace YimMenu
+namespace RDONatives
 {
 	Renderer::Renderer()
 	{

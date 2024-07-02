@@ -8,7 +8,7 @@
 
 // TODO: remove this file
 
-namespace YimMenu::Teleport
+namespace RDONatives::Teleport
 {
 	inline bool LoadGroundAtCoords(rage::fvector3& coords)
 	{

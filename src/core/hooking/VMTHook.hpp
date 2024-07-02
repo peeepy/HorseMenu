@@ -5,7 +5,7 @@
 #include <cstddef>
 #include <string_view>
 
-namespace YimMenu
+namespace RDONatives
 {
 	template<std::size_t N>
 	class VMTHook : public BaseHook

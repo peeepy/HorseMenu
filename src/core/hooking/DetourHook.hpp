@@ -5,7 +5,7 @@
 #include <MinHook.h>
 #include <string_view>
 
-namespace YimMenu
+namespace RDONatives
 {
 	template<typename T = int*>
 	class DetourHook : public BaseHook

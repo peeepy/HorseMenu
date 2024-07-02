@@ -1,7 +1,7 @@
 #pragma once
 #include "Category.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	class Submenu
 	{

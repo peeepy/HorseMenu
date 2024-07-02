@@ -7,7 +7,7 @@
 #include "core/frontend/Notifications.hpp"
 #include "util/PersistCompanion.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	GUI::GUI() :
 	    m_IsOpen(false)

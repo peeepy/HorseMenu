@@ -3,7 +3,7 @@
 #include <unordered_set>
 
 
-namespace YimMenu
+namespace RDONatives
 {
 	struct PedModelInfo
 	{

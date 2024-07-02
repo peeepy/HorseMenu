@@ -1,6 +1,6 @@
 #include "Rewards.hpp"
 
-namespace YimMenu::Rewards
+namespace RDONatives::Rewards
 {
 	void SpawnRequestedRewards(std::vector<eRewardType> rewards)
 	{

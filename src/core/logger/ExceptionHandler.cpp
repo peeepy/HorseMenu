@@ -4,7 +4,7 @@
 #include <unordered_set>
 #include <hde64.h>
 
-namespace YimMenu
+namespace RDONatives
 {
 	inline auto HashStackTrace(std::vector<uint64_t> stack_trace)
 	{
@@ -76,6 +76,6 @@ namespace YimMenu
 	}
 }
 
-static YimMenu::ExceptionHandler _ExceptionHandler{};
+static RDONatives::ExceptionHandler _ExceptionHandler{};
 // 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 33 DB 44 0F
 //

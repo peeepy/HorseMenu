@@ -3,7 +3,7 @@
 #include "game/features/Features.hpp"
 #include "core/frontend/Notifications.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class TpToMount : public Command
 	{

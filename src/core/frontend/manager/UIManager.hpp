@@ -2,7 +2,7 @@
 #include "Category.hpp"
 #include "Submenu.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	class UIManager
 	{

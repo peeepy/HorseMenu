@@ -6,7 +6,7 @@
 #include "Settings.hpp"
 #include "game/features/Features.hpp"
 
-namespace YimMenu::Submenus
+namespace RDONatives::Submenus
 {
 	// TODO: refactor this
 	static void Hotkeys()

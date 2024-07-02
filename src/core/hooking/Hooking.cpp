@@ -7,7 +7,7 @@
 #include "game/pointers/Pointers.hpp"
 #include "core/memory/ModuleMgr.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	Hooking::Hooking()
 	{

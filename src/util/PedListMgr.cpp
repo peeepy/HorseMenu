@@ -8,7 +8,7 @@
 #include "game/backend/FiberPool.hpp"
 #pragma comment(lib, "shlwapi.lib")
 
-namespace YimMenu
+namespace RDONatives
 {
 	// Define stream operators for CompanionInfo
 	std::ostream& operator<<(std::ostream& strm, const CompanionInfo& ped)
@@ -104,7 +104,7 @@ namespace YimMenu
 		{
 			// Respawn ped
 			FiberPool::Push([&CompanionInfo] {
-				CompanionInfo.current_handle = YimMenu::Peds::SpawnCompanion(CompanionInfo.model_name,
+				CompanionInfo.current_handle = RDONatives::Peds::SpawnCompanion(CompanionInfo.model_name,
 				    ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(Self::PlayerPed, 0, 3, 0),
 				    CompanionInfo.heading,
 				    CompanionInfo.blockNewPedMovement,

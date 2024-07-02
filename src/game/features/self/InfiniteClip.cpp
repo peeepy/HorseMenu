@@ -3,7 +3,7 @@
 #include "game/rdr/Enums.hpp"
 #include "game/rdr/Natives.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	//WEAPON::_SET_PED_INFINITE_AMMO_CLIP Changes too many things to be considered, such as granting all ammo types.
 	class InfiniteClip : public LoopedCommand

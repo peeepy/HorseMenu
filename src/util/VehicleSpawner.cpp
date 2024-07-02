@@ -1,6 +1,6 @@
 #include "VehicleSpawner.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	int SpawnVehicle(std::string model_name, Vector3 coords, float rotation)
 	{

@@ -4,7 +4,7 @@
 #include "game/rdr/Scripts.hpp"
 #include "game/rdr/Enums.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	void MinHonor(int bits)
 	{

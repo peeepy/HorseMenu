@@ -4,7 +4,7 @@
 #include "game/rdr/Natives.hpp"
 #include "game/rdr/ScriptGlobal.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class OffTheRadar : public LoopedCommand
 	{

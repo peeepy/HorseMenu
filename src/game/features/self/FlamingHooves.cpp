@@ -2,7 +2,7 @@
 #include "game/features/Features.hpp"
 #include "game/rdr/Natives.hpp"
 
-namespace YimMenu
+namespace RDONatives
 {
 	class FlamingHooves : public LoopedCommand
 	{

@@ -13,7 +13,7 @@
 
 #define REL(o) o->Release(); if (o) { o = nullptr; }
 
-namespace YimMenu
+namespace RDONatives
 {
 	using namespace Microsoft::WRL;
 	using RendererCallBack              = std::function<void()>;

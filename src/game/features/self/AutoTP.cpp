@@ -2,7 +2,7 @@
 #include "game/features/Features.hpp"
 #include "util/teleport.hpp"
 
-namespace YimMenu::Features
+namespace RDONatives::Features
 {
 	class AutoTP : public LoopedCommand
 	{
@@ -15,7 +15,7 @@ namespace YimMenu::Features
 				Vector3 coords = Teleport::GetWaypointCoords();
 				if (coords != Vector3{0, 0, 0})
 				{
-					Teleport::TeleportEntity(YimMenu::Self::PlayerPed, rage::fvector3{coords.x, coords.y, coords.z}, true);
+					Teleport::TeleportEntity(RDONatives::Self::PlayerPed, rage::fvector3{coords.x, coords.y, coords.z}, true);
 				}
 			}
 		}
