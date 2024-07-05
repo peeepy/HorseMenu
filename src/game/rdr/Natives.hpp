@@ -127,7 +127,7 @@ namespace ANIMSCENE
 	FORCEINLINE constexpr BOOL HAS_ENTITY_EXITED_ANIM_SCENE(AnimScene animScene, const char* entityName) { return RDONatives::NativeInvoker::Invoke<108, BOOL>(animScene, entityName); }
 	FORCEINLINE constexpr BOOL _HAS_ENTITY_ENTERED_ANIM_SCENE(AnimScene animScene, const char* entityName) { return RDONatives::NativeInvoker::Invoke<109, BOOL>(animScene, entityName); }
 	FORCEINLINE constexpr Ped _GET_ANIM_SCENE_PED(AnimScene animScene, const char* name, BOOL isNetwork) { return RDONatives::NativeInvoker::Invoke<110, Ped>(animScene, name, isNetwork); }
-	FORCEINLINE constexpr Object _GET_ANIM_SCENE_OBJECT(AnimScene animScene, const char* name, BOOL isNetwork) { return RDONatives::NativeInvoker::Invoke<111, Object>(animScene, name, isNetwork); }
+	FORCEINLINE constexpr ::Object _GET_ANIM_SCENE_OBJECT(AnimScene animScene, const char* name, BOOL isNetwork) { return RDONatives::NativeInvoker::Invoke<111, ::Object>(animScene, name, isNetwork); }
 	FORCEINLINE constexpr Vehicle _GET_ANIM_SCENE_VEHICLE(AnimScene animScene, const char* name, BOOL isNetwork) { return RDONatives::NativeInvoker::Invoke<112, Vehicle>(animScene, name, isNetwork); }
 	FORCEINLINE constexpr void SET_ANIM_SCENE_BOOL(AnimScene animScene, const char* name, BOOL value, BOOL p3) { return RDONatives::NativeInvoker::Invoke<113, void>(animScene, name, value, p3); }
 	FORCEINLINE constexpr BOOL GET_ANIM_SCENE_BOOL(AnimScene animScene, const char* name) { return RDONatives::NativeInvoker::Invoke<114, BOOL>(animScene, name); }
@@ -585,7 +585,7 @@ namespace CAM
 	FORCEINLINE constexpr BOOL IS_INTERPOLATING_TO_SCRIPT_CAMS() { return RDONatives::NativeInvoker::Invoke<542, BOOL>(); }
 	FORCEINLINE constexpr BOOL IS_GAMEPLAY_CAM_LOOKING_BEHIND() { return RDONatives::NativeInvoker::Invoke<543, BOOL>(); }
 	FORCEINLINE constexpr void SET_GAMEPLAY_CAM_IGNORE_ENTITY_COLLISION_THIS_UPDATE(Entity Index) { return RDONatives::NativeInvoker::Invoke<544, void>(Index); }
-	FORCEINLINE constexpr void DISABLE_CAM_COLLISION_FOR_OBJECT(Object object) { return RDONatives::NativeInvoker::Invoke<545, void>(object); }
+	FORCEINLINE constexpr void DISABLE_CAM_COLLISION_FOR_OBJECT(::Object object) { return RDONatives::NativeInvoker::Invoke<545, void>(object); }
 	FORCEINLINE constexpr void _0x39073DA4EDDBC91D(Any p0) { return RDONatives::NativeInvoker::Invoke<546, void>(p0); }
 	FORCEINLINE constexpr void _0x70A6658D476C6187() { return RDONatives::NativeInvoker::Invoke<547, void>(); }
 	FORCEINLINE constexpr void _0x18C3DFAC458783BB() { return RDONatives::NativeInvoker::Invoke<548, void>(); }
@@ -633,7 +633,7 @@ namespace CAM
 	FORCEINLINE constexpr void SET_GAMEPLAY_COORD_HINT(float vCoordX, float vCoordY, float vCoordZ, int iDwellTime, int iInterpTo, int iInterpFrom, Hash Type) { return RDONatives::NativeInvoker::Invoke<590, void>(vCoordX, vCoordY, vCoordZ, iDwellTime, iInterpTo, iInterpFrom, Type); }
 	FORCEINLINE constexpr void SET_GAMEPLAY_PED_HINT(Ped Ped, float OffsetX, float OffsetY, float OffsetZ, BOOL RelativeOffset, int iDwellTime, int iInterpTo, int iInterpFrom) { return RDONatives::NativeInvoker::Invoke<591, void>(Ped, OffsetX, OffsetY, OffsetZ, RelativeOffset, iDwellTime, iInterpTo, iInterpFrom); }
 	FORCEINLINE constexpr void SET_GAMEPLAY_VEHICLE_HINT(Vehicle Vehicle, float OffsetX, float OffsetY, float OffsetZ, BOOL RelativeOffset, int iDwellTime, int iInterpTo, int iInterpFrom) { return RDONatives::NativeInvoker::Invoke<592, void>(Vehicle, OffsetX, OffsetY, OffsetZ, RelativeOffset, iDwellTime, iInterpTo, iInterpFrom); }
-	FORCEINLINE constexpr void SET_GAMEPLAY_OBJECT_HINT(Object Obejct, float OffsetX, float OffsetY, float OffsetZ, BOOL RelativeOffset, int iDwellTime, int iInterpTo, int iInterpFrom) { return RDONatives::NativeInvoker::Invoke<593, void>(Obejct, OffsetX, OffsetY, OffsetZ, RelativeOffset, iDwellTime, iInterpTo, iInterpFrom); }
+	FORCEINLINE constexpr void SET_GAMEPLAY_OBJECT_HINT(::Object Obejct, float OffsetX, float OffsetY, float OffsetZ, BOOL RelativeOffset, int iDwellTime, int iInterpTo, int iInterpFrom) { return RDONatives::NativeInvoker::Invoke<593, void>(Obejct, OffsetX, OffsetY, OffsetZ, RelativeOffset, iDwellTime, iInterpTo, iInterpFrom); }
 	FORCEINLINE constexpr void SET_GAMEPLAY_ENTITY_HINT(Entity Enttity, float OffsetX, float OffsetY, float OffsetZ, BOOL RelativeOffset, int iDwellTime, int iInterpTo, int iInterpFrom, Hash Type) { return RDONatives::NativeInvoker::Invoke<594, void>(Enttity, OffsetX, OffsetY, OffsetZ, RelativeOffset, iDwellTime, iInterpTo, iInterpFrom, Type); }
 	FORCEINLINE constexpr BOOL IS_GAMEPLAY_HINT_ACTIVE() { return RDONatives::NativeInvoker::Invoke<595, BOOL>(); }
 	FORCEINLINE constexpr void STOP_GAMEPLAY_HINT(BOOL bStopImmediately) { return RDONatives::NativeInvoker::Invoke<596, void>(bStopImmediately); }
@@ -1128,7 +1128,7 @@ namespace ENTITY
 	FORCEINLINE constexpr Vector3 GET_ENTITY_SPEED_VECTOR(Entity EntityIndex, BOOL bLocalResult) { return RDONatives::NativeInvoker::Invoke<1037, Vector3>(EntityIndex, bLocalResult); }
 	FORCEINLINE constexpr float GET_ENTITY_UPRIGHT_VALUE(Entity EntityIndex) { return RDONatives::NativeInvoker::Invoke<1038, float>(EntityIndex); }
 	FORCEINLINE constexpr Vector3 GET_ENTITY_VELOCITY(Entity EntityIndex, int p1) { return RDONatives::NativeInvoker::Invoke<1039, Vector3>(EntityIndex, p1); }
-	FORCEINLINE constexpr Object GET_OBJECT_INDEX_FROM_ENTITY_INDEX(Entity EntityIndex) { return RDONatives::NativeInvoker::Invoke<1040, Object>(EntityIndex); }
+	FORCEINLINE constexpr ::Object GET_OBJECT_INDEX_FROM_ENTITY_INDEX(Entity EntityIndex) { return RDONatives::NativeInvoker::Invoke<1040, ::Object>(EntityIndex); }
 	FORCEINLINE constexpr Ped GET_PED_INDEX_FROM_ENTITY_INDEX(Entity EntityIndex) { return RDONatives::NativeInvoker::Invoke<1041, Ped>(EntityIndex); }
 	FORCEINLINE constexpr Vehicle GET_VEHICLE_INDEX_FROM_ENTITY_INDEX(Entity EntityIndex) { return RDONatives::NativeInvoker::Invoke<1042, Vehicle>(EntityIndex); }
 	FORCEINLINE constexpr Vector3 GET_WORLD_POSITION_OF_ENTITY_BONE(Entity EntityIndex, int iBoneIdx) { return RDONatives::NativeInvoker::Invoke<1043, Vector3>(EntityIndex, iBoneIdx); }
@@ -1243,7 +1243,7 @@ namespace ENTITY
 	FORCEINLINE constexpr void SET_ENTITY_AS_NO_LONGER_NEEDED(Entity* EntityIndex) { return RDONatives::NativeInvoker::Invoke<1152, void>(EntityIndex); }
 	FORCEINLINE constexpr void SET_PED_AS_NO_LONGER_NEEDED(Ped* PedIndex) { return RDONatives::NativeInvoker::Invoke<1153, void>(PedIndex); }
 	FORCEINLINE constexpr void SET_VEHICLE_AS_NO_LONGER_NEEDED(Vehicle* VehicleIndex) { return RDONatives::NativeInvoker::Invoke<1154, void>(VehicleIndex); }
-	FORCEINLINE constexpr void SET_OBJECT_AS_NO_LONGER_NEEDED(Object* ObjectIndex) { return RDONatives::NativeInvoker::Invoke<1155, void>(ObjectIndex); }
+	FORCEINLINE constexpr void SET_OBJECT_AS_NO_LONGER_NEEDED(::Object* ObjectIndex) { return RDONatives::NativeInvoker::Invoke<1155, void>(ObjectIndex); }
 	FORCEINLINE constexpr void _0x20FAEE47427A4497() { return RDONatives::NativeInvoker::Invoke<1156, void>(); }
 	FORCEINLINE constexpr BOOL _DOES_THREAD_OWN_THIS_ENTITY(Entity entity) { return RDONatives::NativeInvoker::Invoke<1157, BOOL>(entity); }
 	FORCEINLINE constexpr void _0x56E0735D6273B227(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<1158, void>(p0, p1); }
@@ -1374,9 +1374,9 @@ namespace EVENT
 	FORCEINLINE constexpr void _0x56B3410626A473E7(Any p0) { return RDONatives::NativeInvoker::Invoke<1279, void>(p0); }
 	FORCEINLINE constexpr void _ADD_MODEL_TO_EVENT_MONITOR(Hash model, BOOL p1, BOOL p2) { return RDONatives::NativeInvoker::Invoke<1280, void>(model, p1, p2); }
 	FORCEINLINE constexpr void _0x4465C3D1475BD3FD(Hash model) { return RDONatives::NativeInvoker::Invoke<1281, void>(model); }
-	FORCEINLINE constexpr Any _0x2DD42FAD06E6F19E(Object object, BOOL p1, BOOL p2) { return RDONatives::NativeInvoker::Invoke<1282, Any>(object, p1, p2); }
-	FORCEINLINE constexpr void _0xA86B0EE9B39D15D6(Object object) { return RDONatives::NativeInvoker::Invoke<1283, void>(object); }
-	FORCEINLINE constexpr BOOL _0x26054EB81AC0893B(Object object) { return RDONatives::NativeInvoker::Invoke<1284, BOOL>(object); }
+	FORCEINLINE constexpr Any _0x2DD42FAD06E6F19E(::Object object, BOOL p1, BOOL p2) { return RDONatives::NativeInvoker::Invoke<1282, Any>(object, p1, p2); }
+	FORCEINLINE constexpr void _0xA86B0EE9B39D15D6(::Object object) { return RDONatives::NativeInvoker::Invoke<1283, void>(object); }
+	FORCEINLINE constexpr BOOL _0x26054EB81AC0893B(::Object object) { return RDONatives::NativeInvoker::Invoke<1284, BOOL>(object); }
 	FORCEINLINE constexpr void _SET_EVENT_TRACKER_FOR_PED(Ped ped, const char* eventName, int p2) { return RDONatives::NativeInvoker::Invoke<1285, void>(ped, eventName, p2); }
 	FORCEINLINE constexpr int _0xAD17A18215DD23D6(Entity entity, int p1, int p2) { return RDONatives::NativeInvoker::Invoke<1286, int>(entity, p1, p2); }
 	FORCEINLINE constexpr int _EVENT_GET_TIME_SINCE_EVENT(Entity entity, Hash eventType, int p2, int p3) { return RDONatives::NativeInvoker::Invoke<1287, int>(entity, eventType, p2, p3); }
@@ -1614,13 +1614,13 @@ namespace GRAPHICS
 	FORCEINLINE constexpr void _SET_SNIPER_GLINTS_ENABLED(BOOL enabled) { return RDONatives::NativeInvoker::Invoke<1507, void>(enabled); }
 	FORCEINLINE constexpr void SET_PARTICLE_FX_FOOT_LODRANGE_SCALE(float scale) { return RDONatives::NativeInvoker::Invoke<1508, void>(scale); }
 	FORCEINLINE constexpr void _0x4046493D2EEACA0E() { return RDONatives::NativeInvoker::Invoke<1509, void>(); }
-	FORCEINLINE constexpr void SET_PICKUP_LIGHT(Object object, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<1510, void>(object, toggle); }
-	FORCEINLINE constexpr void _BLOCK_PICKUP_OBJECT_LIGHT(Object pickupObject, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<1511, void>(pickupObject, toggle); }
+	FORCEINLINE constexpr void SET_PICKUP_LIGHT(::Object object, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<1510, void>(object, toggle); }
+	FORCEINLINE constexpr void _BLOCK_PICKUP_OBJECT_LIGHT(::Object pickupObject, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<1511, void>(pickupObject, toggle); }
 	FORCEINLINE constexpr void BLOCK_PICKUP_PLACEMENT_LIGHT(Pickup pickup, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<1512, void>(pickup, toggle); }
-	FORCEINLINE constexpr void ALLOW_PICKUP_LIGHT_SYNC(Object pickupObject, BOOL allow) { return RDONatives::NativeInvoker::Invoke<1513, void>(pickupObject, allow); }
-	FORCEINLINE constexpr void _SET_PEARLESCENT_FX_ENABLED(Object object, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<1514, void>(object, toggle); }
+	FORCEINLINE constexpr void ALLOW_PICKUP_LIGHT_SYNC(::Object pickupObject, BOOL allow) { return RDONatives::NativeInvoker::Invoke<1513, void>(pickupObject, allow); }
+	FORCEINLINE constexpr void _SET_PEARLESCENT_FX_ENABLED(::Object object, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<1514, void>(object, toggle); }
 	FORCEINLINE constexpr void REMOVE_DECALS_IN_RANGE(float posX, float posY, float posZ, float range) { return RDONatives::NativeInvoker::Invoke<1515, void>(posX, posY, posZ, range); }
-	FORCEINLINE constexpr void REMOVE_DECALS_FROM_OBJECT(Object ObjectIndex) { return RDONatives::NativeInvoker::Invoke<1516, void>(ObjectIndex); }
+	FORCEINLINE constexpr void REMOVE_DECALS_FROM_OBJECT(::Object ObjectIndex) { return RDONatives::NativeInvoker::Invoke<1516, void>(ObjectIndex); }
 	FORCEINLINE constexpr int ADD_DECAL(Any p0, float posX, float posY, float posZ, float dirX, float dirY, float dirZ, float sideX, float sideY, float sideZ, Any p10, float width, float height, float colR, float colG, float colB, float colA, float life, BOOL isLongRange, BOOL isDynamic, BOOL useComplexColn, Any p21) { return RDONatives::NativeInvoker::Invoke<1517, int>(p0, posX, posY, posZ, dirX, dirY, dirZ, sideX, sideY, sideZ, p10, width, height, colR, colG, colB, colA, life, isLongRange, isDynamic, useComplexColn, p21); }
 	FORCEINLINE constexpr void _ADD_BLOOD_POOL(float x, float y, float z, BOOL unused) { return RDONatives::NativeInvoker::Invoke<1518, void>(x, y, z, unused); }
 	FORCEINLINE constexpr void _ADD_BLOOD_POOL_2(float x, float y, float z, float p3, float size, float p5, BOOL permanent, float p7, BOOL p8) { return RDONatives::NativeInvoker::Invoke<1519, void>(x, y, z, p3, size, p5, permanent, p7, p8); }
@@ -2744,7 +2744,7 @@ namespace MISC
 	FORCEINLINE constexpr Entity _GET_ENTITY_FROM_ITEM(ScrHandle item) { return RDONatives::NativeInvoker::Invoke<2581, Entity>(item); }
 	FORCEINLINE constexpr Ped _GET_PED_FROM_INDEXED_ITEM(ScrHandle item) { return RDONatives::NativeInvoker::Invoke<2582, Ped>(item); }
 	FORCEINLINE constexpr Vehicle _GET_VEHICLE_FROM_INDEXED_ITEM(ScrHandle item) { return RDONatives::NativeInvoker::Invoke<2583, Vehicle>(item); }
-	FORCEINLINE constexpr Object _GET_OBJECT_FROM_INDEXED_ITEM(ScrHandle item) { return RDONatives::NativeInvoker::Invoke<2584, Object>(item); }
+	FORCEINLINE constexpr ::Object _GET_OBJECT_FROM_INDEXED_ITEM(ScrHandle item) { return RDONatives::NativeInvoker::Invoke<2584, ::Object>(item); }
 	FORCEINLINE constexpr Any _0x33982467B1E349EF(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return RDONatives::NativeInvoker::Invoke<2585, Any>(p0, p1, p2, p3, p4, p5, p6); }
 	FORCEINLINE constexpr Any _0x8314FC2013ECE2DA(Any p0, Any p1, Any p2) { return RDONatives::NativeInvoker::Invoke<2586, Any>(p0, p1, p2); }
 	FORCEINLINE constexpr void _0x4D5C9CC7E7E23E09() { return RDONatives::NativeInvoker::Invoke<2587, void>(); }
@@ -3064,11 +3064,11 @@ namespace NETWORK
 	FORCEINLINE constexpr int _0xF260AF6F43953316(ScrHandle handle) { return RDONatives::NativeInvoker::Invoke<2885, int>(handle); }
 	FORCEINLINE constexpr int VEH_TO_NET(Vehicle vehID) { return RDONatives::NativeInvoker::Invoke<2886, int>(vehID); }
 	FORCEINLINE constexpr int PED_TO_NET(Ped pedID) { return RDONatives::NativeInvoker::Invoke<2887, int>(pedID); }
-	FORCEINLINE constexpr int OBJ_TO_NET(Object objID) { return RDONatives::NativeInvoker::Invoke<2888, int>(objID); }
+	FORCEINLINE constexpr int OBJ_TO_NET(::Object objID) { return RDONatives::NativeInvoker::Invoke<2888, int>(objID); }
 	FORCEINLINE constexpr int _ANIM_SCENE_TO_NET(AnimScene animScene) { return RDONatives::NativeInvoker::Invoke<2889, int>(animScene); }
 	FORCEINLINE constexpr Vehicle NET_TO_VEH(int netID) { return RDONatives::NativeInvoker::Invoke<2890, Vehicle>(netID); }
 	FORCEINLINE constexpr Ped NET_TO_PED(int netID) { return RDONatives::NativeInvoker::Invoke<2891, Ped>(netID); }
-	FORCEINLINE constexpr Object NET_TO_OBJ(int netID) { return RDONatives::NativeInvoker::Invoke<2892, Object>(netID); }
+	FORCEINLINE constexpr ::Object NET_TO_OBJ(int netID) { return RDONatives::NativeInvoker::Invoke<2892, ::Object>(netID); }
 	FORCEINLINE constexpr Entity NET_TO_ENT(int netID) { return RDONatives::NativeInvoker::Invoke<2893, Entity>(netID); }
 	FORCEINLINE constexpr AnimScene _NET_TO_ANIM_SCENE(int netId) { return RDONatives::NativeInvoker::Invoke<2894, AnimScene>(netId); }
 	FORCEINLINE constexpr int _PROPSET_TO_NET(PropSet propSet) { return RDONatives::NativeInvoker::Invoke<2895, int>(propSet); }
@@ -3436,19 +3436,19 @@ namespace NETWORK
 
 namespace OBJECT
 {
-	FORCEINLINE constexpr Object CREATE_OBJECT(Hash ModelIndex, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, BOOL RegisterAsNetworkObject, BOOL ScriptHostObject, BOOL ForceToBeObject, BOOL p7, BOOL p8) { return RDONatives::NativeInvoker::Invoke<3256, Object>(ModelIndex, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, RegisterAsNetworkObject, ScriptHostObject, ForceToBeObject, p7, p8); }
-	FORCEINLINE constexpr Object CREATE_OBJECT_NO_OFFSET(Hash ModelIndex, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, BOOL RegisterAsNetworkObject, BOOL ScriptHostObject, BOOL ForceToBeObject, BOOL p7) { return RDONatives::NativeInvoker::Invoke<3257, Object>(ModelIndex, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, RegisterAsNetworkObject, ScriptHostObject, ForceToBeObject, p7); }
-	FORCEINLINE constexpr void DELETE_OBJECT(Object* ObjectIndex) { return RDONatives::NativeInvoker::Invoke<3258, void>(ObjectIndex); }
-	FORCEINLINE constexpr BOOL PLACE_OBJECT_ON_GROUND_PROPERLY(Object ObjectIndex, BOOL p1) { return RDONatives::NativeInvoker::Invoke<3259, BOOL>(ObjectIndex, p1); }
-	FORCEINLINE constexpr BOOL SLIDE_OBJECT(Object ObjectID, float VecDestCoorstX, float VecDestCoorstY, float VecDestCoorstZ, float VecIncrementX, float VecIncrementY, float VecIncrementZ, BOOL StopOnCollision) { return RDONatives::NativeInvoker::Invoke<3260, BOOL>(ObjectID, VecDestCoorstX, VecDestCoorstY, VecDestCoorstZ, VecIncrementX, VecIncrementY, VecIncrementZ, StopOnCollision); }
-	FORCEINLINE constexpr void SET_OBJECT_TARGETTABLE(Object ObjectID, BOOL Targettable) { return RDONatives::NativeInvoker::Invoke<3261, void>(ObjectID, Targettable); }
-	FORCEINLINE constexpr void _SET_OBJECT_TARGETTABLE_2(Object object, BOOL targettable) { return RDONatives::NativeInvoker::Invoke<3262, void>(object, targettable); }
-	FORCEINLINE constexpr void _SET_OBJECT_TARGETTABLE_FOCUS(Object object, BOOL p1, BOOL p2) { return RDONatives::NativeInvoker::Invoke<3263, void>(object, p1, p2); }
+	FORCEINLINE constexpr ::Object CREATE_OBJECT(Hash ModelIndex, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, BOOL RegisterAsNetworkObject, BOOL ScriptHostObject, BOOL ForceToBeObject, BOOL p7, BOOL p8) { return RDONatives::NativeInvoker::Invoke<3256, ::Object>(ModelIndex, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, RegisterAsNetworkObject, ScriptHostObject, ForceToBeObject, p7, p8); }
+	FORCEINLINE constexpr ::Object CREATE_OBJECT_NO_OFFSET(Hash ModelIndex, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, BOOL RegisterAsNetworkObject, BOOL ScriptHostObject, BOOL ForceToBeObject, BOOL p7) { return RDONatives::NativeInvoker::Invoke<3257, ::Object>(ModelIndex, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, RegisterAsNetworkObject, ScriptHostObject, ForceToBeObject, p7); }
+	FORCEINLINE constexpr void DELETE_OBJECT(::Object* ObjectIndex) { return RDONatives::NativeInvoker::Invoke<3258, void>(ObjectIndex); }
+	FORCEINLINE constexpr BOOL PLACE_OBJECT_ON_GROUND_PROPERLY(::Object ObjectIndex, BOOL p1) { return RDONatives::NativeInvoker::Invoke<3259, BOOL>(ObjectIndex, p1); }
+	FORCEINLINE constexpr BOOL SLIDE_OBJECT(::Object ObjectID, float VecDestCoorstX, float VecDestCoorstY, float VecDestCoorstZ, float VecIncrementX, float VecIncrementY, float VecIncrementZ, BOOL StopOnCollision) { return RDONatives::NativeInvoker::Invoke<3260, BOOL>(ObjectID, VecDestCoorstX, VecDestCoorstY, VecDestCoorstZ, VecIncrementX, VecIncrementY, VecIncrementZ, StopOnCollision); }
+	FORCEINLINE constexpr void SET_OBJECT_TARGETTABLE(::Object ObjectID, BOOL Targettable) { return RDONatives::NativeInvoker::Invoke<3261, void>(ObjectID, Targettable); }
+	FORCEINLINE constexpr void _SET_OBJECT_TARGETTABLE_2(::Object object, BOOL targettable) { return RDONatives::NativeInvoker::Invoke<3262, void>(object, targettable); }
+	FORCEINLINE constexpr void _SET_OBJECT_TARGETTABLE_FOCUS(::Object object, BOOL p1, BOOL p2) { return RDONatives::NativeInvoker::Invoke<3263, void>(object, p1, p2); }
 	FORCEINLINE constexpr void _0xF6E88489B4E6EBE5(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3264, void>(p0, p1); }
 	FORCEINLINE constexpr void _0xE157A8A336C7F04A(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3265, void>(p0, p1); }
 	FORCEINLINE constexpr void _0x46CBCF0E98A4E156(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3266, void>(p0, p1); }
-	FORCEINLINE constexpr Object GET_CLOSEST_OBJECT_OF_TYPE(float scrVecCentreCoorsX, float scrVecCentreCoorsY, float scrVecCentreCoorsZ, float Radius, Hash ObjectModelHashKey, BOOL RegisterAsScriptObject, BOOL ScriptHostObject, BOOL RegisterAsNetworkObject) { return RDONatives::NativeInvoker::Invoke<3267, Object>(scrVecCentreCoorsX, scrVecCentreCoorsY, scrVecCentreCoorsZ, Radius, ObjectModelHashKey, RegisterAsScriptObject, ScriptHostObject, RegisterAsNetworkObject); }
-	FORCEINLINE constexpr BOOL HAS_OBJECT_BEEN_BROKEN(Object ObjectID) { return RDONatives::NativeInvoker::Invoke<3268, BOOL>(ObjectID); }
+	FORCEINLINE constexpr ::Object GET_CLOSEST_OBJECT_OF_TYPE(float scrVecCentreCoorsX, float scrVecCentreCoorsY, float scrVecCentreCoorsZ, float Radius, Hash ObjectModelHashKey, BOOL RegisterAsScriptObject, BOOL ScriptHostObject, BOOL RegisterAsNetworkObject) { return RDONatives::NativeInvoker::Invoke<3267, ::Object>(scrVecCentreCoorsX, scrVecCentreCoorsY, scrVecCentreCoorsZ, Radius, ObjectModelHashKey, RegisterAsScriptObject, ScriptHostObject, RegisterAsNetworkObject); }
+	FORCEINLINE constexpr BOOL HAS_OBJECT_BEEN_BROKEN(::Object ObjectID) { return RDONatives::NativeInvoker::Invoke<3268, BOOL>(ObjectID); }
 	FORCEINLINE constexpr BOOL HAS_CLOSEST_OBJECT_OF_TYPE_BEEN_BROKEN(float scrVecCoorsX, float scrVecCoorsY, float scrVecCoorsZ, float Radius, Hash model, int SearchFlags) { return RDONatives::NativeInvoker::Invoke<3269, BOOL>(scrVecCoorsX, scrVecCoorsY, scrVecCoorsZ, Radius, model, SearchFlags); }
 	FORCEINLINE constexpr Vector3 GET_OFFSET_FROM_COORD_AND_HEADING_IN_WORLD_COORDS(float vPosX, float vPosY, float vPosZ, float fHeading, float vOffsetX, float vOffsetY, float vOffsetZ) { return RDONatives::NativeInvoker::Invoke<3270, Vector3>(vPosX, vPosY, vPosZ, fHeading, vOffsetX, vOffsetY, vOffsetZ); }
 	FORCEINLINE constexpr void _ADD_DOOR_TO_SYSTEM_NEW(Hash doorHash, BOOL p1, BOOL p2, BOOL p3, int threadId, int p5, BOOL p6) { return RDONatives::NativeInvoker::Invoke<3271, void>(doorHash, p1, p2, p3, threadId, p5, p6); }
@@ -3479,51 +3479,51 @@ namespace OBJECT
 	FORCEINLINE constexpr void _0xC07B91B996C1DE89(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3296, void>(p0, p1); }
 	FORCEINLINE constexpr BOOL IS_DOOR_REGISTERED_WITH_SYSTEM(Hash doorEnumHash) { return RDONatives::NativeInvoker::Invoke<3297, BOOL>(doorEnumHash); }
 	FORCEINLINE constexpr BOOL IS_DOOR_CLOSED(Hash doorEnumHash) { return RDONatives::NativeInvoker::Invoke<3298, BOOL>(doorEnumHash); }
-	FORCEINLINE constexpr Any _0x0943113E02322164(Object object, int p1) { return RDONatives::NativeInvoker::Invoke<3299, Any>(object, p1); }
+	FORCEINLINE constexpr Any _0x0943113E02322164(::Object object, int p1) { return RDONatives::NativeInvoker::Invoke<3299, Any>(object, p1); }
 	FORCEINLINE constexpr Any _0x614D0B4533F842D3(Any p0) { return RDONatives::NativeInvoker::Invoke<3300, Any>(p0); }
 	FORCEINLINE constexpr void _DOOR_SYSTEM_FORCE_SHUT(Hash doorHash, BOOL p1) { return RDONatives::NativeInvoker::Invoke<3301, void>(doorHash, p1); }
 	FORCEINLINE constexpr Any _0xEBA314768FB35D58(Any p0) { return RDONatives::NativeInvoker::Invoke<3302, Any>(p0); }
 	FORCEINLINE constexpr void _0x5230BF34EB0EC645(Any p0) { return RDONatives::NativeInvoker::Invoke<3303, void>(p0); }
 	FORCEINLINE constexpr BOOL DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS(float VecCoorsX, float VecCoorsY, float VecCoorsZ, float Radius, Hash ModelIndex, BOOL checkPhysicsExists) { return RDONatives::NativeInvoker::Invoke<3304, BOOL>(VecCoorsX, VecCoorsY, VecCoorsZ, Radius, ModelIndex, checkPhysicsExists); }
 	FORCEINLINE constexpr BOOL IS_POINT_IN_ANGLED_AREA(float VecPointX, float VecPointY, float VecPointZ, float VecCoors1X, float VecCoors1Y, float VecCoors1Z, float VecCoors2X, float VecCoors2Y, float VecCoors2Z, float DistanceP1toP4, BOOL HighlightArea, BOOL bCheck3D) { return RDONatives::NativeInvoker::Invoke<3305, BOOL>(VecPointX, VecPointY, VecPointZ, VecCoors1X, VecCoors1Y, VecCoors1Z, VecCoors2X, VecCoors2Y, VecCoors2Z, DistanceP1toP4, HighlightArea, bCheck3D); }
-	FORCEINLINE constexpr void SET_OBJECT_ALLOW_LOW_LOD_BUOYANCY(Object ObjectID, BOOL AllowFlag) { return RDONatives::NativeInvoker::Invoke<3306, void>(ObjectID, AllowFlag); }
-	FORCEINLINE constexpr void SET_OBJECT_PHYSICS_PARAMS(Object ObjectIndex, float fMass, float fGravityFactor, float TranslationalDampingX, float TranslationalDampingY, float TranslationalDampingZ, float RotationalDampingX, float RotationalDampingY, float RotationalDampingZ, float fCollisionMargin, float fMaxAngularSpeed, float fBuoyancyFactor) { return RDONatives::NativeInvoker::Invoke<3307, void>(ObjectIndex, fMass, fGravityFactor, TranslationalDampingX, TranslationalDampingY, TranslationalDampingZ, RotationalDampingX, RotationalDampingY, RotationalDampingZ, fCollisionMargin, fMaxAngularSpeed, fBuoyancyFactor); }
-	FORCEINLINE constexpr float GET_OBJECT_FRAGMENT_DAMAGE_HEALTH(Object ObjectIndex, BOOL HealthPercentageByMass) { return RDONatives::NativeInvoker::Invoke<3308, float>(ObjectIndex, HealthPercentageByMass); }
+	FORCEINLINE constexpr void SET_OBJECT_ALLOW_LOW_LOD_BUOYANCY(::Object ObjectID, BOOL AllowFlag) { return RDONatives::NativeInvoker::Invoke<3306, void>(ObjectID, AllowFlag); }
+	FORCEINLINE constexpr void SET_OBJECT_PHYSICS_PARAMS(::Object ObjectIndex, float fMass, float fGravityFactor, float TranslationalDampingX, float TranslationalDampingY, float TranslationalDampingZ, float RotationalDampingX, float RotationalDampingY, float RotationalDampingZ, float fCollisionMargin, float fMaxAngularSpeed, float fBuoyancyFactor) { return RDONatives::NativeInvoker::Invoke<3307, void>(ObjectIndex, fMass, fGravityFactor, TranslationalDampingX, TranslationalDampingY, TranslationalDampingZ, RotationalDampingX, RotationalDampingY, RotationalDampingZ, fCollisionMargin, fMaxAngularSpeed, fBuoyancyFactor); }
+	FORCEINLINE constexpr float GET_OBJECT_FRAGMENT_DAMAGE_HEALTH(::Object ObjectIndex, BOOL HealthPercentageByMass) { return RDONatives::NativeInvoker::Invoke<3308, float>(ObjectIndex, HealthPercentageByMass); }
 	FORCEINLINE constexpr Any _0x235C863DA77BD88D(Any p0, Any p1, Any p2) { return RDONatives::NativeInvoker::Invoke<3309, Any>(p0, p1, p2); }
-	FORCEINLINE constexpr void SET_ACTIVATE_OBJECT_PHYSICS_AS_SOON_AS_IT_IS_UNFROZEN(Object ObjectIndex, BOOL bActivatePhysicsWhenUnfrozen) { return RDONatives::NativeInvoker::Invoke<3310, void>(ObjectIndex, bActivatePhysicsWhenUnfrozen); }
-	FORCEINLINE constexpr void BREAK_OBJECT_FRAGMENT_CHILD(Object ObjectIndex, int Component, BOOL Disappear) { return RDONatives::NativeInvoker::Invoke<3311, void>(ObjectIndex, Component, Disappear); }
-	FORCEINLINE constexpr void BREAK_ALL_OBJECT_FRAGMENT_BONES(Object object) { return RDONatives::NativeInvoker::Invoke<3312, void>(object); }
+	FORCEINLINE constexpr void SET_ACTIVATE_OBJECT_PHYSICS_AS_SOON_AS_IT_IS_UNFROZEN(::Object ObjectIndex, BOOL bActivatePhysicsWhenUnfrozen) { return RDONatives::NativeInvoker::Invoke<3310, void>(ObjectIndex, bActivatePhysicsWhenUnfrozen); }
+	FORCEINLINE constexpr void BREAK_OBJECT_FRAGMENT_CHILD(::Object ObjectIndex, int Component, BOOL Disappear) { return RDONatives::NativeInvoker::Invoke<3311, void>(ObjectIndex, Component, Disappear); }
+	FORCEINLINE constexpr void BREAK_ALL_OBJECT_FRAGMENT_BONES(::Object object) { return RDONatives::NativeInvoker::Invoke<3312, void>(object); }
 	FORCEINLINE constexpr void _0xAAACF33CBF9B990A(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3313, void>(p0, p1); }
-	FORCEINLINE constexpr void _DAMAGE_BONE_ON_PROP(Object object, int bone) { return RDONatives::NativeInvoker::Invoke<3314, void>(object, bone); }
-	FORCEINLINE constexpr void FIX_OBJECT_FRAGMENT(Object ObjectIndex) { return RDONatives::NativeInvoker::Invoke<3315, void>(ObjectIndex); }
+	FORCEINLINE constexpr void _DAMAGE_BONE_ON_PROP(::Object object, int bone) { return RDONatives::NativeInvoker::Invoke<3314, void>(object, bone); }
+	FORCEINLINE constexpr void FIX_OBJECT_FRAGMENT(::Object ObjectIndex) { return RDONatives::NativeInvoker::Invoke<3315, void>(ObjectIndex); }
 	FORCEINLINE constexpr Any _0x58DE624FA7FB0E7F(Any p0) { return RDONatives::NativeInvoker::Invoke<3316, Any>(p0); }
 	FORCEINLINE constexpr void _0x491439AEF410A2FC(Any p0) { return RDONatives::NativeInvoker::Invoke<3317, void>(p0); }
-	FORCEINLINE constexpr void _SET_OBJECT_BREAK_SCALE(Object object, float scale) { return RDONatives::NativeInvoker::Invoke<3318, void>(object, scale); }
+	FORCEINLINE constexpr void _SET_OBJECT_BREAK_SCALE(::Object object, float scale) { return RDONatives::NativeInvoker::Invoke<3318, void>(object, scale); }
 	FORCEINLINE constexpr void _0xCEAB54F4632C6EF6(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3319, void>(p0, p1); }
-	FORCEINLINE constexpr void TRACK_OBJECT_VISIBILITY(Object ObjectID) { return RDONatives::NativeInvoker::Invoke<3320, void>(ObjectID); }
-	FORCEINLINE constexpr BOOL IS_OBJECT_VISIBLE(Object ObjectID) { return RDONatives::NativeInvoker::Invoke<3321, BOOL>(ObjectID); }
-	FORCEINLINE constexpr void SET_OBJECT_TAKES_DAMAGE_FROM_COLLIDING_WITH_BUILDINGS(Object ObjectIndex, BOOL bTakesDamage) { return RDONatives::NativeInvoker::Invoke<3322, void>(ObjectIndex, bTakesDamage); }
+	FORCEINLINE constexpr void TRACK_OBJECT_VISIBILITY(::Object ObjectID) { return RDONatives::NativeInvoker::Invoke<3320, void>(ObjectID); }
+	FORCEINLINE constexpr BOOL IS_OBJECT_VISIBLE(::Object ObjectID) { return RDONatives::NativeInvoker::Invoke<3321, BOOL>(ObjectID); }
+	FORCEINLINE constexpr void SET_OBJECT_TAKES_DAMAGE_FROM_COLLIDING_WITH_BUILDINGS(::Object ObjectIndex, BOOL bTakesDamage) { return RDONatives::NativeInvoker::Invoke<3322, void>(ObjectIndex, bTakesDamage); }
 	FORCEINLINE constexpr void ALLOW_DAMAGE_EVENTS_FOR_NON_NETWORKED_OBJECTS(BOOL enabled) { return RDONatives::NativeInvoker::Invoke<3323, void>(enabled); }
 	FORCEINLINE constexpr void _0x6579860A5558524A(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3324, void>(p0, p1); }
 	FORCEINLINE constexpr void _0xDFA1237F5228263F(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3325, void>(p0, p1); }
-	FORCEINLINE constexpr float _GET_LIGHT_INTENSITY_FROM_OBJECT(Object object) { return RDONatives::NativeInvoker::Invoke<3326, float>(object); }
-	FORCEINLINE constexpr void _SET_LIGHT_INTENSITY_FOR_OBJECT(Object object, float lightIntensity) { return RDONatives::NativeInvoker::Invoke<3327, void>(object, lightIntensity); }
-	FORCEINLINE constexpr void _SET_LIGHT_TRANSLUCENCY_FOR_OBJECT(Object object, float value) { return RDONatives::NativeInvoker::Invoke<3328, void>(object, value); }
-	FORCEINLINE constexpr void _SET_LIGHT_SCATTERING_DISABLED_FOR_OBJECT(Object object, BOOL disable) { return RDONatives::NativeInvoker::Invoke<3329, void>(object, disable); }
+	FORCEINLINE constexpr float _GET_LIGHT_INTENSITY_FROM_OBJECT(::Object object) { return RDONatives::NativeInvoker::Invoke<3326, float>(object); }
+	FORCEINLINE constexpr void _SET_LIGHT_INTENSITY_FOR_OBJECT(::Object object, float lightIntensity) { return RDONatives::NativeInvoker::Invoke<3327, void>(object, lightIntensity); }
+	FORCEINLINE constexpr void _SET_LIGHT_TRANSLUCENCY_FOR_OBJECT(::Object object, float value) { return RDONatives::NativeInvoker::Invoke<3328, void>(object, value); }
+	FORCEINLINE constexpr void _SET_LIGHT_SCATTERING_DISABLED_FOR_OBJECT(::Object object, BOOL disable) { return RDONatives::NativeInvoker::Invoke<3329, void>(object, disable); }
 	FORCEINLINE constexpr void _0x7FCD49388BC9B775(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3330, void>(p0, p1); }
 	FORCEINLINE constexpr Any _0xFA99E8E575F2FEF8(Any p0) { return RDONatives::NativeInvoker::Invoke<3331, Any>(p0); }
-	FORCEINLINE constexpr Object GET_RAYFIRE_MAP_OBJECT(float PosX, float PosY, float PosZ, float fRadius, const char* RayfireName) { return RDONatives::NativeInvoker::Invoke<3332, Object>(PosX, PosY, PosZ, fRadius, RayfireName); }
-	FORCEINLINE constexpr void SET_STATE_OF_RAYFIRE_MAP_OBJECT(Object RayFireObject, int state) { return RDONatives::NativeInvoker::Invoke<3333, void>(RayFireObject, state); }
-	FORCEINLINE constexpr int GET_STATE_OF_RAYFIRE_MAP_OBJECT(Object RayFireObject) { return RDONatives::NativeInvoker::Invoke<3334, int>(RayFireObject); }
-	FORCEINLINE constexpr BOOL DOES_RAYFIRE_MAP_OBJECT_EXIST(Object RayFireObject) { return RDONatives::NativeInvoker::Invoke<3335, BOOL>(RayFireObject); }
-	FORCEINLINE constexpr float GET_RAYFIRE_MAP_OBJECT_ANIM_PHASE(Object RayFireObject) { return RDONatives::NativeInvoker::Invoke<3336, float>(RayFireObject); }
+	FORCEINLINE constexpr ::Object GET_RAYFIRE_MAP_OBJECT(float PosX, float PosY, float PosZ, float fRadius, const char* RayfireName) { return RDONatives::NativeInvoker::Invoke<3332, ::Object>(PosX, PosY, PosZ, fRadius, RayfireName); }
+	FORCEINLINE constexpr void SET_STATE_OF_RAYFIRE_MAP_OBJECT(::Object RayFireObject, int state) { return RDONatives::NativeInvoker::Invoke<3333, void>(RayFireObject, state); }
+	FORCEINLINE constexpr int GET_STATE_OF_RAYFIRE_MAP_OBJECT(::Object RayFireObject) { return RDONatives::NativeInvoker::Invoke<3334, int>(RayFireObject); }
+	FORCEINLINE constexpr BOOL DOES_RAYFIRE_MAP_OBJECT_EXIST(::Object RayFireObject) { return RDONatives::NativeInvoker::Invoke<3335, BOOL>(RayFireObject); }
+	FORCEINLINE constexpr float GET_RAYFIRE_MAP_OBJECT_ANIM_PHASE(::Object RayFireObject) { return RDONatives::NativeInvoker::Invoke<3336, float>(RayFireObject); }
 	FORCEINLINE constexpr Pickup CREATE_PICKUP(Hash Type, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, int PlacementFlags, int Amount, BOOL ScriptHostObject, Hash CustomModel, int p8, float p9, Any p10) { return RDONatives::NativeInvoker::Invoke<3337, Pickup>(Type, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, PlacementFlags, Amount, ScriptHostObject, CustomModel, p8, p9, p10); }
 	FORCEINLINE constexpr Pickup CREATE_PICKUP_ROTATE(Hash Type, float CoorsX, float CoorsY, float CoorsZ, float OrientationX, float OrientationY, float OrientationZ, int PlacementFlags, int Amount, int RotOrder, BOOL ScriptHostObject, Hash CustomModel, int p12, float p13, Any p14) { return RDONatives::NativeInvoker::Invoke<3338, Pickup>(Type, CoorsX, CoorsY, CoorsZ, OrientationX, OrientationY, OrientationZ, PlacementFlags, Amount, RotOrder, ScriptHostObject, CustomModel, p12, p13, p14); }
-	FORCEINLINE constexpr Object CREATE_AMBIENT_PICKUP(Hash Type, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, int PlacementFlags, int Amount, Hash CustomModel, BOOL bCreateAsScriptObject, BOOL ScriptHostObject, int p9, float p10) { return RDONatives::NativeInvoker::Invoke<3339, Object>(Type, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, PlacementFlags, Amount, CustomModel, bCreateAsScriptObject, ScriptHostObject, p9, p10); }
-	FORCEINLINE constexpr Object CREATE_PORTABLE_PICKUP(Hash Type, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, BOOL SnapToGround, Hash CustomModel) { return RDONatives::NativeInvoker::Invoke<3340, Object>(Type, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, SnapToGround, CustomModel); }
-	FORCEINLINE constexpr void ATTACH_PORTABLE_PICKUP_TO_PED(Object PickupID, Ped PedID) { return RDONatives::NativeInvoker::Invoke<3341, void>(PickupID, PedID); }
-	FORCEINLINE constexpr void DETACH_PORTABLE_PICKUP_FROM_PED(Object PickupID) { return RDONatives::NativeInvoker::Invoke<3342, void>(PickupID); }
-	FORCEINLINE constexpr void _HIDE_PICKUP_OBJECT(Object pickupObject, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<3343, void>(pickupObject, toggle); }
+	FORCEINLINE constexpr ::Object CREATE_AMBIENT_PICKUP(Hash Type, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, int PlacementFlags, int Amount, Hash CustomModel, BOOL bCreateAsScriptObject, BOOL ScriptHostObject, int p9, float p10) { return RDONatives::NativeInvoker::Invoke<3339, ::Object>(Type, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, PlacementFlags, Amount, CustomModel, bCreateAsScriptObject, ScriptHostObject, p9, p10); }
+	FORCEINLINE constexpr ::  Object CREATE_PORTABLE_PICKUP(Hash Type, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ, BOOL SnapToGround, Hash CustomModel) { return RDONatives::NativeInvoker::Invoke<3340, ::Object>(Type, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ, SnapToGround, CustomModel); }
+	FORCEINLINE constexpr void ATTACH_PORTABLE_PICKUP_TO_PED(::Object PickupID, Ped PedID) { return RDONatives::NativeInvoker::Invoke<3341, void>(PickupID, PedID); }
+	FORCEINLINE constexpr void DETACH_PORTABLE_PICKUP_FROM_PED(::Object PickupID) { return RDONatives::NativeInvoker::Invoke<3342, void>(PickupID); }
+	FORCEINLINE constexpr void _HIDE_PICKUP_OBJECT(::Object pickupObject, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<3343, void>(pickupObject, toggle); }
 	FORCEINLINE constexpr void SET_MAX_NUM_PORTABLE_PICKUPS_CARRIED_BY_PLAYER(Hash modelName, int MaxPickups) { return RDONatives::NativeInvoker::Invoke<3344, void>(modelName, MaxPickups); }
 	FORCEINLINE constexpr Any _0x3E2616E7EA539480(Any p0) { return RDONatives::NativeInvoker::Invoke<3345, Any>(p0); }
 	FORCEINLINE constexpr void SET_LOCAL_PLAYER_CAN_COLLECT_PORTABLE_PICKUPS(BOOL CanCollect) { return RDONatives::NativeInvoker::Invoke<3346, void>(CanCollect); }
@@ -3532,11 +3532,11 @@ namespace OBJECT
 	FORCEINLINE constexpr void REMOVE_ALL_PICKUPS_OF_TYPE(Hash Type) { return RDONatives::NativeInvoker::Invoke<3349, void>(Type); }
 	FORCEINLINE constexpr BOOL HAS_PICKUP_BEEN_COLLECTED(Pickup PickupID) { return RDONatives::NativeInvoker::Invoke<3350, BOOL>(PickupID); }
 	FORCEINLINE constexpr void REMOVE_PICKUP(Pickup PickupID) { return RDONatives::NativeInvoker::Invoke<3351, void>(PickupID); }
-	FORCEINLINE constexpr void SET_PICKUP_DO_NOT_AUTO_PLACE_ON_GROUND(Object pickupObject) { return RDONatives::NativeInvoker::Invoke<3352, void>(pickupObject); }
+	FORCEINLINE constexpr void SET_PICKUP_DO_NOT_AUTO_PLACE_ON_GROUND(::Object pickupObject) { return RDONatives::NativeInvoker::Invoke<3352, void>(pickupObject); }
 	FORCEINLINE constexpr BOOL DOES_PICKUP_EXIST(Pickup PickupID) { return RDONatives::NativeInvoker::Invoke<3353, BOOL>(PickupID); }
 	FORCEINLINE constexpr BOOL DOES_PICKUP_OBJECT_EXIST(Pickup PickupID) { return RDONatives::NativeInvoker::Invoke<3354, BOOL>(PickupID); }
-	FORCEINLINE constexpr Object GET_PICKUP_OBJECT(Pickup PickupID) { return RDONatives::NativeInvoker::Invoke<3355, Object>(PickupID); }
-	FORCEINLINE constexpr BOOL IS_OBJECT_A_PORTABLE_PICKUP(Object ObjectID) { return RDONatives::NativeInvoker::Invoke<3356, BOOL>(ObjectID); }
+	FORCEINLINE constexpr ::Object GET_PICKUP_OBJECT(Pickup PickupID) { return RDONatives::NativeInvoker::Invoke<3355, ::Object>(PickupID); }
+	FORCEINLINE constexpr BOOL IS_OBJECT_A_PORTABLE_PICKUP(::Object ObjectID) { return RDONatives::NativeInvoker::Invoke<3356, BOOL>(ObjectID); }
 	FORCEINLINE constexpr BOOL _IS_PICKUP_TYPE_VALID(Hash pickupHash) { return RDONatives::NativeInvoker::Invoke<3357, BOOL>(pickupHash); }
 	FORCEINLINE constexpr BOOL DOES_PICKUP_OF_TYPE_EXIST_IN_AREA(Hash PickupType, float VecCoordsX, float VecCoordsY, float VecCoordsZ, float Radius) { return RDONatives::NativeInvoker::Invoke<3358, BOOL>(PickupType, VecCoordsX, VecCoordsY, VecCoordsZ, Radius); }
 	FORCEINLINE constexpr void SET_PICKUP_REGENERATION_TIME(Pickup PickupID, int RegenTime) { return RDONatives::NativeInvoker::Invoke<3359, void>(PickupID, RegenTime); }
@@ -3546,9 +3546,9 @@ namespace OBJECT
 	FORCEINLINE constexpr void BLOCK_PICKUP_FROM_PLAYER_COLLECTION(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3363, void>(p0, p1); }
 	FORCEINLINE constexpr void SET_PICKUP_NOT_LOOTABLE(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3364, void>(p0, p1); }
 	FORCEINLINE constexpr void _0x1F5E07E14A86FAFC(BOOL p0) { return RDONatives::NativeInvoker::Invoke<3365, void>(p0); }
-	FORCEINLINE constexpr void SET_TEAM_PICKUP_OBJECT(Object PickupID, int Team, BOOL bSet) { return RDONatives::NativeInvoker::Invoke<3366, void>(PickupID, Team, bSet); }
+	FORCEINLINE constexpr void SET_TEAM_PICKUP_OBJECT(::Object PickupID, int Team, BOOL bSet) { return RDONatives::NativeInvoker::Invoke<3366, void>(PickupID, Team, bSet); }
 	FORCEINLINE constexpr Any _0x9F52AD67D1A91BAD(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3367, Any>(p0, p1); }
-	FORCEINLINE constexpr void PREVENT_COLLECTION_OF_PORTABLE_PICKUP(Object PickupID, BOOL bPrevent, BOOL bLocalOnly) { return RDONatives::NativeInvoker::Invoke<3368, void>(PickupID, bPrevent, bLocalOnly); }
+	FORCEINLINE constexpr void PREVENT_COLLECTION_OF_PORTABLE_PICKUP(::Object PickupID, BOOL bPrevent, BOOL bLocalOnly) { return RDONatives::NativeInvoker::Invoke<3368, void>(PickupID, bPrevent, bLocalOnly); }
 	FORCEINLINE constexpr void SET_PICKUP_GENERATION_RANGE_MULTIPLIER(float multiplier) { return RDONatives::NativeInvoker::Invoke<3369, void>(multiplier); }
 	FORCEINLINE constexpr void SET_PICKUP_UNCOLLECTABLE(Pickup PickupID, BOOL bSet) { return RDONatives::NativeInvoker::Invoke<3370, void>(PickupID, bSet); }
 	FORCEINLINE constexpr void SET_PICKUP_HIDDEN_WHEN_UNCOLLECTABLE(Pickup PickupID, BOOL bSet) { return RDONatives::NativeInvoker::Invoke<3371, void>(PickupID, bSet); }
@@ -3557,38 +3557,38 @@ namespace OBJECT
 	FORCEINLINE constexpr void SET_PICKUP_PARTICLE_FX_HIGHLIGHT(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3374, void>(p0, p1); }
 	FORCEINLINE constexpr void SUPPRESS_PICKUP_REWARD_TYPE(int pickupFlag, BOOL bClearPreviousFlags) { return RDONatives::NativeInvoker::Invoke<3375, void>(pickupFlag, bClearPreviousFlags); }
 	FORCEINLINE constexpr Any _0x20135AF9C10D2A3D(Any p0) { return RDONatives::NativeInvoker::Invoke<3376, Any>(p0); }
-	FORCEINLINE constexpr void _SET_PICKUP_COLLECTABLE_ON_MOUNT(Object object) { return RDONatives::NativeInvoker::Invoke<3377, void>(object); }
+	FORCEINLINE constexpr void _SET_PICKUP_COLLECTABLE_ON_MOUNT(::Object object) { return RDONatives::NativeInvoker::Invoke<3377, void>(object); }
 	FORCEINLINE constexpr void _0xDE116ECFFDD4B997(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3378, void>(p0, p1); }
 	FORCEINLINE constexpr Hash GET_WEAPON_TYPE_FROM_PICKUP_TYPE(Hash ePickupType) { return RDONatives::NativeInvoker::Invoke<3379, Hash>(ePickupType); }
 	FORCEINLINE constexpr Hash _GET_AMMO_TYPE_FROM_PICKUP_TYPE(Hash pickupHash) { return RDONatives::NativeInvoker::Invoke<3380, Hash>(pickupHash); }
-	FORCEINLINE constexpr void SET_OBJECT_TINT_INDEX(Object ObjectIndex, int TintIndex) { return RDONatives::NativeInvoker::Invoke<3381, void>(ObjectIndex, TintIndex); }
-	FORCEINLINE constexpr float _GET_OBJECT_LIGHT_INTENSITY(Object object) { return RDONatives::NativeInvoker::Invoke<3382, float>(object); }
-	FORCEINLINE constexpr void _SET_OBJECT_BURN_OPACITY(Object object, float opacity) { return RDONatives::NativeInvoker::Invoke<3383, void>(object, opacity); }
-	FORCEINLINE constexpr void _SET_OBJECT_BURN_INTENSITY(Object object, float intensity) { return RDONatives::NativeInvoker::Invoke<3384, void>(object, intensity); }
-	FORCEINLINE constexpr void _SET_OBJECT_BURN_LEVEL(Object object, float burnLevel, BOOL affectAsh) { return RDONatives::NativeInvoker::Invoke<3385, void>(object, burnLevel, affectAsh); }
+	FORCEINLINE constexpr void SET_OBJECT_TINT_INDEX(::Object ObjectIndex, int TintIndex) { return RDONatives::NativeInvoker::Invoke<3381, void>(ObjectIndex, TintIndex); }
+	FORCEINLINE constexpr float _GET_OBJECT_LIGHT_INTENSITY(::Object object) { return RDONatives::NativeInvoker::Invoke<3382, float>(object); }
+	FORCEINLINE constexpr void _SET_OBJECT_BURN_OPACITY(::Object object, float opacity) { return RDONatives::NativeInvoker::Invoke<3383, void>(object, opacity); }
+	FORCEINLINE constexpr void _SET_OBJECT_BURN_INTENSITY(::Object object, float intensity) { return RDONatives::NativeInvoker::Invoke<3384, void>(object, intensity); }
+	FORCEINLINE constexpr void _SET_OBJECT_BURN_LEVEL(::Object object, float burnLevel, BOOL affectAsh) { return RDONatives::NativeInvoker::Invoke<3385, void>(object, burnLevel, affectAsh); }
 	FORCEINLINE constexpr void _0x9A74A9CADFA8A598(Any p0) { return RDONatives::NativeInvoker::Invoke<3386, void>(p0); }
-	FORCEINLINE constexpr void _RESET_OBJECT_VELOCITY(Object object) { return RDONatives::NativeInvoker::Invoke<3387, void>(object); }
-	FORCEINLINE constexpr void _SET_OBJECT_BURN_SPEED(Object object, float speed, float p2) { return RDONatives::NativeInvoker::Invoke<3388, void>(object, speed, p2); }
+	FORCEINLINE constexpr void _RESET_OBJECT_VELOCITY(::Object object) { return RDONatives::NativeInvoker::Invoke<3387, void>(object); }
+	FORCEINLINE constexpr void _SET_OBJECT_BURN_SPEED(::Object object, float speed, float p2) { return RDONatives::NativeInvoker::Invoke<3388, void>(object, speed, p2); }
 	FORCEINLINE constexpr void _0xCBFBD38F2E0A263B(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3389, void>(p0, p1); }
 	FORCEINLINE constexpr Hash CONVERT_OLD_PICKUP_TYPE_TO_NEW(Hash OldPickupType) { return RDONatives::NativeInvoker::Invoke<3390, Hash>(OldPickupType); }
 	FORCEINLINE constexpr void SET_FORCE_OBJECT_THIS_FRAME(float posX, float posY, float posZ, float radius) { return RDONatives::NativeInvoker::Invoke<3391, void>(posX, posY, posZ, radius); }
 	FORCEINLINE constexpr Any _0xD91E55B6C005EB09(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3392, Any>(p0, p1); }
-	FORCEINLINE constexpr void ONLY_CLEAN_UP_OBJECT_WHEN_OUT_OF_RANGE(Object ObjectIndex) { return RDONatives::NativeInvoker::Invoke<3393, void>(ObjectIndex); }
-	FORCEINLINE constexpr void _0xCAAF2BCCFEF37F77(Object object, Any p1) { return RDONatives::NativeInvoker::Invoke<3394, void>(object, p1); }
+	FORCEINLINE constexpr void ONLY_CLEAN_UP_OBJECT_WHEN_OUT_OF_RANGE(::Object ObjectIndex) { return RDONatives::NativeInvoker::Invoke<3393, void>(ObjectIndex); }
+	FORCEINLINE constexpr void _0xCAAF2BCCFEF37F77(::Object object, Any p1) { return RDONatives::NativeInvoker::Invoke<3394, void>(object, p1); }
 	FORCEINLINE constexpr Any _0x08C5825A2932EA7B(Any p0) { return RDONatives::NativeInvoker::Invoke<3395, Any>(p0); }
 	FORCEINLINE constexpr Any _0x7D4411D6736CD295(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3396, Any>(p0, p1); }
 	FORCEINLINE constexpr Any _0x250EBB11E81A10BE(Any p0) { return RDONatives::NativeInvoker::Invoke<3397, Any>(p0); }
 	FORCEINLINE constexpr Any _0x2BF1953C0C21AC88(Any p0) { return RDONatives::NativeInvoker::Invoke<3398, Any>(p0); }
-	FORCEINLINE constexpr BOOL CREATE_OBJECT_SKELETON(Object object) { return RDONatives::NativeInvoker::Invoke<3399, BOOL>(object); }
-	FORCEINLINE constexpr void _MAKE_ITEM_CARRIABLE(Object object) { return RDONatives::NativeInvoker::Invoke<3400, void>(object); }
+	FORCEINLINE constexpr BOOL CREATE_OBJECT_SKELETON(::Object object) { return RDONatives::NativeInvoker::Invoke<3399, BOOL>(object); }
+	FORCEINLINE constexpr void _MAKE_ITEM_CARRIABLE(::Object object) { return RDONatives::NativeInvoker::Invoke<3400, void>(object); }
 	FORCEINLINE constexpr void _0xF65EDE5D02A7A760(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3401, void>(p0, p1); }
-	FORCEINLINE constexpr void _SET_AUTO_JUMPABLE_BY_HORSE(Object object, BOOL p1) { return RDONatives::NativeInvoker::Invoke<3402, void>(object, p1); }
-	FORCEINLINE constexpr void _SET_NOT_JUMPABLE_BY_HORSE(Object object, BOOL p1) { return RDONatives::NativeInvoker::Invoke<3403, void>(object, p1); }
-	FORCEINLINE constexpr void _SET_OBJECT_KICKABLE(Object object, BOOL kickable) { return RDONatives::NativeInvoker::Invoke<3404, void>(object, kickable); }
-	FORCEINLINE constexpr void SET_CUSTOM_TEXTURES_ON_OBJECT(Object object, Hash txdHash, Any p2, Any p3) { return RDONatives::NativeInvoker::Invoke<3405, void>(object, txdHash, p2, p3); }
+	FORCEINLINE constexpr void _SET_AUTO_JUMPABLE_BY_HORSE(::Object object, BOOL p1) { return RDONatives::NativeInvoker::Invoke<3402, void>(object, p1); }
+	FORCEINLINE constexpr void _SET_NOT_JUMPABLE_BY_HORSE(::Object object, BOOL p1) { return RDONatives::NativeInvoker::Invoke<3403, void>(object, p1); }
+	FORCEINLINE constexpr void _SET_OBJECT_KICKABLE(::Object object, BOOL kickable) { return RDONatives::NativeInvoker::Invoke<3404, void>(object, kickable); }
+	FORCEINLINE constexpr void SET_CUSTOM_TEXTURES_ON_OBJECT(::Object object, Hash txdHash, Any p2, Any p3) { return RDONatives::NativeInvoker::Invoke<3405, void>(object, txdHash, p2, p3); }
 	FORCEINLINE constexpr void _0xD503D6F0986D58BC(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3406, void>(p0, p1); }
 	FORCEINLINE constexpr void _0xAEE6C800E124CFE1(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<3407, void>(p0, p1); }
-	FORCEINLINE constexpr void _0x3DF1A0A58498E209(Object object, Any p1) { return RDONatives::NativeInvoker::Invoke<3408, void>(object, p1); }
+	FORCEINLINE constexpr void _0x3DF1A0A58498E209(::Object object, Any p1) { return RDONatives::NativeInvoker::Invoke<3408, void>(object, p1); }
 }
 
 namespace PAD
@@ -3943,11 +3943,11 @@ namespace PED
 	FORCEINLINE constexpr BOOL IS_PED_RESPONDING_TO_THREAT(Ped ped) { return RDONatives::NativeInvoker::Invoke<3748, BOOL>(ped); }
 	FORCEINLINE constexpr Hash _GET_ACTIVE_DYNAMIC_SCENARIO_2(Ped ped) { return RDONatives::NativeInvoker::Invoke<3749, Hash>(ped); }
 	FORCEINLINE constexpr Hash _GET_ACTIVE_DYNAMIC_SCENARIO(Ped ped) { return RDONatives::NativeInvoker::Invoke<3750, Hash>(ped); }
-	FORCEINLINE constexpr BOOL _GIVE_PED_SCENARIO_PROP(Ped ped, Object object, const char* conditionalAnim, const char* p3, const char* p4, BOOL p5) { return RDONatives::NativeInvoker::Invoke<3751, BOOL>(ped, object, conditionalAnim, p3, p4, p5); }
-	FORCEINLINE constexpr BOOL GIVE_PED_HASH_SCENARIO_PROP(Ped ped, Object object, const char* conditionalAnim, Hash scenarioType, Hash p4, BOOL p5) { return RDONatives::NativeInvoker::Invoke<3752, BOOL>(ped, object, conditionalAnim, scenarioType, p4, p5); }
-	FORCEINLINE constexpr BOOL _GIVE_PED_SCENARIO_PROP_DYNAMIC(Ped ped, Object object, const char* p2, const char* p3, BOOL p4) { return RDONatives::NativeInvoker::Invoke<3753, BOOL>(ped, object, p2, p3, p4); }
-	FORCEINLINE constexpr Any _REQUEST_PROP_SCENARIO_PED(Ped ped, Object object, const char* p2, const char* p3, const char* p4, BOOL p5) { return RDONatives::NativeInvoker::Invoke<3754, Any>(ped, object, p2, p3, p4, p5); }
-	FORCEINLINE constexpr Any _REQUEST_PED_FOR_SCENARIO_TYPE(Ped ped, Object object, const char* p2, Hash scenarioType, const char* p4, BOOL p5) { return RDONatives::NativeInvoker::Invoke<3755, Any>(ped, object, p2, scenarioType, p4, p5); }
+	FORCEINLINE constexpr BOOL _GIVE_PED_SCENARIO_PROP(Ped ped, ::Object object, const char* conditionalAnim, const char* p3, const char* p4, BOOL p5) { return RDONatives::NativeInvoker::Invoke<3751, BOOL>(ped, object, conditionalAnim, p3, p4, p5); }
+	FORCEINLINE constexpr BOOL GIVE_PED_HASH_SCENARIO_PROP(Ped ped, ::Object object, const char* conditionalAnim, Hash scenarioType, Hash p4, BOOL p5) { return RDONatives::NativeInvoker::Invoke<3752, BOOL>(ped, object, conditionalAnim, scenarioType, p4, p5); }
+	FORCEINLINE constexpr BOOL _GIVE_PED_SCENARIO_PROP_DYNAMIC(Ped ped, ::Object object, const char* p2, const char* p3, BOOL p4) { return RDONatives::NativeInvoker::Invoke<3753, BOOL>(ped, object, p2, p3, p4); }
+	FORCEINLINE constexpr Any _REQUEST_PROP_SCENARIO_PED(Ped ped, ::Object object, const char* p2, const char* p3, const char* p4, BOOL p5) { return RDONatives::NativeInvoker::Invoke<3754, Any>(ped, object, p2, p3, p4, p5); }
+	FORCEINLINE constexpr Any _REQUEST_PED_FOR_SCENARIO_TYPE(Ped ped, ::Object object, const char* p2, Hash scenarioType, const char* p4, BOOL p5) { return RDONatives::NativeInvoker::Invoke<3755, Any>(ped, object, p2, scenarioType, p4, p5); }
 	FORCEINLINE constexpr Entity _GET_PED_REGISTER_PROP(Ped ped, const char* propName, BOOL detachProp) { return RDONatives::NativeInvoker::Invoke<3756, Entity>(ped, propName, detachProp); }
 	FORCEINLINE constexpr int GET_SEAT_PED_IS_TRYING_TO_ENTER(Ped PedIndex) { return RDONatives::NativeInvoker::Invoke<3757, int>(PedIndex); }
 	FORCEINLINE constexpr Entity GET_PED_SOURCE_OF_DEATH(Ped PedIndex) { return RDONatives::NativeInvoker::Invoke<3758, Entity>(PedIndex); }
@@ -4627,7 +4627,7 @@ namespace PED
 	FORCEINLINE constexpr Any _0xD97BC27AC039F681(Any p0, Any p1, Any p2, Any p3) { return RDONatives::NativeInvoker::Invoke<4432, Any>(p0, p1, p2, p3); }
 	FORCEINLINE constexpr Any _0xF6A8C4B4A11AE89C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return RDONatives::NativeInvoker::Invoke<4433, Any>(p0, p1, p2, p3, p4, p5); }
 	FORCEINLINE constexpr void _0xE4C95E0AE31C6512(Ped ped, Any p1) { return RDONatives::NativeInvoker::Invoke<4434, void>(ped, p1); }
-	FORCEINLINE constexpr Object _GET_PED_LAST_DROPPED_HAT(Ped ped) { return RDONatives::NativeInvoker::Invoke<4435, Object>(ped); }
+	FORCEINLINE constexpr ::Object _GET_PED_LAST_DROPPED_HAT(Ped ped) { return RDONatives::NativeInvoker::Invoke<4435, ::Object>(ped); }
 	FORCEINLINE constexpr void _0x5D4CD22A8C82A81A(Ped ped, BOOL p1) { return RDONatives::NativeInvoker::Invoke<4436, void>(ped, p1); }
 	FORCEINLINE constexpr void _0xBF567DF2BEF211A6(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<4437, void>(p0, p1); }
 	FORCEINLINE constexpr int _CREATE_GRAVITY_WELL(float xPos, float yPos, float zPos, float heading, float radius, float p5, float p6, float p7, BOOL stopAtDestination) { return RDONatives::NativeInvoker::Invoke<4438, int>(xPos, yPos, zPos, heading, radius, p5, p6, p7, stopAtDestination); }
@@ -4713,7 +4713,7 @@ namespace PED
 	FORCEINLINE constexpr Any _0x52250B92EA70BE3D(Any p0) { return RDONatives::NativeInvoker::Invoke<4518, Any>(p0); }
 	FORCEINLINE constexpr void _SET_PED_QUALITY(Ped ped, int quality) { return RDONatives::NativeInvoker::Invoke<4519, void>(ped, quality); }
 	FORCEINLINE constexpr int _GET_PED_QUALITY(Ped ped) { return RDONatives::NativeInvoker::Invoke<4520, int>(ped); }
-	FORCEINLINE constexpr void _0xCE7A6C1D5CDE1F9D(Ped ped, Object object, const char* propName, const char* animName) { return RDONatives::NativeInvoker::Invoke<4521, void>(ped, object, propName, animName); }
+	FORCEINLINE constexpr void _0xCE7A6C1D5CDE1F9D(Ped ped, ::Object object, const char* propName, const char* animName) { return RDONatives::NativeInvoker::Invoke<4521, void>(ped, object, propName, animName); }
 	FORCEINLINE constexpr void _0x604E1010E3162E86(Any p0, Any p1, Any p2) { return RDONatives::NativeInvoker::Invoke<4522, void>(p0, p1, p2); }
 	FORCEINLINE constexpr void _0xE8ABE3B73FC7FE17(Any p0, Any p1, Any p2, Any p3) { return RDONatives::NativeInvoker::Invoke<4523, void>(p0, p1, p2, p3); }
 	FORCEINLINE constexpr void _REMOVE_PED_PROP(Ped ped, const char* propName) { return RDONatives::NativeInvoker::Invoke<4524, void>(ped, propName); }
@@ -5957,7 +5957,7 @@ namespace TASK
 	FORCEINLINE constexpr void SET_ANIM_RATE(Entity EntityIndex, float rate, int priority, BOOL secondary) { return RDONatives::NativeInvoker::Invoke<5686, void>(EntityIndex, rate, priority, secondary); }
 	FORCEINLINE constexpr BOOL CAN_START_ITEM_INTERACTION(Ped ped, Hash itemHash, Hash interactionAnimHash, int p3) { return RDONatives::NativeInvoker::Invoke<5687, BOOL>(ped, itemHash, interactionAnimHash, p3); }
 	FORCEINLINE constexpr void START_TASK_ITEM_INTERACTION(Ped ped, Hash itemHash, Hash interactionAnimHash, int p3, int flag, float p5) { return RDONatives::NativeInvoker::Invoke<5688, void>(ped, itemHash, interactionAnimHash, p3, flag, p5); }
-	FORCEINLINE constexpr void _TASK_ITEM_INTERACTION_2(Ped ped, Hash propNameGxt, Object prop, Hash propId, Hash itemInteractionState, int p5, Any p6, float p7) { return RDONatives::NativeInvoker::Invoke<5689, void>(ped, propNameGxt, prop, propId, itemInteractionState, p5, p6, p7); }
+	FORCEINLINE constexpr void _TASK_ITEM_INTERACTION_2(Ped ped, Hash propNameGxt, ::Object prop, Hash propId, Hash itemInteractionState, int p5, Any p6, float p7) { return RDONatives::NativeInvoker::Invoke<5689, void>(ped, propNameGxt, prop, propId, itemInteractionState, p5, p6, p7); }
 	FORCEINLINE constexpr void _TASK_ITEM_INTERACTION_3(Ped ped, Hash item, void* guid, Any p3, Any p4, Any p5, float p6) { return RDONatives::NativeInvoker::Invoke<5690, void>(ped, item, guid, p3, p4, p5, p6); }
 	FORCEINLINE constexpr void _0xB35370D5353995CB(Ped ped, Hash item, float p2) { return RDONatives::NativeInvoker::Invoke<5691, void>(ped, item, p2); }
 	FORCEINLINE constexpr Hash GET_ITEM_INTERACTION_STATE(Ped ped) { return RDONatives::NativeInvoker::Invoke<5692, Hash>(ped); }
@@ -5966,7 +5966,7 @@ namespace TASK
 	FORCEINLINE constexpr BOOL IS_PED_RUNNING_TASK_ITEM_INTERACTION(Ped ped) { return RDONatives::NativeInvoker::Invoke<5695, BOOL>(ped); }
 	FORCEINLINE constexpr Entity _GET_ITEM_INTERACTION_ENTITY_FROM_PED(Ped ped, Hash item) { return RDONatives::NativeInvoker::Invoke<5696, Entity>(ped, item); }
 	FORCEINLINE constexpr float GET_ITEM_INTERACTION_PROMPT_PROGRESS(Ped ped, Hash inputContext) { return RDONatives::NativeInvoker::Invoke<5697, float>(ped, inputContext); }
-	FORCEINLINE constexpr Object _0x678D3226CF70B9C8(Ped ped, BOOL p1) { return RDONatives::NativeInvoker::Invoke<5698, Object>(ped, p1); }
+	FORCEINLINE constexpr ::Object _0x678D3226CF70B9C8(Ped ped, BOOL p1) { return RDONatives::NativeInvoker::Invoke<5698, ::Object>(ped, p1); }
 	FORCEINLINE constexpr void TASK_EVASIVE_ANIM(Ped ped1, Ped ped2, int p2) { return RDONatives::NativeInvoker::Invoke<5699, void>(ped1, ped2, p2); }
 	FORCEINLINE constexpr void TASK_LOOK_AT_COORD(Ped PedIndex, float VecCoorsX, float VecCoorsY, float VecCoorsZ, int time, int LookFlags, int p6, BOOL p7) { return RDONatives::NativeInvoker::Invoke<5700, void>(PedIndex, VecCoorsX, VecCoorsY, VecCoorsZ, time, LookFlags, p6, p7); }
 	FORCEINLINE constexpr void TASK_LOOK_AT_ENTITY(Ped PedIndex, Entity EntityIndex, int time, int p3, int p4, int p5) { return RDONatives::NativeInvoker::Invoke<5701, void>(PedIndex, EntityIndex, time, p3, p4, p5); }
@@ -6391,8 +6391,8 @@ namespace TASK
 	FORCEINLINE constexpr void TASK_HOGTIEABLE(Ped ped) { return RDONatives::NativeInvoker::Invoke<6120, void>(ped); }
 	FORCEINLINE constexpr void UNHOGTIE_PED(Ped ped, int flags, Hash getupSetHash, const char* p3, const char* p4, float p5) { return RDONatives::NativeInvoker::Invoke<6121, void>(ped, flags, getupSetHash, p3, p4, p5); }
 	FORCEINLINE constexpr void _0x722D6A49200174FE(Any p0, Any p1, Any p2, Any p3, Any p4) { return RDONatives::NativeInvoker::Invoke<6122, void>(p0, p1, p2, p3, p4); }
-	FORCEINLINE constexpr void _MAKE_OBJECT_CARRIABLE(Object object) { return RDONatives::NativeInvoker::Invoke<6123, void>(object); }
-	FORCEINLINE constexpr void MAKE_OBJECT_NOT_CARRIABLE(Object object) { return RDONatives::NativeInvoker::Invoke<6124, void>(object); }
+	FORCEINLINE constexpr void _MAKE_OBJECT_CARRIABLE(::Object object) { return RDONatives::NativeInvoker::Invoke<6123, void>(object); }
+	FORCEINLINE constexpr void MAKE_OBJECT_NOT_CARRIABLE(::Object object) { return RDONatives::NativeInvoker::Invoke<6124, void>(object); }
 	FORCEINLINE constexpr void _0x8E1DDE26D270CC5E(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<6125, void>(p0, p1); }
 	FORCEINLINE constexpr void _0xA6A76D666A281F2D(Any p0, Hash item) { return RDONatives::NativeInvoker::Invoke<6126, void>(p0, item); }
 	FORCEINLINE constexpr void _0xA21AA2F0C2180125(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<6127, void>(p0, p1); }
@@ -6404,10 +6404,10 @@ namespace TASK
 	FORCEINLINE constexpr void _0x4E806A395D43A458(Any p0) { return RDONatives::NativeInvoker::Invoke<6133, void>(p0); }
 	FORCEINLINE constexpr void SET_TEAM_CARRIABLE_ENTITY(Any p0, Any p1, Any p2) { return RDONatives::NativeInvoker::Invoke<6134, void>(p0, p1, p2); }
 	FORCEINLINE constexpr BOOL IS_TEAM_CARRIABLE_ENTITY(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<6135, BOOL>(p0, p1); }
-	FORCEINLINE constexpr BOOL _IS_HAT_BEING_PICKED_UP(Object hatObject) { return RDONatives::NativeInvoker::Invoke<6136, BOOL>(hatObject); }
-	FORCEINLINE constexpr void _0x9ADDBB9242179D56(Object object, Ped ped) { return RDONatives::NativeInvoker::Invoke<6137, void>(object, ped); }
-	FORCEINLINE constexpr BOOL _IS_HAT_BEING_PICKED_UP_2(Object hatObject) { return RDONatives::NativeInvoker::Invoke<6138, BOOL>(hatObject); }
-	FORCEINLINE constexpr void _TASK_EQUIP_HAT(Object hatObject, Ped ped) { return RDONatives::NativeInvoker::Invoke<6139, void>(hatObject, ped); }
+	FORCEINLINE constexpr BOOL _IS_HAT_BEING_PICKED_UP(::Object hatObject) { return RDONatives::NativeInvoker::Invoke<6136, BOOL>(hatObject); }
+	FORCEINLINE constexpr void _0x9ADDBB9242179D56(::Object object, Ped ped) { return RDONatives::NativeInvoker::Invoke<6137, void>(object, ped); }
+	FORCEINLINE constexpr BOOL _IS_HAT_BEING_PICKED_UP_2(::Object hatObject) { return RDONatives::NativeInvoker::Invoke<6138, BOOL>(hatObject); }
+	FORCEINLINE constexpr void _TASK_EQUIP_HAT(::Object hatObject, Ped ped) { return RDONatives::NativeInvoker::Invoke<6139, void>(hatObject, ped); }
 	FORCEINLINE constexpr Any _0x7CB99FADDE73CD1B(Any p0) { return RDONatives::NativeInvoker::Invoke<6140, Any>(p0); }
 	FORCEINLINE constexpr void _0xF3C3503276F4A034(Entity entity, Any p1) { return RDONatives::NativeInvoker::Invoke<6141, void>(entity, p1); }
 	FORCEINLINE constexpr Any _0x6DAC799857EF3F11(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<6142, Any>(p0, p1); }
@@ -6443,7 +6443,7 @@ namespace TASK
 	FORCEINLINE constexpr void _SET_FISHING_BAIT(Ped ped, const char* bait, BOOL withoutBuoy, BOOL instantly) { return RDONatives::NativeInvoker::Invoke<6172, void>(ped, bait, withoutBuoy, instantly); }
 	FORCEINLINE constexpr void _0x1F298C7BD30D1240(Ped ped) { return RDONatives::NativeInvoker::Invoke<6173, void>(ped); }
 	FORCEINLINE constexpr void _PED_FISHINGROD_HOOK_ENTITY(Ped ped, Entity entity) { return RDONatives::NativeInvoker::Invoke<6174, void>(ped, entity); }
-	FORCEINLINE constexpr void _PED_FISHINGROD_HOOK_OBJECT(Ped ped, Object object) { return RDONatives::NativeInvoker::Invoke<6175, void>(ped, object); }
+	FORCEINLINE constexpr void _PED_FISHINGROD_HOOK_OBJECT(Ped ped, ::Object object) { return RDONatives::NativeInvoker::Invoke<6175, void>(ped, object); }
 	FORCEINLINE constexpr BOOL _0xB520DBDA7FCF573F(Ped ped) { return RDONatives::NativeInvoker::Invoke<6176, BOOL>(ped); }
 	FORCEINLINE constexpr void _0x31BB338F64D5C861(Ped ped, BOOL p1) { return RDONatives::NativeInvoker::Invoke<6177, void>(ped, p1); }
 	FORCEINLINE constexpr void _0x517D01BF27B682D1(Ped ped, Entity entity, float p2, float p3, float p4, float p5, int p6) { return RDONatives::NativeInvoker::Invoke<6178, void>(ped, entity, p2, p3, p4, p5, p6); }
@@ -7033,7 +7033,7 @@ namespace VEHICLE
 	FORCEINLINE constexpr void _0x172E9DD35858DCD7(Any p0) { return RDONatives::NativeInvoker::Invoke<6710, void>(p0); }
 	FORCEINLINE constexpr int _GET_BREAKABLE_VEHICLE_LOCKS_STATE(Vehicle vehicle) { return RDONatives::NativeInvoker::Invoke<6711, int>(vehicle); }
 	FORCEINLINE constexpr Any _0x877EA24EB1614495(Any p0, Any p1, Any p2) { return RDONatives::NativeInvoker::Invoke<6712, Any>(p0, p1, p2); }
-	FORCEINLINE constexpr Object _GET_BREAKABLE_VEHICLE_LOCK_OBJECT(Vehicle vehicle, int index) { return RDONatives::NativeInvoker::Invoke<6713, Object>(vehicle, index); }
+	FORCEINLINE constexpr ::Object _GET_BREAKABLE_VEHICLE_LOCK_OBJECT(Vehicle vehicle, int index) { return RDONatives::NativeInvoker::Invoke<6713, ::Object>(vehicle, index); }
 	FORCEINLINE constexpr int _GET_NUM_BREAKABLE_VEHICLE_LOCK_OBJECTS(Vehicle vehicle) { return RDONatives::NativeInvoker::Invoke<6714, int>(vehicle); }
 	FORCEINLINE constexpr void SET_BREAKABLE_VEHICLE_LOCKS_UNBREAKABLE(Vehicle vehicle, BOOL toggle) { return RDONatives::NativeInvoker::Invoke<6715, void>(vehicle, toggle); }
 	FORCEINLINE constexpr void _0x9D12796EF4BF9EA9(Any p0) { return RDONatives::NativeInvoker::Invoke<6716, void>(p0); }
@@ -7361,12 +7361,12 @@ namespace WEAPON
 	FORCEINLINE constexpr Hash _GET_WEAPON_STAT_ID(Hash weaponHash) { return RDONatives::NativeInvoker::Invoke<7022, Hash>(weaponHash); }
 	FORCEINLINE constexpr BOOL _HAS_ENTITY_BEEN_DAMAGED_BY_WEAPON_RECENTLY(Entity entity, Hash weaponHash, int ms) { return RDONatives::NativeInvoker::Invoke<7023, BOOL>(entity, weaponHash, ms); }
 	FORCEINLINE constexpr Hash _GET_PED_HOGTIE_WEAPON(Ped ped) { return RDONatives::NativeInvoker::Invoke<7024, Hash>(ped); }
-	FORCEINLINE constexpr Object _CREATE_WEAPON_OBJECT(Hash weaponHash, int ammoCount, float x, float y, float z, BOOL showWorldModel, float scale) { return RDONatives::NativeInvoker::Invoke<7025, Object>(weaponHash, ammoCount, x, y, z, showWorldModel, scale); }
-	FORCEINLINE constexpr void REMOVE_WEAPON_COMPONENT_FROM_WEAPON_OBJECT(Object WeaponObjectIndex, Hash WeaponComponent) { return RDONatives::NativeInvoker::Invoke<7026, void>(WeaponObjectIndex, WeaponComponent); }
-	FORCEINLINE constexpr BOOL HAS_WEAPON_GOT_WEAPON_COMPONENT(Object WeaponObjectIndex, Hash WeaponComponent) { return RDONatives::NativeInvoker::Invoke<7027, BOOL>(WeaponObjectIndex, WeaponComponent); }
-	FORCEINLINE constexpr void _GIVE_WEAPON_COMPONENT_TO_WEAPON_OBJECT(Object* weaponObject, Ped ped, Hash componentHash, BOOL p3) { return RDONatives::NativeInvoker::Invoke<7028, void>(weaponObject, ped, componentHash, p3); }
-	FORCEINLINE constexpr Object _GET_WEAPON_OBJECT_FROM_PED(Ped ped, BOOL p1) { return RDONatives::NativeInvoker::Invoke<7029, Object>(ped, p1); }
-	FORCEINLINE constexpr Object _GET_PED_WEAPON_OBJECT(Ped ped, BOOL p1) { return RDONatives::NativeInvoker::Invoke<7030, Object>(ped, p1); }
+	FORCEINLINE constexpr ::Object _CREATE_WEAPON_OBJECT(Hash weaponHash, int ammoCount, float x, float y, float z, BOOL showWorldModel, float scale) { return RDONatives::NativeInvoker::Invoke<7025, ::Object>(weaponHash, ammoCount, x, y, z, showWorldModel, scale); }
+	FORCEINLINE constexpr void REMOVE_WEAPON_COMPONENT_FROM_WEAPON_OBJECT(::Object WeaponObjectIndex, Hash WeaponComponent) { return RDONatives::NativeInvoker::Invoke<7026, void>(WeaponObjectIndex, WeaponComponent); }
+	FORCEINLINE constexpr BOOL HAS_WEAPON_GOT_WEAPON_COMPONENT(::Object WeaponObjectIndex, Hash WeaponComponent) { return RDONatives::NativeInvoker::Invoke<7027, BOOL>(WeaponObjectIndex, WeaponComponent); }
+	FORCEINLINE constexpr void _GIVE_WEAPON_COMPONENT_TO_WEAPON_OBJECT(::Object* weaponObject, Ped ped, Hash componentHash, BOOL p3) { return RDONatives::NativeInvoker::Invoke<7028, void>(weaponObject, ped, componentHash, p3); }
+	FORCEINLINE constexpr ::Object _GET_WEAPON_OBJECT_FROM_PED(Ped ped, BOOL p1) { return RDONatives::NativeInvoker::Invoke<7029, ::Object>(ped, p1); }
+	FORCEINLINE constexpr ::Object _GET_PED_WEAPON_OBJECT(Ped ped, BOOL p1) { return RDONatives::NativeInvoker::Invoke<7030, ::Object>(ped, p1); }
 	FORCEINLINE constexpr void _GIVE_WEAPON_COMPONENT_TO_ENTITY(Entity entity, Hash componentHash, Hash weaponHash, BOOL p3) { return RDONatives::NativeInvoker::Invoke<7031, void>(entity, componentHash, weaponHash, p3); }
 	FORCEINLINE constexpr void _0x74C9080FDD1BB48E(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<7032, void>(p0, p1); }
 	FORCEINLINE constexpr void _0x74C9080FDD1BB48F(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<7033, void>(p0, p1); }
@@ -7420,22 +7420,22 @@ namespace WEAPON
 	FORCEINLINE constexpr Any _0x95CA12E2C68043E5(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<7081, Any>(p0, p1); }
 	FORCEINLINE constexpr Any _0xABC18A28BAD4B46F(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<7082, Any>(p0, p1); }
 	FORCEINLINE constexpr Any _0x80BB243789008A82(Any p0, Any p1) { return RDONatives::NativeInvoker::Invoke<7083, Any>(p0, p1); }
-	FORCEINLINE constexpr float _GET_WEAPON_DAMAGE(Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7084, float>(weaponObject); }
-	FORCEINLINE constexpr void _SET_WEAPON_DAMAGE(Object weaponObject, float level, BOOL p2) { return RDONatives::NativeInvoker::Invoke<7085, void>(weaponObject, level, p2); }
-	FORCEINLINE constexpr float _GET_WEAPON_DIRT(Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7086, float>(weaponObject); }
-	FORCEINLINE constexpr void _SET_WEAPON_DIRT(Object weaponObject, float level, BOOL p2) { return RDONatives::NativeInvoker::Invoke<7087, void>(weaponObject, level, p2); }
-	FORCEINLINE constexpr float _GET_WEAPON_SOOT(Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7088, float>(weaponObject); }
-	FORCEINLINE constexpr void _SET_WEAPON_SOOT(Object weaponObject, float level, BOOL p2) { return RDONatives::NativeInvoker::Invoke<7089, void>(weaponObject, level, p2); }
-	FORCEINLINE constexpr void _SET_WEAPON_LEVEL_THRESHOLD(Object weaponObject, float threshold) { return RDONatives::NativeInvoker::Invoke<7090, void>(weaponObject, threshold); }
-	FORCEINLINE constexpr float GET_WEAPON_DEGRADATION(Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7091, float>(weaponObject); }
-	FORCEINLINE constexpr float GET_WEAPON_PERMANENT_DEGRADATION(Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7092, float>(weaponObject); }
-	FORCEINLINE constexpr void _SET_WEAPON_DEGRADATION(Object weaponObject, float level) { return RDONatives::NativeInvoker::Invoke<7093, void>(weaponObject, level); }
+	FORCEINLINE constexpr float _GET_WEAPON_DAMAGE(::Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7084, float>(weaponObject); }
+	FORCEINLINE constexpr void _SET_WEAPON_DAMAGE(::Object weaponObject, float level, BOOL p2) { return RDONatives::NativeInvoker::Invoke<7085, void>(weaponObject, level, p2); }
+	FORCEINLINE constexpr float _GET_WEAPON_DIRT(::Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7086, float>(weaponObject); }
+	FORCEINLINE constexpr void _SET_WEAPON_DIRT(::Object weaponObject, float level, BOOL p2) { return RDONatives::NativeInvoker::Invoke<7087, void>(weaponObject, level, p2); }
+	FORCEINLINE constexpr float _GET_WEAPON_SOOT(::Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7088, float>(weaponObject); }
+	FORCEINLINE constexpr void _SET_WEAPON_SOOT(::Object weaponObject, float level, BOOL p2) { return RDONatives::NativeInvoker::Invoke<7089, void>(weaponObject, level, p2); }
+	FORCEINLINE constexpr void _SET_WEAPON_LEVEL_THRESHOLD(::Object weaponObject, float threshold) { return RDONatives::NativeInvoker::Invoke<7090, void>(weaponObject, threshold); }
+	FORCEINLINE constexpr float GET_WEAPON_DEGRADATION(::Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7091, float>(weaponObject); }
+	FORCEINLINE constexpr float GET_WEAPON_PERMANENT_DEGRADATION(::Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7092, float>(weaponObject); }
+	FORCEINLINE constexpr void _SET_WEAPON_DEGRADATION(::Object weaponObject, float level) { return RDONatives::NativeInvoker::Invoke<7093, void>(weaponObject, level); }
 	FORCEINLINE constexpr void _LISTEN_PROJECTILE_HIT_EVENTS(BOOL listen) { return RDONatives::NativeInvoker::Invoke<7094, void>(listen); }
-	FORCEINLINE constexpr float _GET_WEAPON_SCALE(Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7095, float>(weaponObject); }
-	FORCEINLINE constexpr void _SET_WEAPON_SCALE(Object weaponObject, float scale) { return RDONatives::NativeInvoker::Invoke<7096, void>(weaponObject, scale); }
+	FORCEINLINE constexpr float _GET_WEAPON_SCALE(::Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7095, float>(weaponObject); }
+	FORCEINLINE constexpr void _SET_WEAPON_SCALE(::Object weaponObject, float scale) { return RDONatives::NativeInvoker::Invoke<7096, void>(weaponObject, scale); }
 	FORCEINLINE constexpr Any _0x58425FCA3D3A2D15(Any p0) { return RDONatives::NativeInvoker::Invoke<7097, Any>(p0); }
 	FORCEINLINE constexpr Any _0xEC97101A8F311282(Any p0) { return RDONatives::NativeInvoker::Invoke<7098, Any>(p0); }
-	FORCEINLINE constexpr Hash _GET_CURRENT_PED_WEAPON_AMMO_TYPE(Ped ped, Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7099, Hash>(ped, weaponObject); }
+	FORCEINLINE constexpr Hash _GET_CURRENT_PED_WEAPON_AMMO_TYPE(Ped ped, ::Object weaponObject) { return RDONatives::NativeInvoker::Invoke<7099, Hash>(ped, weaponObject); }
 	FORCEINLINE constexpr Hash _GET_CURRENT_AMMO_TYPE_FROM_GUID(Ped ped, void* weaponGuid) { return RDONatives::NativeInvoker::Invoke<7100, Hash>(ped, weaponGuid); }
 	FORCEINLINE constexpr BOOL _IS_AMMO_TYPE_VALID_FOR_WEAPON(Hash weaponHash, Hash ammoHash) { return RDONatives::NativeInvoker::Invoke<7101, BOOL>(weaponHash, ammoHash); }
 	FORCEINLINE constexpr void _SET_AMMO_TYPE_FOR_PED_WEAPON(Ped ped, Hash weaponHash, Hash ammoHash) { return RDONatives::NativeInvoker::Invoke<7102, void>(ped, weaponHash, ammoHash); }

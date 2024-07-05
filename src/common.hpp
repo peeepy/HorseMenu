@@ -2,6 +2,12 @@
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 
+#ifdef _WIN32
+	#define EXPORT_API __declspec(dllexport)
+#else
+	#define EXPORT_API
+#endif
+
 #include "AsyncLogger/Logger.hpp"
 #include <MinHook.h>
 #include <Windows.h>
