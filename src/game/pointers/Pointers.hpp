@@ -6,7 +6,7 @@
 #include <dxgi1_4.h>
 #include <rage/atArray.hpp>
 #include <script/scrNativeHandler.hpp>
-#include <vulkan/vulkan.h>
+#include <../out/build/x64-Release/_deps/vulkan-src/include/vulkan/vulkan.h>
 #include <windows.h>
 
 class CNetGamePlayer;

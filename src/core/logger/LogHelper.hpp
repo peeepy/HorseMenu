@@ -58,8 +58,8 @@ namespace RDONatives
 }
 extern "C"
 {
-	EXPORT_API bool Logger_Init(const char* consoleName, const char* filePath, bool attachConsole);
-	EXPORT_API void Logger_Destroy();
-	EXPORT_API void Logger_ToggleConsole(bool toggle);
-	EXPORT_API void Logger_Log(int level, const char* message);
+	EXPORT_API bool __cdecl Logger_Init(const char* consoleName, const char* filePath, bool attachConsole);
+	EXPORT_API void __cdecl Logger_Destroy();
+	EXPORT_API void __cdecl Logger_ToggleConsole(bool toggle);
+	EXPORT_API void __cdecl Logger_Log(int level, const char* message);
 }

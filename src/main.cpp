@@ -20,21 +20,21 @@ namespace RDONatives
 {
 	DWORD Main(void*)
 	{
-		// const auto documents = std::filesystem::path(std::getenv("appdata")) / "RDONatives";
-		// FileMgr::Init(documents); // TODO
+		const auto documents = std::filesystem::path(std::getenv("appdata")) / "RDONatives";
+		FileMgr::Init(documents); // TODO
+		
+		LogHelper::Init("RDONatives", FileMgr::GetProjectFile("./cout.log"));
+
+		// g_HotkeySystem.RegisterCommands();
+		// CustomTeleport::FetchSavedLocations();
+		// Settings::Initialize(FileMgr::GetProjectFile("./settings.json"));
 		//
-		// LogHelper::Init("RDONatives", FileMgr::GetProjectFile("./cout.log"));
-
-		g_HotkeySystem.RegisterCommands();
-		CustomTeleport::FetchSavedLocations();
-		Settings::Initialize(FileMgr::GetProjectFile("./settings.json"));
-
-		if (!ModuleMgr.LoadModules())
-			goto unload;
-		if (!Pointers.Init())
-			goto unload;
-		if (!Renderer::Init())
-			goto unload;
+		// if (!ModuleMgr.LoadModules())
+		// 	goto unload;
+		// if (!Pointers.Init())
+		// 	goto unload;
+		// if (!Renderer::Init())
+		// 	goto unload;
 
 		// Byte_Patch_Manager::Init();
 		//
@@ -45,7 +45,7 @@ namespace RDONatives
 		//
 		// FiberPool::Init(5);
 		// LOG(INFO) << "FiberPool Initialized";
-		//
+		
 		// GUI::Init();
 
 		ScriptMgr::AddScript(std::make_unique<Script>(&FeatureLoop));
@@ -87,5 +87,17 @@ namespace RDONatives
 		return EXIT_SUCCESS;
 	}
 }
+
+// BOOL WINAPI DllMain(HINSTANCE dllInstance, DWORD reason, void*)
+// {
+// 	using namespace RDONatives;
+// 	DisableThreadLibraryCalls(dllInstance);
+// 	if (reason == DLL_PROCESS_ATTACH)
+// 	{
+// 		g_DllInstance = dllInstance;
+// 		g_MainThread  = CreateThread(nullptr, 0, Main, nullptr, 0, &g_MainThreadId);
+// 	}
+// 	return true;
+// }
 
 

@@ -53,7 +53,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE AsyncLogger imgui minhook nlohmann
 
 # Ensure consistent runtime library usage
 if(MSVC)
-  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
     # Add verbose linker output for debugging
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /VERBOSE")
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /VERBOSE")
@@ -63,24 +63,7 @@ if(MSVC)
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /MAP")
 endif()
 
-# Add debug symbols and set compile options
-target_compile_options(${PROJECT_NAME} PRIVATE 
-    $<$<CONFIG:Debug>:/Zi>
-)
-target_link_options(${PROJECT_NAME} PRIVATE
-    $<$<CONFIG:Debug>:/DEBUG>
-)
 
-# Force using the DLL version of the C runtime
-target_compile_definitions(${PROJECT_NAME} PRIVATE 
-    $<$<CONFIG:Debug>:_DEBUG>
-    $<$<CONFIG:Release>:NDEBUG>
-)
-
-# Set debug postfix
-set_target_properties(${PROJECT_NAME} PROPERTIES 
-    DEBUG_POSTFIX "d"
-)
 
 # Ensure correct shared library settings
 set_target_properties(${PROJECT_NAME} PROPERTIES 
@@ -92,14 +75,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 
-if(MSVC)
-  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
-  add_compile_options(
-    $<$<CONFIG:>:/MD>
-    $<$<CONFIG:Debug>:/MDd>
-    $<$<CONFIG:Release>:/MD>
-  )
-endif()
+
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND dumpbin /EXPORTS $<TARGET_FILE:${PROJECT_NAME}> > ${CMAKE_BINARY_DIR}/exports_list.txt
