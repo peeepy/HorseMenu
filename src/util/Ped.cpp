@@ -1,6 +1,11 @@
 #include "Ped.hpp"
 #include "Joaat.hpp"
 #include "PersistCompanion.hpp"
+#include "core/frontend/Notifications.hpp"
+#include "game/backend/ScriptMgr.hpp"
+#include "game/frontend/submenus/Self.hpp"
+#include "game/rdr/Natives.hpp"
+#include "script/types.hpp"
 
 namespace RDONatives::Peds
 {
@@ -34,14 +39,14 @@ namespace RDONatives::Peds
 		PED::_SET_PED_SCALE(ped, (float)scale);
 
 		if (spawnDead)
-			PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, RDONatives::Self::PlayerPed);
+			// PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, RDONatives::Self::PlayerPed);
 
 
 		STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(model);
 
-		SpawnedPedInfo spawnedPedInfo = {model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale};
-		spawnedPedInfo.currentHandle = ped;
-		PersistentCompanion::SharedInstance().PushPedsToTrackingList(spawnedPedInfo);
+		// SpawnedPedInfo spawnedPedInfo = {model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale};
+		// spawnedPedInfo.currentHandle = ped;
+		// PersistentCompanion::SharedInstance().PushPedsToTrackingList(spawnedPedInfo);
 		return ped;
 	}
 
@@ -74,19 +79,19 @@ namespace RDONatives::Peds
 		PED::_SET_PED_SCALE(ped, (float)scale);
 
 		if (spawnDead) {
-			PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, RDONatives::Self::PlayerPed);
+			// PED::APPLY_DAMAGE_TO_PED(ped, std::numeric_limits<int>::max(), 1, 0, RDONatives::Self::PlayerPed);
 	}
 
 		PED::SET_PED_ACCURACY(ped, 80);
 
 		// Create a group and set the player as the leader
-		int groupID = PLAYER::GET_PLAYER_GROUP(RDONatives::Self::PlayerPed);
-		PED::SET_PED_AS_GROUP_LEADER(RDONatives::Self::PlayerPed, groupID, 0);
-		PED::SET_PED_AS_GROUP_MEMBER(ped, groupID);
-		PED::SET_PED_CONFIG_FLAG(ped, 152 /*PCF_0x79114A20*/, true);
-		// PED::SET_PED_CAN_TELEPORT_TO_GROUP_LEADER(ped, groupID, true);
-		PED::SET_GROUP_SEPARATION_RANGE(groupID, 999999.9f); // Very high range to prevent separation
-		PED::SET_PED_CONFIG_FLAG(ped, 156 /*PCF_EnableCompanionAISupport*/, true);
+		// int groupID = PLAYER::GET_PLAYER_GROUP(RDONatives::Self::PlayerPed);
+		// PED::SET_PED_AS_GROUP_LEADER(RDONatives::Self::PlayerPed, groupID, 0);
+		// PED::SET_PED_AS_GROUP_MEMBER(ped, groupID);
+		// PED::SET_PED_CONFIG_FLAG(ped, 152 /*PCF_0x79114A20*/, true);
+		// // PED::SET_PED_CAN_TELEPORT_TO_GROUP_LEADER(ped, groupID, true);
+		// PED::SET_GROUP_SEPARATION_RANGE(groupID, 999999.9f); // Very high range to prevent separation
+		// PED::SET_PED_CONFIG_FLAG(ped, 156 /*PCF_EnableCompanionAISupport*/, true);
 		// PED::SET_PED_CONFIG_FLAG(ped, 279 /*PCF_NeverLeavesGroup*/, true);
 
 
@@ -101,7 +106,7 @@ namespace RDONatives::Peds
 		PED::SET_RELATIONSHIP_BETWEEN_GROUPS(1, playerGroup, companionGroup);
 		PED::SET_RELATIONSHIP_BETWEEN_GROUPS(5, companionGroup, hatesPlayer); // hates player group
 
-		PED::SET_PED_RELATIONSHIP_GROUP_HASH(RDONatives::Self::PlayerPed, playerGroup);
+		// PED::SET_PED_RELATIONSHIP_GROUP_HASH(RDONatives::Self::PlayerPed, playerGroup);
 		PED::SET_PED_RELATIONSHIP_GROUP_HASH(ped, companionGroup);
 
 		PED::SET_PED_AS_GROUP_MEMBER(ped, PLAYER::GET_PLAYER_GROUP(PLAYER::PLAYER_ID()));
@@ -116,7 +121,7 @@ namespace RDONatives::Peds
 		// PED::SET_PED_CONFIG_FLAG(ped, 130, true);
 
 		// Make the ped follow the player and engage in combat
-		TASK::TASK_FOLLOW_TO_OFFSET_OF_ENTITY(ped, RDONatives::Self::PlayerPed, 0.0f, 0.0f, 0.0f, 1.0f, -1, 1.0f, true, false, false, true, false, true);
+		// TASK::TASK_FOLLOW_TO_OFFSET_OF_ENTITY(ped, RDONatives::Self::PlayerPed, 0.0f, 0.0f, 0.0f, 1.0f, -1, 1.0f, true, false, false, true, false, true);
 		PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(ped, false);
 
 		// Add a blip to the ped
@@ -132,14 +137,14 @@ namespace RDONatives::Peds
 		// Have the companion mount a different horse with you (spawns their own horse to mount)
 		// NOTE: ONLY WORKS IF YOU SPAWN THEM WHILE YOU ARE ON A HORSE
 		// TODO: Make an option to spawn them their own horse (in companionOptions in world.cpp)
-		if (ENTITY::DOES_ENTITY_EXIST(Self::Mount))
-		{
-			if (PED::GET_MOUNT(Self::PlayerPed) == Self::Mount)
-			{
-				// Place the ped onto the mount as a passenger
-				PED::SET_PED_ONTO_MOUNT(ped, Self::Mount, -1, false);
-			}
-		}
+		// if (ENTITY::DOES_ENTITY_EXIST(Submenus::Self::Mount))
+		// {
+		// 	if (PED::GET_MOUNT(Submenus::Self::PlayerPed) == Submenus::Self::Mount)
+		// 	{
+		// 		// Place the ped onto the mount as a passenger
+		// 		PED::SET_PED_ONTO_MOUNT(ped, Submenus::Self::Mount, -1, false);
+		// 	}
+		// }
 
 		// Make animals not flee
 		if (!PED::IS_PED_HUMAN(ped))
@@ -149,9 +154,9 @@ namespace RDONatives::Peds
 
 		if (persistent)
 		{
-			CompanionInfo CompanionInfo = {model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale, persistent};
-			CompanionInfo.current_handle = ped;
-			PersistentCompanion::SharedInstance().PersistCompanion(CompanionInfo);
+			// CompanionInfo CompanionInfo = {model_name, coords, heading, blockNewPedMovement, spawnDead, invincible, invisible, scale, persistent};
+			// CompanionInfo.current_handle = ped;
+			// PersistentCompanion::SharedInstance().PersistCompanion(CompanionInfo);
 			Notifications::Show("Spawner", "Companion persisted", NotificationType::Success);
 		}
 

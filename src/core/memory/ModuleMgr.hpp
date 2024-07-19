@@ -33,3 +33,7 @@ namespace RDONatives
 
 	inline RDONatives::ModuleMgr ModuleMgr;
 }
+extern "C"
+{
+	__declspec(dllexport) bool LoadModulesWrapper();
+}

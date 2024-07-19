@@ -47,3 +47,11 @@ namespace RDONatives
 		return true;
 	}
 }
+
+extern "C"
+{
+	bool LoadModulesWrapper()
+	{
+		return RDONatives::ModuleMgr.LoadModules();
+	}
+}

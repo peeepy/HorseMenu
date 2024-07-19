@@ -133,3 +133,12 @@ namespace RDONatives
 
 	inline RDONatives::Pointers Pointers;
 }
+extern "C"
+{
+	__declspec(dllexport) bool PointersInit();
+}
+
+extern "C"
+{
+	__declspec(dllexport) void PointersRestore();
+}

@@ -1,7 +1,8 @@
 #pragma once
 #include "core/frontend/Notifications.hpp"
 #include "game/backend/ScriptMgr.hpp"
-#include "game/features/Features.hpp"
+// #include "game/features/Features.hpp"
+#include "script/types.hpp"
 #include "game/rdr/Natives.hpp"
 
 

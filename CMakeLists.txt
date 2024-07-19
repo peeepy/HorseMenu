@@ -61,6 +61,7 @@ if(MSVC)
   # Force the linker to generate a .MAP file
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /MAP")
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /MAP")
+  target_compile_options(${PROJECT_NAME} PRIVATE /bigobj)
 endif()
 
 
@@ -75,12 +76,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 
-
-
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND dumpbin /EXPORTS $<TARGET_FILE:${PROJECT_NAME}> > ${CMAKE_BINARY_DIR}/exports_list.txt
-    COMMENT "Generating list of exported symbols"
-)
 
 #target_compile_definitions(${PROJECT_NAME} PRIVATE 
     ##_ITERATOR_DEBUG_LEVEL=0

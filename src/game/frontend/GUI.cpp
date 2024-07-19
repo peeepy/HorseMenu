@@ -1,72 +1,72 @@
-#include "GUI.hpp"
-#include "Menu.hpp"
-#include "ESP.hpp"
-#include "game/frontend/submenus/World.hpp"
-#include "ContextMenu.hpp"
-#include "core/renderer/Renderer.hpp"
-#include "core/frontend/Notifications.hpp"
-#include "util/PersistCompanion.hpp"
-
-namespace RDONatives
-{
-	GUI::GUI() :
-	    m_IsOpen(false)
-	{
-		Menu::SetupFonts();
-		Menu::SetupStyle();
-		Menu::Init();
-
-		//PersistentCompanion::SharedInstance().LoadPedListFromFile("ped_list.txt");
-
-		Renderer::AddWindowProcedureCallback([this](HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
-			GUI::WndProc(hwnd, msg, wparam, lparam);
-		});
-
-		Renderer::AddRendererCallBack(
-		    [&] {
-			    Notifications::Draw();
-		    },
-		    -2);
-		Renderer::AddRendererCallBack(
-		    [&] {
-			    ESP::Draw();
-		    },
-		    -3);
-
-		Renderer::AddRendererCallBack(
-		    [&] {
-			    ContextMenu::DrawContextMenu();
-		    },
-		    -4);
-	}
-
-	GUI::~GUI()
-	{
-	}
-
-	void GUI::ToggleMouse()
-	{
-		auto& io           = ImGui::GetIO();
-		io.MouseDrawCursor = GUI::IsOpen();
-		GUI::IsOpen() ? io.ConfigFlags &= ~ImGuiConfigFlags_NoMouse : io.ConfigFlags |= ImGuiConfigFlags_NoMouse;
-	}
-
-	void GUI::WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
-	{
-		if (msg == WM_KEYUP && wparam == VK_F11)
-		{
-			// Persist and restore the cursor position between menu instances
-			static POINT CursorCoords{};
-			if (m_IsOpen)
-			{
-				GetCursorPos(&CursorCoords);
-			}
-			else if (CursorCoords.x + CursorCoords.y)
-			{
-				SetCursorPos(CursorCoords.x, CursorCoords.y);
-			}
-			Toggle();
-			ToggleMouse();
-		}
-	}
-}
+// #include "GUI.hpp"
+// #include "Menu.hpp"
+// #include "ESP.hpp"
+// #include "game/frontend/submenus/World.hpp"
+// #include "ContextMenu.hpp"
+// #include "core/renderer/Renderer.hpp"
+// #include "core/frontend/Notifications.hpp"
+// #include "util/PersistCompanion.hpp"
+//
+// namespace RDONatives
+// {
+// 	GUI::GUI() :
+// 	    m_IsOpen(false)
+// 	{
+// 		Menu::SetupFonts();
+// 		Menu::SetupStyle();
+// 		Menu::Init();
+//
+// 		//PersistentCompanion::SharedInstance().LoadPedListFromFile("ped_list.txt");
+//
+// 		Renderer::AddWindowProcedureCallback([this](HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
+// 			GUI::WndProc(hwnd, msg, wparam, lparam);
+// 		});
+//
+// 		Renderer::AddRendererCallBack(
+// 		    [&] {
+// 			    Notifications::Draw();
+// 		    },
+// 		    -2);
+// 		Renderer::AddRendererCallBack(
+// 		    [&] {
+// 			    ESP::Draw();
+// 		    },
+// 		    -3);
+//
+// 		Renderer::AddRendererCallBack(
+// 		    [&] {
+// 			    ContextMenu::DrawContextMenu();
+// 		    },
+// 		    -4);
+// 	}
+//
+// 	GUI::~GUI()
+// 	{
+// 	}
+//
+// 	void GUI::ToggleMouse()
+// 	{
+// 		auto& io           = ImGui::GetIO();
+// 		io.MouseDrawCursor = GUI::IsOpen();
+// 		GUI::IsOpen() ? io.ConfigFlags &= ~ImGuiConfigFlags_NoMouse : io.ConfigFlags |= ImGuiConfigFlags_NoMouse;
+// 	}
+//
+// 	void GUI::WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+// 	{
+// 		if (msg == WM_KEYUP && wparam == VK_F11)
+// 		{
+// 			// Persist and restore the cursor position between menu instances
+// 			static POINT CursorCoords{};
+// 			if (m_IsOpen)
+// 			{
+// 				GetCursorPos(&CursorCoords);
+// 			}
+// 			else if (CursorCoords.x + CursorCoords.y)
+// 			{
+// 				SetCursorPos(CursorCoords.x, CursorCoords.y);
+// 			}
+// 			Toggle();
+// 			ToggleMouse();
+// 		}
+// 	}
+// }

@@ -1,5 +1,6 @@
 #pragma once
 #include "util/Joaat.hpp"
+#include "vulkan/vulkan_core.h"
 
 #include <dxgi1_4.h>
 #include <d3d12.h>
@@ -61,6 +62,7 @@ namespace RDONatives
 		{
 			return GetInstance().AddRendererCallBackImpl(std::move(callback), priority);
 		}
+		
 		/**
 		 * @brief Add a callback function to handle Windows WindowProcedure
 		 * 
@@ -213,3 +215,28 @@ namespace RDONatives
 
 // Make our linker aware of the ImGui WndProcHandler
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
+
+extern "C"
+{
+	typedef void (*RenderCallbackFunction)(void* userData);
+
+	__declspec(dllexport) bool AddRendererCallBackWrapper(RenderCallbackFunction callback, void* userData, uint32_t priority);
+}
+
+extern "C"
+{
+	typedef void (*WindowProcCallbackFunction)(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
+	__declspec(dllexport) void AddWindowProcedureCallbackWrapper(WindowProcCallbackFunction callback);
+}
+
+// C wrappers for handling Renderer::Destroy() in C#
+extern "C"
+{
+	__declspec(dllexport) void RendererDestroy();
+}
+
+extern "C"
+{
+	__declspec(dllexport) bool RendererInit();
+}

@@ -43,6 +43,7 @@ namespace RDONatives
 		ImGui::DestroyContext();
 	}
 
+
 	bool Renderer::InitDX12()
 	{
 		if (!Pointers.SwapChain)
@@ -783,6 +784,7 @@ namespace RDONatives
 		return m_RendererCallBacks.insert({priority, callback}).second;
 	}
 
+
 	void Renderer::AddWindowProcedureCallbackImpl(WindowProcedureCallback&& callback)
 	{
 		return m_WindowProcedureCallbacks.push_back(callback);
@@ -916,5 +918,46 @@ namespace RDONatives
 		GetInstance().m_CommandQueue->Signal(GetInstance().m_Fence.Get(), FenceValue);
 		GetInstance().m_FenceLastSignaledValue = FenceValue;
 		CurrentFrameContext.FenceValue = FenceValue;
+	}
+}
+
+// C-style wrapper for AddRendererCallback() to use in C#
+extern "C"
+{
+	bool AddRendererCallBackWrapper(RenderCallbackFunction callback, void* userData, uint32_t priority)
+	{
+		auto wrappedCallback = [callback, userData]() {
+			callback(userData);
+		};
+		return RDONatives::Renderer::AddRendererCallBack(std::move(wrappedCallback), priority);
+	}
+}
+
+// C-style wrapper for AddWindowProcedureCallback() to use in C#
+extern "C"
+{
+	void AddWindowProcedureCallbackWrapper(WindowProcCallbackFunction callback)
+	{
+		RDONatives::WindowProcedureCallback wrappedCallback = [callback](HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+			callback(hwnd, uMsg, wParam, lParam);
+		};
+
+		RDONatives::Renderer::AddWindowProcedureCallback(std::move(wrappedCallback));
+	}
+}
+
+extern "C"
+{
+	void RendererDestroy()
+	{
+		RDONatives::Renderer::Destroy();
+	}
+}
+
+extern "C"
+{
+	bool RendererInit()
+	{
+		return RDONatives::Renderer::Init();
 	}
 }

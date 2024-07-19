@@ -34,14 +34,32 @@ namespace RDONatives::Hooks
 		return value == 0xE9;
 	}
 
-	static bool IsUnwantedDependency(__int64 cb)
+	    static bool IsClrRelatedDependency(__int64 cb)
 	{
+		// This function should return true for CLR-related dependencies
+		// You'll need to define what constitutes a CLR-related dependency
+		// This is a placeholder implementation
+		char moduleName[MAX_PATH];
+		if (GetMappedFileNameA(GetCurrentProcess(), (LPVOID)cb, moduleName, sizeof(moduleName)))
+		{
+			std::string moduleNameStr(moduleName);
+			return moduleNameStr.find("clr.dll") != std::string::npos || moduleNameStr.find("coreclr.dll") != std::string::npos;
+		}
+		return false;
+	}
+
+	    static bool IsUnwantedDependency(__int64 cb)
+	{
+		if (IsClrRelatedDependency(cb))
+		{
+			// Allow CLR-related dependencies
+			return false;
+		}
+
 		auto f1 = *(__int64*)(cb);
 		auto f2 = *(__int64*)(cb + 0x78);
-
 		if (!IsAddressInGameRegion(f1) || (f2 && !IsAddressInGameRegion(f2)))
 			return false;
-
 		return IsJumpInstruction(f1) || IsJumpInstruction(f2);
 	}
 
@@ -51,6 +69,11 @@ namespace RDONatives::Hooks
 		{
 			LOG(INFO) << "Caught unwanted dependency: RDR2.exe+" << std::hex << std::uppercase << (*(__int64*)(dependency) - (__int64)GetModuleHandleA(0));
 			return;
+		}
+
+		if (IsClrRelatedDependency(dependency))
+		{
+			LOG(INFO) << "Allowing CLR-related dependency: " << std::hex << dependency;
 		}
 
 		BaseHook::Get<Anticheat::QueueDependency, DetourHook<decltype(&Anticheat::QueueDependency)>>()->Original()(dependency);

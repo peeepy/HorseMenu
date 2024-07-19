@@ -1,4 +1,7 @@
 #include "Scripts.hpp"
+
+#include "Natives.hpp"
+
 #include <script/scrThread.hpp>
 #include <rage/tlsContext.hpp>
 #include "game/pointers/Pointers.hpp"

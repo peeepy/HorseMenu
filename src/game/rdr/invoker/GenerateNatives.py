@@ -1,4 +1,4 @@
-from enum import global_enum_repr
+#from enum import global_enum_repr
 import json
 
 natives = {}
@@ -9,17 +9,14 @@ class Arg:
     def __init__(self, name: str, type: str):
         self.name = name.replace("...", "varargs")
         self.type = type.replace("Any*", "void*")
-
         if (self.type == ""):
             self.type = "Args&&..."
-
     def __str__(self) -> str:
         return str(self.type) + " " + str(self.name)
 
 class NativeFunc:
     def __init__(self, namespace: str, name: str, hash: int, args: list[dict], return_type: str):
         global current_idx, hash_list
-
         self.namespace = namespace
         self.name = name
         self.hash = hash
@@ -29,7 +26,6 @@ class NativeFunc:
         self.variadic = False
         current_idx += 1
         hash_list.append(hash)
-
         for arg in args:
             if (arg["name"] == "..."):
                 self.variadic = True
@@ -37,7 +33,6 @@ class NativeFunc:
     
     def get_native_def_str(self) -> str:
         assert self.native_index != -1
-
         param_decl = ""
         param_pass = ""
         if len(self.args) > 0:
@@ -53,12 +48,26 @@ class NativeFunc:
         var_template = ""
         if self.variadic:
             var_template = "template <typename... Args> "
-
         return f"{var_template}FORCEINLINE constexpr {self.return_type} {self.name}({param_decl}) {{ return RDONatives::NativeInvoker::Invoke<{self.native_index}, {self.return_type}>({param_pass}); }}"
-    
+
+    def get_exported_func_str(self) -> str:
+        param_decl = ""
+        param_pass = ""
+        if len(self.args) > 0:
+            for arg in self.args:
+                if arg.name == "varargs":
+                    param_decl += "int argCount, IntPtr args"
+                    param_pass += "argCount, args"
+                else:
+                    param_decl += str(arg) + ", "
+                    param_pass += arg.name + ", "
+            param_decl = param_decl.rstrip(", ")
+            param_pass = param_pass.rstrip(", ")
+        
+        return f"__declspec(dllexport) {self.return_type} {self.name}_Export({param_decl}) {{ return {self.namespace}::{self.name}({param_pass}); }}"
+
 def load_natives_data():
     global natives
-
     data = json.load(open("natives.json"))
     for ns, natives_list in data.items():
         natives[ns] = []
@@ -66,33 +75,33 @@ def load_natives_data():
             natives[ns].append(NativeFunc(ns, native_data["name"], int(hash_str, 16), native_data["params"], native_data["return_type"]))
 
 def write_crossmap_header():
-        open("Crossmap.hpp", "w+").write(f"""#pragma once
+    open("Crossmap.hpp", "w+").write(f"""#pragma once
 #include <script/scrNativeHandler.hpp>
-
 namespace RDONatives
 {{
-	constexpr std::array<rage::scrNativeHash, {len(hash_list)}> g_Crossmap = {{{",".join([f"0x{x:X}" for x in hash_list])}}};
+    constexpr std::array<rage::scrNativeHash, {len(hash_list)}> g_Crossmap = {{{",".join([f"0x{x:X}" for x in hash_list])}}};
 }}
 """)
 
 def write_natives_header():
     natives_buf = ""
-
+    exports_buf = "\n// Exported functions for P/Invoke\nextern \"C\" {\n"
     for ns, nvs in natives.items():
         natives_buf += f"namespace {ns}\n{{\n"
         for nat_data in nvs:
             if nat_data.native_index == -1:
                 continue
-
             natives_buf += f"\t{nat_data.get_native_def_str()}\n"
+            exports_buf += f"{nat_data.get_exported_func_str()}\n"
         natives_buf += "}\n\n"
+    exports_buf += "}\n"
     
     natives_buf = natives_buf[:-2]
     open("../Natives.hpp", "w+").write(f"""#pragma once
 #include "invoker/Invoker.hpp"
-
 // clang-format off
 {natives_buf}
+{exports_buf}
 // clang-format on
 """)
     

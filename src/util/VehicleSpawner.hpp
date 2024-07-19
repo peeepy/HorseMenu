@@ -1,7 +1,9 @@
 #pragma once
 #include "game/backend/ScriptMgr.hpp"
-#include "game/features/Features.hpp"
-#include "game/rdr/Natives.hpp"
+// #include "game/features/Features.hpp"
+//#include "game/rdr/Natives.hpp"
+
+#include "script/types.hpp"
 
 #include <cmath>
 

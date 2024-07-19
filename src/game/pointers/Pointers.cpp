@@ -300,3 +300,17 @@ namespace RDONatives
 	{
 	}
 }
+extern "C"
+{
+	bool PointersInit()
+	{
+		return RDONatives::Pointers.Init();
+	}
+}
+extern "C"
+{
+	void PointersRestore()
+	{
+		RDONatives::Pointers.Restore();
+	}
+}

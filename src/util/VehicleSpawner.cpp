@@ -1,5 +1,8 @@
 #include "VehicleSpawner.hpp"
 
+#include "game/backend/ScriptMgr.hpp"
+#include "game/rdr/Natives.hpp"
+
 namespace RDONatives
 {
 	int SpawnVehicle(std::string model_name, Vector3 coords, float rotation)
