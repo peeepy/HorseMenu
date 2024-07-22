@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.27.x)
 
-project(HorseMenu VERSION 0.0.1 DESCRIPTION "A new base using new C++ features optimised for speed and ease of use")
+project(RDONatives VERSION 0.0.1 DESCRIPTION "A new base using new C++ features optimised for speed and ease of use")
 
 # libs
 include(cmake/vulkan.cmake)
@@ -19,8 +19,19 @@ file(GLOB_RECURSE SRC_FILES
 )
 set(DEPS_DIR "${PROJECT_SOURCE_DIR}/deps")
 
-add_library(${PROJECT_NAME} MODULE ${SRC_FILES})
+add_library(${PROJECT_NAME} SHARED ${SRC_FILES})
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 23)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    WINDOWS_EXPORT_ALL_SYMBOLS FALSE
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
+
+
+# Use your custom exports.def file
+set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/DEF:${CMAKE_BINARY_DIR}/exports.def")
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC "${SRC_DIR}/common.hpp")
 
@@ -42,4 +53,25 @@ add_compile_definitions(${PROJECT_NAME} "_CRT_SECURE_NO_WARNINGS" "NOMINMAX" "WI
 if(MSVC)
     set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} /LTCG /OPT:REF,ICF /GUARD:NO")
     string(REPLACE "/Ob1" "/Ob3" CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_CXX_FLAGS_RELWITHDEBINFO})
+
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+    # Add verbose linker output for debugging
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /VERBOSE")
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /VERBOSE")
+
+    # Force the linker to generate a .MAP file
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /MAP")
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /MAP")
+    target_compile_options(${PROJECT_NAME} PRIVATE /bigobj)
 endif()
+
+# Ensure correct shared library settings
+set_target_properties(${PROJECT_NAME} PROPERTIES 
+    PREFIX ""
+    IMPORT_PREFIX ""
+)
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E echo "DLL created at $<TARGET_FILE:${PROJECT_NAME}>"
+    COMMAND ${CMAKE_COMMAND} -E echo "LIB created at $<TARGET_LINKER_FILE:${PROJECT_NAME}>"
+)

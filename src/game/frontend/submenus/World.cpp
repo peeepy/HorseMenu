@@ -89,18 +89,6 @@ namespace YimMenu::Submenus
 			RenderVehicleSpawnerMenu();
 		}));
 
-		companionSpawnerGroup->AddItem(std::make_shared<ImGuiItem>([] {
-			CompanionSpawnerGroup();
-		}));
-		//companionSpawnerGroup->AddItem(std::make_shared<BoolCommandItem>("persistped"_J));
-		
-		companionspawner->AddItem(std::make_shared<ImGuiItem>([] {
-			drawCompanionList();
-		}));
-		pedspawner->AddItem(std::make_shared<ImGuiItem>([] {
-			drawPedList();
-		}));
-
 		spawners->AddItem(pedSpawnerGroup);
 		spawners->AddItem(vehicleSpawnerGroup);
 
