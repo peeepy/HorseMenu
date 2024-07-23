@@ -865,7 +865,7 @@ namespace YimMenu
 	void Renderer::DX12PostResize()
 	{
 		//Recreate our pointers and ImGui's
-        ImGui_ImplDX12_CreateDeviceObjects();
+        //ImGui_ImplDX12_CreateDeviceObjects(); // handle in C#
 		const auto RTVDescriptorSize{ GetInstance().m_Device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV) };
 		D3D12_CPU_DESCRIPTOR_HANDLE RTVHandle{ GetInstance().m_BackbufferDescriptorHeap->GetCPUDescriptorHandleForHeapStart() };
 		for (size_t i{}; i != GetInstance().m_SwapChainDesc.BufferCount; ++i)
@@ -881,7 +881,7 @@ namespace YimMenu
 		SetResizing(false);
 	}
 
-	void Renderer::DX12NewFrame()
+	void Renderer::DX12NewFrame() // handle in C#
 	{
 		ImGui_ImplDX12_NewFrame();
 		ImGui_ImplWin32_NewFrame();
@@ -900,7 +900,7 @@ namespace YimMenu
 		GetInstance().m_CommandList->ResourceBarrier(1, &Barrier);
 		GetInstance().m_CommandList->OMSetRenderTargets(1, &CurrentFrameContext.Descriptor, FALSE, nullptr);
 		GetInstance().m_CommandList->SetDescriptorHeaps(1, GetInstance().m_DescriptorHeap.GetAddressOf());
-
+		// TODO: Split into two functions above and below. In C#, call the imgui functions between them
 		ImGui::Render();
 		ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), GetInstance().m_CommandList.Get());
 

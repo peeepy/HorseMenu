@@ -60,14 +60,28 @@ namespace YimMenu
 			GetInstance().AddScriptImpl(std::move(script));
 		}
 
+		static void RegisterCallback(const char* eventName, std::function<void()> callback)
+		{
+			ScriptMgr::GetInstance().RegisterCallbackImpl(eventName, [callback]() {
+				callback();
+			});
+		}
+
+		static void TriggerCallback(const std::string& eventName)
+		{
+			GetInstance().TriggerCallbackImpl(eventName);
+		}
+
 		static bool CanTick()
 		{
 			return GetInstance().m_CanTick;
 		}
 
 	private:
-		std::mutex m_Mutex;
+		std::mutex m_ScriptMutex;
+		std::mutex m_CallbackMutex;
 		std::vector<std::unique_ptr<Script>> m_Scripts;
+		std::unordered_map<std::string, std::vector<std::function<void()>>> m_Callbacks;
 		bool m_CanTick = false;
 
 		void InitImpl();
@@ -75,6 +89,8 @@ namespace YimMenu
 		void TickImpl();
 		void YieldImpl(std::optional<std::chrono::high_resolution_clock::duration> time = std::nullopt);
 		void AddScriptImpl(std::unique_ptr<Script> script);
+		void RegisterCallbackImpl(const std::string& eventName, std::function<void()> callback);
+		void TriggerCallbackImpl(const std::string& eventName);
 
 		static ScriptMgr& GetInstance()
 		{

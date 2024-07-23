@@ -53,7 +53,7 @@ namespace YimMenu
 
 	void ScriptMgr::DestroyImpl()
 	{
-		std::lock_guard lock(m_Mutex);
+		std::lock_guard lock(m_ScriptMutex);
 		m_Scripts.clear();
 	}
 
@@ -68,7 +68,7 @@ namespace YimMenu
 			}(), true);
 
 			Scripts::RunAsScript(startup, [this]() {
-				std::lock_guard lock(m_Mutex);
+				std::lock_guard lock(m_ScriptMutex);
 				static bool ensure_main_fiber = (ConvertThreadToFiber(nullptr), true);
 
 				for (const auto& script : m_Scripts)
@@ -85,7 +85,25 @@ namespace YimMenu
 
 	void ScriptMgr::AddScriptImpl(std::unique_ptr<Script> script)
 	{
-		std::lock_guard lock(m_Mutex);
+		std::lock_guard lock(m_ScriptMutex);
 		m_Scripts.push_back(std::move(script));
+	}
+
+	void ScriptMgr::RegisterCallbackImpl(const std::string& eventName, std::function<void()> callback)
+	{
+		std::lock_guard lock(m_CallbackMutex);
+		m_Callbacks[eventName].push_back(std::move(callback));
+	}
+
+	void ScriptMgr::TriggerCallbackImpl(const std::string& eventName)
+	{
+		auto it = m_Callbacks.find(eventName);
+		if (it != m_Callbacks.end())
+		{
+			for (const auto& callback : it->second)
+			{
+				callback();
+			}
+		}
 	}
 }

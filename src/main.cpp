@@ -97,17 +97,17 @@ namespace YimMenu
 	}
 }
 
-BOOL WINAPI DllMain(HINSTANCE dllInstance, DWORD reason, void*)
-{
-	using namespace YimMenu;
-
-	DisableThreadLibraryCalls(dllInstance);
-
-	if (reason == DLL_PROCESS_ATTACH)
-	{
-		g_DllInstance = dllInstance;
-
-		g_MainThread = CreateThread(nullptr, 0, Main, nullptr, 0, &g_MainThreadId);
-	}
-	return true;
-}
+//BOOL WINAPI DllMain(HINSTANCE dllInstance, DWORD reason, void*)
+//{
+//	using namespace YimMenu;
+//
+//	DisableThreadLibraryCalls(dllInstance);
+//
+//	if (reason == DLL_PROCESS_ATTACH)
+//	{
+//		g_DllInstance = dllInstance;
+//
+//		g_MainThread = CreateThread(nullptr, 0, Main, nullptr, 0, &g_MainThreadId);
+//	}
+//	return true;
+//}

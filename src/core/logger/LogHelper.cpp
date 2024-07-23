@@ -109,3 +109,27 @@ namespace YimMenu
 		m_FileOut.open(m_File, std::ios::out | std::ios::trunc);
 	}
 }
+
+extern "C"
+{
+	bool Logger_Init(const char* consoleName, const char* filePath, bool attachConsole)
+	{
+		return YimMenu::LogHelper::Init(consoleName, filePath, attachConsole);
+	}
+
+	void Logger_Destroy()
+	{
+		YimMenu::LogHelper::Destroy();
+	}
+
+	void Logger_ToggleConsole(bool toggle)
+	{
+		YimMenu::LogHelper::ToggleConsole(toggle);
+	}
+
+	void Logger_Log(int level, const char* message)
+	{
+		// Assuming LOG is accessible here and eLogLevel is in the correct namespace
+		LOG(static_cast<eLogLevel>(level)) << message;
+	}
+}

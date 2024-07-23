@@ -8,6 +8,7 @@ namespace YimMenu
 #define ADD_COLOR_TO_STREAM(color) "\x1b[" << int(color) << "m"
 #define RESET_STREAM_COLOR "\x1b[0m"
 #define HEX(value) "0x" << std::hex << std::uppercase << DWORD64(value) << std::dec << std::nouppercase
+#define EXPORT_API __declspec(dllexport)
 
 	class LogHelper final
 	{
@@ -52,4 +53,12 @@ namespace YimMenu
 		std::filesystem::path m_File;
 		std::ofstream m_FileOut;
 	};
+}
+
+extern "C"
+{
+	EXPORT_API bool __cdecl Logger_Init(const char* consoleName, const char* filePath, bool attachConsole);
+	EXPORT_API void __cdecl Logger_Destroy();
+	EXPORT_API void __cdecl Logger_ToggleConsole(bool toggle);
+	EXPORT_API void __cdecl Logger_Log(int level, const char* message);
 }

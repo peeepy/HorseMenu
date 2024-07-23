@@ -1,5 +1,7 @@
 #include "game/rdr/Natives.hpp"
 
+#include "Vector3.hpp"
+
 // Exported functions for P/Invoke
 extern "C"
 {
@@ -387,7 +389,7 @@ extern "C"
 	{
 		return ANIMSCENE::SET_ANIM_SCENE_ORIGIN(animScene, posX, posY, posZ, rotX, rotY, rotZ, order);
 	}
-	void GET_ANIM_SCENE_ORIGIN_Export(AnimScene animScene, scrVector* position, scrVector* rotation, int order)
+	void GET_ANIM_SCENE_ORIGIN_Export(AnimScene animScene, Vector3* position, Vector3* rotation, int order)
 	{
 		return ANIMSCENE::GET_ANIM_SCENE_ORIGIN(animScene, position, rotation, order);
 	}
@@ -479,7 +481,7 @@ extern "C"
 	{
 		return ANIMSCENE::GET_ANIM_SCENE_INT(animScene, name);
 	}
-	BOOL GET_ANIM_SCENE_ENTITY_LOCATION_DATA_Export(AnimScene animScene, const char* entityName, scrVector* matrix, BOOL p3, const char* playbackListName, int p5)
+	BOOL GET_ANIM_SCENE_ENTITY_LOCATION_DATA_Export(AnimScene animScene, const char* entityName, Vector3* matrix, BOOL p3, const char* playbackListName, int p5)
 	{
 		return ANIMSCENE::GET_ANIM_SCENE_ENTITY_LOCATION_DATA(animScene, entityName, matrix, p3, playbackListName, p5);
 	}
@@ -1875,11 +1877,11 @@ extern "C"
 	{
 		return CAM::GET_RENDERING_CAM();
 	}
-	scrVector GET_CAM_COORD_Export(Cam CameraIndex)
+	Vector3 GET_CAM_COORD_Export(Cam CameraIndex)
 	{
 		return CAM::GET_CAM_COORD(CameraIndex);
 	}
-	scrVector GET_CAM_ROT_Export(Cam CameraIndex, int RotOrder)
+	Vector3 GET_CAM_ROT_Export(Cam CameraIndex, int RotOrder)
 	{
 		return CAM::GET_CAM_ROT(CameraIndex, RotOrder);
 	}
@@ -2079,11 +2081,11 @@ extern "C"
 	{
 		return CAM::SET_WIDESCREEN_BORDERS(bSet, Duration);
 	}
-	scrVector GET_GAMEPLAY_CAM_COORD_Export()
+	Vector3 GET_GAMEPLAY_CAM_COORD_Export()
 	{
 		return CAM::GET_GAMEPLAY_CAM_COORD();
 	}
-	scrVector GET_GAMEPLAY_CAM_ROT_Export(int RotOrder)
+	Vector3 GET_GAMEPLAY_CAM_ROT_Export(int RotOrder)
 	{
 		return CAM::GET_GAMEPLAY_CAM_ROT(RotOrder);
 	}
@@ -2351,11 +2353,11 @@ extern "C"
 	{
 		return CAM::_0xC205B3C54C6A4E37(p0);
 	}
-	scrVector GET_FINAL_RENDERED_CAM_COORD_Export()
+	Vector3 GET_FINAL_RENDERED_CAM_COORD_Export()
 	{
 		return CAM::GET_FINAL_RENDERED_CAM_COORD();
 	}
-	scrVector GET_FINAL_RENDERED_CAM_ROT_Export(int RotOrder)
+	Vector3 GET_FINAL_RENDERED_CAM_ROT_Export(int RotOrder)
 	{
 		return CAM::GET_FINAL_RENDERED_CAM_ROT(RotOrder);
 	}
@@ -2843,7 +2845,7 @@ extern "C"
 	{
 		return COLLECTION::_COLLECTABLE_GET_IPL(collectableItem);
 	}
-	scrVector _COLLECTABLE_GET_PLACEMENT_LOCATION_Export(Hash collectableItem)
+	Vector3 _COLLECTABLE_GET_PLACEMENT_LOCATION_Export(Hash collectableItem)
 	{
 		return COLLECTION::_COLLECTABLE_GET_PLACEMENT_LOCATION(collectableItem);
 	}
@@ -3712,7 +3714,7 @@ extern "C"
 	{
 		return DATAFILE::DATADICT_GET_STRING(dict, name);
 	}
-	scrVector DATADICT_GET_VECTOR_Export(void* dict, const char* name)
+	Vector3 DATADICT_GET_VECTOR_Export(void* dict, const char* name)
 	{
 		return DATAFILE::DATADICT_GET_VECTOR(dict, name);
 	}
@@ -3764,7 +3766,7 @@ extern "C"
 	{
 		return DATAFILE::DATAARRAY_GET_STRING(arr, index);
 	}
-	scrVector DATAARRAY_GET_VECTOR_Export(void* arr, int index)
+	Vector3 DATAARRAY_GET_VECTOR_Export(void* arr, int index)
 	{
 		return DATAFILE::DATAARRAY_GET_VECTOR(arr, index);
 	}
@@ -3840,7 +3842,7 @@ extern "C"
 	{
 		return DATAFILE::PARSEDDATA_RQ_FILLOUT_STRING_127(p0, p1);
 	}
-	BOOL _PARSEDDATA_RQ_FILLOUT_VECTOR_Export(scrVector* p0, void* p1)
+	BOOL _PARSEDDATA_RQ_FILLOUT_VECTOR_Export(Vector3* p0, void* p1)
 	{
 		return DATAFILE::_PARSEDDATA_RQ_FILLOUT_VECTOR(p0, p1);
 	}
@@ -4040,11 +4042,11 @@ extern "C"
 	{
 		return ENTITY::GET_ENTITY_ATTACHED_TO(EntityIndex);
 	}
-	scrVector GET_ENTITY_COORDS_Export(Entity EntityIndex, BOOL DoDeadCheck, BOOL realCoords)
+	Vector3 GET_ENTITY_COORDS_Export(Entity EntityIndex, BOOL DoDeadCheck, BOOL realCoords)
 	{
 		return ENTITY::GET_ENTITY_COORDS(EntityIndex, DoDeadCheck, realCoords);
 	}
-	scrVector GET_ENTITY_FORWARD_VECTOR_Export(Entity EntityIndex)
+	Vector3 GET_ENTITY_FORWARD_VECTOR_Export(Entity EntityIndex)
 	{
 		return ENTITY::GET_ENTITY_FORWARD_VECTOR(EntityIndex);
 	}
@@ -4056,7 +4058,7 @@ extern "C"
 	{
 		return ENTITY::GET_ENTITY_FORWARD_Y(EntityIndex);
 	}
-	scrVector _GET_ENTITY_FORWARD_VECTOR_YX_Export(Entity entity)
+	Vector3 _GET_ENTITY_FORWARD_VECTOR_YX_Export(Entity entity)
 	{
 		return ENTITY::_GET_ENTITY_FORWARD_VECTOR_YX(entity);
 	}
@@ -4092,11 +4094,11 @@ extern "C"
 	{
 		return ENTITY::GET_ENTITY_HEIGHT_ABOVE_GROUND(EntityIndex);
 	}
-	void _GET_ENTITY_WORLD_POSITION_OF_DIMENSIONS_Export(Entity entity, scrVector* minimum, scrVector* maximum)
+	void _GET_ENTITY_WORLD_POSITION_OF_DIMENSIONS_Export(Entity entity, Vector3* minimum, Vector3* maximum)
 	{
 		return ENTITY::_GET_ENTITY_WORLD_POSITION_OF_DIMENSIONS(entity, minimum, maximum);
 	}
-	void GET_ENTITY_MATRIX_Export(Entity EntityIndex, scrVector* vFront, scrVector* vSide, scrVector* vUp, scrVector* vPos)
+	void GET_ENTITY_MATRIX_Export(Entity EntityIndex, Vector3* vFront, Vector3* vSide, Vector3* vUp, Vector3* vPos)
 	{
 		return ENTITY::GET_ENTITY_MATRIX(EntityIndex, vFront, vSide, vUp, vPos);
 	}
@@ -4120,11 +4122,11 @@ extern "C"
 	{
 		return ENTITY::_GET_IS_PREDATOR(entity);
 	}
-	scrVector GET_OFFSET_FROM_ENTITY_GIVEN_WORLD_COORDS_Export(Entity EntityIndex, float VecWorldCoorsX, float VecWorldCoorsY, float VecWorldCoorsZ)
+	Vector3 GET_OFFSET_FROM_ENTITY_GIVEN_WORLD_COORDS_Export(Entity EntityIndex, float VecWorldCoorsX, float VecWorldCoorsY, float VecWorldCoorsZ)
 	{
 		return ENTITY::GET_OFFSET_FROM_ENTITY_GIVEN_WORLD_COORDS(EntityIndex, VecWorldCoorsX, VecWorldCoorsY, VecWorldCoorsZ);
 	}
-	scrVector GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS_Export(Entity EntityIndex, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ)
+	Vector3 GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS_Export(Entity EntityIndex, float VecNewCoorsX, float VecNewCoorsY, float VecNewCoorsZ)
 	{
 		return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(EntityIndex, VecNewCoorsX, VecNewCoorsY, VecNewCoorsZ);
 	}
@@ -4136,7 +4138,7 @@ extern "C"
 	{
 		return ENTITY::GET_ENTITY_ROLL(EntityIndex);
 	}
-	scrVector GET_ENTITY_ROTATION_Export(Entity EntityIndex, int RotOrder)
+	Vector3 GET_ENTITY_ROTATION_Export(Entity EntityIndex, int RotOrder)
 	{
 		return ENTITY::GET_ENTITY_ROTATION(EntityIndex, RotOrder);
 	}
@@ -4148,7 +4150,7 @@ extern "C"
 	{
 		return ENTITY::GET_ENTITY_SPEED(EntityIndex);
 	}
-	scrVector GET_ENTITY_SPEED_VECTOR_Export(Entity EntityIndex, BOOL bLocalResult)
+	Vector3 GET_ENTITY_SPEED_VECTOR_Export(Entity EntityIndex, BOOL bLocalResult)
 	{
 		return ENTITY::GET_ENTITY_SPEED_VECTOR(EntityIndex, bLocalResult);
 	}
@@ -4156,7 +4158,7 @@ extern "C"
 	{
 		return ENTITY::GET_ENTITY_UPRIGHT_VALUE(EntityIndex);
 	}
-	scrVector GET_ENTITY_VELOCITY_Export(Entity EntityIndex, int p1)
+	Vector3 GET_ENTITY_VELOCITY_Export(Entity EntityIndex, int p1)
 	{
 		return ENTITY::GET_ENTITY_VELOCITY(EntityIndex, p1);
 	}
@@ -4172,15 +4174,15 @@ extern "C"
 	{
 		return ENTITY::GET_VEHICLE_INDEX_FROM_ENTITY_INDEX(EntityIndex);
 	}
-	scrVector GET_WORLD_POSITION_OF_ENTITY_BONE_Export(Entity EntityIndex, int iBoneIdx)
+	Vector3 GET_WORLD_POSITION_OF_ENTITY_BONE_Export(Entity EntityIndex, int iBoneIdx)
 	{
 		return ENTITY::GET_WORLD_POSITION_OF_ENTITY_BONE(EntityIndex, iBoneIdx);
 	}
-	scrVector _0x5E214112806591EA_Export(Entity entity, int boneIndex)
+	Vector3 _0x5E214112806591EA_Export(Entity entity, int boneIndex)
 	{
 		return ENTITY::_0x5E214112806591EA(entity, boneIndex);
 	}
-	scrVector _0x3AB3A77672F6473F_Export(Any p0, Any p1, Any p2, Any p3)
+	Vector3 _0x3AB3A77672F6473F_Export(Any p0, Any p1, Any p2, Any p3)
 	{
 		return ENTITY::_0x3AB3A77672F6473F(p0, p1, p2, p3);
 	}
@@ -5228,7 +5230,7 @@ extern "C"
 	{
 		return FIRE::_STOP_FIRE_IN_BOX(posX, posY, posZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ);
 	}
-	BOOL GET_CLOSEST_FIRE_POS_Export(scrVector* VecClosestFirePos, float VecTestPosX, float VecTestPosY, float VecTestPosZ)
+	BOOL GET_CLOSEST_FIRE_POS_Export(Vector3* VecClosestFirePos, float VecTestPosX, float VecTestPosY, float VecTestPosZ)
 	{
 		return FIRE::GET_CLOSEST_FIRE_POS(VecClosestFirePos, VecTestPosX, VecTestPosY, VecTestPosZ);
 	}
@@ -5416,7 +5418,7 @@ extern "C"
 	{
 		return FLOCK::_0x34B9C4D86DF2C2F3(p0);
 	}
-	scrVector _0x1DA6CB02071055D5_Export(Any p0)
+	Vector3 _0x1DA6CB02071055D5_Export(Any p0)
 	{
 		return FLOCK::_0x1DA6CB02071055D5(p0);
 	}
@@ -7540,7 +7542,7 @@ extern "C"
 	{
 		return INTERIOR::IS_VALID_INTERIOR(InteriorInstanceIndex);
 	}
-	void GET_INTERIOR_LOCATION_AND_NAMEHASH_Export(Interior interior, scrVector* position, Hash* nameHash)
+	void GET_INTERIOR_LOCATION_AND_NAMEHASH_Export(Interior interior, Vector3* position, Hash* nameHash)
 	{
 		return INTERIOR::GET_INTERIOR_LOCATION_AND_NAMEHASH(interior, position, nameHash);
 	}
@@ -7548,7 +7550,7 @@ extern "C"
 	{
 		return INTERIOR::_GET_INTERIOR_MINIMAP_HASH(interior);
 	}
-	scrVector _GET_INTERIOR_POSITION_Export(Interior interior)
+	Vector3 _GET_INTERIOR_POSITION_Export(Interior interior)
 	{
 		return INTERIOR::_GET_INTERIOR_POSITION(interior);
 	}
@@ -8568,7 +8570,7 @@ extern "C"
 	{
 		return LAW::_0xE9EB79CBF9C0F58A(player);
 	}
-	void _0x21213B833EF4DAE7_Export(Player player, Ped ped, scrVector* outCoords)
+	void _0x21213B833EF4DAE7_Export(Player player, Ped ped, Vector3* outCoords)
 	{
 		return LAW::_0x21213B833EF4DAE7(player, ped, outCoords);
 	}
@@ -8960,7 +8962,7 @@ extern "C"
 	{
 		return MAP::SET_BLIP_COORDS(BlipIndex, VecCoorsX, VecCoorsY, VecCoorsZ);
 	}
-	scrVector GET_BLIP_COORDS_Export(Blip BlipIndex)
+	Vector3 GET_BLIP_COORDS_Export(Blip BlipIndex)
 	{
 		return MAP::GET_BLIP_COORDS(BlipIndex);
 	}
@@ -9076,7 +9078,7 @@ extern "C"
 	{
 		return MAP::IS_WAYPOINT_ACTIVE();
 	}
-	scrVector _GET_WAYPOINT_COORDS_Export()
+	Vector3 _GET_WAYPOINT_COORDS_Export()
 	{
 		return MAP::_GET_WAYPOINT_COORDS();
 	}
@@ -9096,7 +9098,7 @@ extern "C"
 	{
 		return MAP::_0xF47A1EB2A538A3A3();
 	}
-	BOOL _FIND_CLOSEST_GPS_POSITION_Export(float x, float y, float z, scrVector* outPosition)
+	BOOL _FIND_CLOSEST_GPS_POSITION_Export(float x, float y, float z, Vector3* outPosition)
 	{
 		return MAP::_FIND_CLOSEST_GPS_POSITION(x, y, z, outPosition);
 	}
@@ -9620,7 +9622,7 @@ extern "C"
 	{
 		return MISC::SET_WIND_DIRECTION(WindDir);
 	}
-	scrVector GET_WIND_DIRECTION_Export()
+	Vector3 GET_WIND_DIRECTION_Export()
 	{
 		return MISC::GET_WIND_DIRECTION();
 	}
@@ -9712,7 +9714,7 @@ extern "C"
 	{
 		return MISC::GET_GROUND_Z_FOR_3D_COORD(VecCoorsX, VecCoorsY, VecCoorsZ, ReturnZ, p4);
 	}
-	BOOL GET_GROUND_Z_AND_NORMAL_FOR_3D_COORD_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, float* ReturnZ, scrVector* ReturnNormal)
+	BOOL GET_GROUND_Z_AND_NORMAL_FOR_3D_COORD_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, float* ReturnZ, Vector3* ReturnNormal)
 	{
 		return MISC::GET_GROUND_Z_AND_NORMAL_FOR_3D_COORD(VecCoorsX, VecCoorsY, VecCoorsZ, ReturnZ, ReturnNormal);
 	}
@@ -9752,7 +9754,7 @@ extern "C"
 	{
 		return MISC::GET_HEADING_FROM_VECTOR_2D(VecX, VecY);
 	}
-	scrVector GET_CLOSEST_POINT_ON_LINE_Export(float rPointToTestX, float rPointToTestY, float rPointToTestZ, float vStartX, float vStartY, float vStartZ, float vEndX, float vEndY, float vEndZ, BOOL bClampToLine)
+	Vector3 GET_CLOSEST_POINT_ON_LINE_Export(float rPointToTestX, float rPointToTestY, float rPointToTestZ, float vStartX, float vStartY, float vStartZ, float vEndX, float vEndY, float vEndZ, BOOL bClampToLine)
 	{
 		return MISC::GET_CLOSEST_POINT_ON_LINE(rPointToTestX, rPointToTestY, rPointToTestZ, vStartX, vStartY, vStartZ, vEndX, vEndY, vEndZ, bClampToLine);
 	}
@@ -9840,7 +9842,7 @@ extern "C"
 	{
 		return MISC::SET_FADE_IN_AFTER_LOAD(bFadeIn);
 	}
-	BOOL OVERRIDE_SAVE_HOUSE_Export(BOOL bOverride, float vecCoordsX, float vecCoordsY, float vecCoordsZ, float fHeading, BOOL bIsAnAutosave, scrVector* vecReturnCoords, float* fReturnHeading)
+	BOOL OVERRIDE_SAVE_HOUSE_Export(BOOL bOverride, float vecCoordsX, float vecCoordsY, float vecCoordsZ, float fHeading, BOOL bIsAnAutosave, Vector3* vecReturnCoords, float* fReturnHeading)
 	{
 		return MISC::OVERRIDE_SAVE_HOUSE(bOverride, vecCoordsX, vecCoordsY, vecCoordsZ, fHeading, bIsAnAutosave, vecReturnCoords, fReturnHeading);
 	}
@@ -9852,7 +9854,7 @@ extern "C"
 	{
 		return MISC::FIRE_SINGLE_BULLET(args);
 	}
-	void GET_MODEL_DIMENSIONS_Export(Hash ModelHashKey, scrVector* returnMin, scrVector* returnMax)
+	void GET_MODEL_DIMENSIONS_Export(Hash ModelHashKey, Vector3* returnMin, Vector3* returnMax)
 	{
 		return MISC::GET_MODEL_DIMENSIONS(ModelHashKey, returnMin, returnMax);
 	}
@@ -9916,11 +9918,11 @@ extern "C"
 	{
 		return MISC::IS_PROJECTILE_TYPE_WITHIN_DISTANCE(vecCoorsX, vecCoorsY, vecCoorsZ, WeaponType, distance, bIsPlayer);
 	}
-	BOOL GET_COORDS_OF_PROJECTILE_TYPE_WITHIN_DISTANCE_Export(Ped ped, Hash WeaponType, float distance, scrVector* positionOut, BOOL needsToBeStationary, BOOL mustBeOwnedByThisPed)
+	BOOL GET_COORDS_OF_PROJECTILE_TYPE_WITHIN_DISTANCE_Export(Ped ped, Hash WeaponType, float distance, Vector3* positionOut, BOOL needsToBeStationary, BOOL mustBeOwnedByThisPed)
 	{
 		return MISC::GET_COORDS_OF_PROJECTILE_TYPE_WITHIN_DISTANCE(ped, WeaponType, distance, positionOut, needsToBeStationary, mustBeOwnedByThisPed);
 	}
-	BOOL GET_PROJECTILE_OF_PROJECTILE_TYPE_WITHIN_DISTANCE_Export(Ped ped, Hash WeaponType, float distance, scrVector* positionOut, Entity* EntityIndex, BOOL needsToBeStationary, BOOL mustBeOwnedByThisPed)
+	BOOL GET_PROJECTILE_OF_PROJECTILE_TYPE_WITHIN_DISTANCE_Export(Ped ped, Hash WeaponType, float distance, Vector3* positionOut, Entity* EntityIndex, BOOL needsToBeStationary, BOOL mustBeOwnedByThisPed)
 	{
 		return MISC::GET_PROJECTILE_OF_PROJECTILE_TYPE_WITHIN_DISTANCE(ped, WeaponType, distance, positionOut, EntityIndex, needsToBeStationary, mustBeOwnedByThisPed);
 	}
@@ -13077,7 +13079,7 @@ extern "C"
 	{
 		return OBJECT::HAS_CLOSEST_OBJECT_OF_TYPE_BEEN_BROKEN(scrVecCoorsX, scrVecCoorsY, scrVecCoorsZ, Radius, model, SearchFlags);
 	}
-	scrVector GET_OFFSET_FROM_COORD_AND_HEADING_IN_WORLD_COORDS_Export(float vPosX, float vPosY, float vPosZ, float fHeading, float vOffsetX, float vOffsetY, float vOffsetZ)
+	Vector3 GET_OFFSET_FROM_COORD_AND_HEADING_IN_WORLD_COORDS_Export(float vPosX, float vPosY, float vPosZ, float fHeading, float vOffsetX, float vOffsetY, float vOffsetZ)
 	{
 		return OBJECT::GET_OFFSET_FROM_COORD_AND_HEADING_IN_WORLD_COORDS(vPosX, vPosY, vPosZ, fHeading, vOffsetX, vOffsetY, vOffsetZ);
 	}
@@ -13385,11 +13387,11 @@ extern "C"
 	{
 		return OBJECT::SET_LOCAL_PLAYER_CAN_COLLECT_PORTABLE_PICKUPS(CanCollect);
 	}
-	scrVector GET_SAFE_PICKUP_COORDS_Export(float VecInCoorsX, float VecInCoorsY, float VecInCoorsZ, float minDist, float maxDist, Any p5)
+	Vector3 GET_SAFE_PICKUP_COORDS_Export(float VecInCoorsX, float VecInCoorsY, float VecInCoorsZ, float minDist, float maxDist, Any p5)
 	{
 		return OBJECT::GET_SAFE_PICKUP_COORDS(VecInCoorsX, VecInCoorsY, VecInCoorsZ, minDist, maxDist, p5);
 	}
-	scrVector GET_PICKUP_COORDS_Export(Pickup PickupID)
+	Vector3 GET_PICKUP_COORDS_Export(Pickup PickupID)
 	{
 		return OBJECT::GET_PICKUP_COORDS(PickupID);
 	}
@@ -13837,7 +13839,7 @@ extern "C"
 	{
 		return PATHFIND::_0x5A4E1A41E3A02AD0(p0, p1, p2);
 	}
-	BOOL GET_CLOSEST_VEHICLE_NODE_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, scrVector* VecReturnNearestNodeCoors, int nodeFlags, float zMeasureMult, float zTolerance)
+	BOOL GET_CLOSEST_VEHICLE_NODE_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, Vector3* VecReturnNearestNodeCoors, int nodeFlags, float zMeasureMult, float zTolerance)
 	{
 		return PATHFIND::GET_CLOSEST_VEHICLE_NODE(VecCoorsX, VecCoorsY, VecCoorsZ, VecReturnNearestNodeCoors, nodeFlags, zMeasureMult, zTolerance);
 	}
@@ -13845,11 +13847,11 @@ extern "C"
 	{
 		return PATHFIND::_0xCA27A86CAA4E98ED(p0, p1, p2, p3, p4, p5, p6);
 	}
-	BOOL GET_CLOSEST_VEHICLE_NODE_WITH_HEADING_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, scrVector* VecReturnNearestNodeCoors, float* ReturnHeading, int nodeFlags, float zMeasureMult, float zTolerance)
+	BOOL GET_CLOSEST_VEHICLE_NODE_WITH_HEADING_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, Vector3* VecReturnNearestNodeCoors, float* ReturnHeading, int nodeFlags, float zMeasureMult, float zTolerance)
 	{
 		return PATHFIND::GET_CLOSEST_VEHICLE_NODE_WITH_HEADING(VecCoorsX, VecCoorsY, VecCoorsZ, VecReturnNearestNodeCoors, ReturnHeading, nodeFlags, zMeasureMult, zTolerance);
 	}
-	BOOL GET_NTH_CLOSEST_VEHICLE_NODE_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, int NodeNumber, scrVector* VecReturnNearestNodeCoors, int nodeFlags, float zMeasureMult, float zTolerance)
+	BOOL GET_NTH_CLOSEST_VEHICLE_NODE_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, int NodeNumber, Vector3* VecReturnNearestNodeCoors, int nodeFlags, float zMeasureMult, float zTolerance)
 	{
 		return PATHFIND::GET_NTH_CLOSEST_VEHICLE_NODE(VecCoorsX, VecCoorsY, VecCoorsZ, NodeNumber, VecReturnNearestNodeCoors, nodeFlags, zMeasureMult, zTolerance);
 	}
@@ -13857,7 +13859,7 @@ extern "C"
 	{
 		return PATHFIND::GET_NTH_CLOSEST_VEHICLE_NODE_ID(VecCoorsX, VecCoorsY, VecCoorsZ, NodeNumber, nodeFlags, zMeasureMult, zTolerance);
 	}
-	BOOL GET_NTH_CLOSEST_VEHICLE_NODE_WITH_HEADING_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, int NodeNumber, scrVector* VecReturnNearestNodeCoors, float* ReturnHeading, int* ReturnNumLanes, int nodeFlags, float zMeasureMult, float zTolerance)
+	BOOL GET_NTH_CLOSEST_VEHICLE_NODE_WITH_HEADING_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, int NodeNumber, Vector3* VecReturnNearestNodeCoors, float* ReturnHeading, int* ReturnNumLanes, int nodeFlags, float zMeasureMult, float zTolerance)
 	{
 		return PATHFIND::GET_NTH_CLOSEST_VEHICLE_NODE_WITH_HEADING(VecCoorsX, VecCoorsY, VecCoorsZ, NodeNumber, VecReturnNearestNodeCoors, ReturnHeading, ReturnNumLanes, nodeFlags, zMeasureMult, zTolerance);
 	}
@@ -13865,7 +13867,7 @@ extern "C"
 	{
 		return PATHFIND::GET_NTH_CLOSEST_VEHICLE_NODE_ID_WITH_HEADING(VecCoorsX, VecCoorsY, VecCoorsZ, NodeNumber, ReturnHeading, ReturnNumLanes, nodeFlags, zMeasureMult, zTolerance);
 	}
-	BOOL GET_NTH_CLOSEST_VEHICLE_NODE_FAVOUR_DIRECTION_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, float FaceCoorsX, float FaceCoorsY, float FaceCoorsZ, int NodeNumber, scrVector* VecReturnNearestNodeCoors, float* ReturnHeading, int nodeFlags, float zMeasureMult, float zTolerance)
+	BOOL GET_NTH_CLOSEST_VEHICLE_NODE_FAVOUR_DIRECTION_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, float FaceCoorsX, float FaceCoorsY, float FaceCoorsZ, int NodeNumber, Vector3* VecReturnNearestNodeCoors, float* ReturnHeading, int nodeFlags, float zMeasureMult, float zTolerance)
 	{
 		return PATHFIND::GET_NTH_CLOSEST_VEHICLE_NODE_FAVOUR_DIRECTION(VecCoorsX, VecCoorsY, VecCoorsZ, FaceCoorsX, FaceCoorsY, FaceCoorsZ, NodeNumber, VecReturnNearestNodeCoors, ReturnHeading, nodeFlags, zMeasureMult, zTolerance);
 	}
@@ -13873,7 +13875,7 @@ extern "C"
 	{
 		return PATHFIND::IS_VEHICLE_NODE_ID_VALID(NodeId);
 	}
-	void GET_VEHICLE_NODE_POSITION_Export(int nodeId, scrVector* VecNodePosition)
+	void GET_VEHICLE_NODE_POSITION_Export(int nodeId, Vector3* VecNodePosition)
 	{
 		return PATHFIND::GET_VEHICLE_NODE_POSITION(nodeId, VecNodePosition);
 	}
@@ -13881,7 +13883,7 @@ extern "C"
 	{
 		return PATHFIND::GET_VEHICLE_NODE_IS_SWITCHED_OFF(nodeId);
 	}
-	BOOL GET_CLOSEST_ROAD_Export(float TestCoorsX, float TestCoorsY, float TestCoorsZ, float MinLength, int MinLanes, scrVector* SouthEndNode, scrVector* NorthEndNode, int* LanesGoingSouth, int* LanesGoingNorth, float* CentralReservationWidth, BOOL bIgnoreSwitchedOffNodes)
+	BOOL GET_CLOSEST_ROAD_Export(float TestCoorsX, float TestCoorsY, float TestCoorsZ, float MinLength, int MinLanes, Vector3* SouthEndNode, Vector3* NorthEndNode, int* LanesGoingSouth, int* LanesGoingNorth, float* CentralReservationWidth, BOOL bIgnoreSwitchedOffNodes)
 	{
 		return PATHFIND::GET_CLOSEST_ROAD(TestCoorsX, TestCoorsY, TestCoorsZ, MinLength, MinLanes, SouthEndNode, NorthEndNode, LanesGoingSouth, LanesGoingNorth, CentralReservationWidth, bIgnoreSwitchedOffNodes);
 	}
@@ -13893,11 +13895,11 @@ extern "C"
 	{
 		return PATHFIND::REQUEST_PATH_NODES_IN_AREA_THIS_FRAME(MinX, MinY, MaxX, MaxY);
 	}
-	BOOL GET_RANDOM_VEHICLE_NODE_Export(float centrePointX, float centrePointY, float centrePointZ, float radius, int MinLanes, BOOL bAvoidDeadEnds, BOOL bAvoidHighways, scrVector* vecReturn, int* NodeAddress)
+	BOOL GET_RANDOM_VEHICLE_NODE_Export(float centrePointX, float centrePointY, float centrePointZ, float radius, int MinLanes, BOOL bAvoidDeadEnds, BOOL bAvoidHighways, Vector3* vecReturn, int* NodeAddress)
 	{
 		return PATHFIND::GET_RANDOM_VEHICLE_NODE(centrePointX, centrePointY, centrePointZ, radius, MinLanes, bAvoidDeadEnds, bAvoidHighways, vecReturn, NodeAddress);
 	}
-	void _GET_SPAWN_DATA_FOR_ROAD_NODE_Export(int nodeId, float x, float y, float z, scrVector* outCoords, float* heading)
+	void _GET_SPAWN_DATA_FOR_ROAD_NODE_Export(int nodeId, float x, float y, float z, Vector3* outCoords, float* heading)
 	{
 		return PATHFIND::_GET_SPAWN_DATA_FOR_ROAD_NODE(nodeId, x, y, z, outCoords, heading);
 	}
@@ -13913,7 +13915,7 @@ extern "C"
 	{
 		return PATHFIND::_0xE5EF9DE716FF737E(p0, p1, p2);
 	}
-	BOOL GET_SAFE_COORD_FOR_PED_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, BOOL bOnlyOnPavement, scrVector* VecReturnSafeCoors, int iFlags)
+	BOOL GET_SAFE_COORD_FOR_PED_Export(float VecCoorsX, float VecCoorsY, float VecCoorsZ, BOOL bOnlyOnPavement, Vector3* VecReturnSafeCoors, int iFlags)
 	{
 		return PATHFIND::GET_SAFE_COORD_FOR_PED(VecCoorsX, VecCoorsY, VecCoorsZ, bOnlyOnPavement, VecReturnSafeCoors, iFlags);
 	}
@@ -14017,7 +14019,7 @@ extern "C"
 	{
 		return PATHFIND::_NAVMESH_REQUESTED_PATH_NUM_WAYPOINTS(path);
 	}
-	scrVector _NAVMESH_REQUESTED_PATH_WAYPOINT_BY_INDEX_Export(int path, int waypointIndex)
+	Vector3 _NAVMESH_REQUESTED_PATH_WAYPOINT_BY_INDEX_Export(int path, int waypointIndex)
 	{
 		return PATHFIND::_NAVMESH_REQUESTED_PATH_WAYPOINT_BY_INDEX(path, waypointIndex);
 	}
@@ -14549,7 +14551,7 @@ extern "C"
 	{
 		return PED::IS_PED_PLANTING_BOMB(PedIndex);
 	}
-	scrVector GET_DEAD_PED_PICKUP_COORDS_Export(Ped PedIndex, float minDist, float maxDist)
+	Vector3 GET_DEAD_PED_PICKUP_COORDS_Export(Ped PedIndex, float minDist, float maxDist)
 	{
 		return PED::GET_DEAD_PED_PICKUP_COORDS(PedIndex, minDist, maxDist);
 	}
@@ -15145,7 +15147,7 @@ extern "C"
 	{
 		return PED::_0xE76687023D8C8505(perscharModel, p1);
 	}
-	BOOL _0xCB8F4C9343EBE240_Export(Ped ped, Hash eventType, scrVector* coords)
+	BOOL _0xCB8F4C9343EBE240_Export(Ped ped, Hash eventType, Vector3* coords)
 	{
 		return PED::_0xCB8F4C9343EBE240(ped, eventType, coords);
 	}
@@ -15677,11 +15679,11 @@ extern "C"
 	{
 		return PED::_GET_PED_DRUNKNESS(ped);
 	}
-	scrVector GET_ANIM_INITIAL_OFFSET_POSITION_Export(const char* pAnimDictName, const char* pAnimName, float scenePositionX, float scenePositionY, float scenePositionZ, float sceneOrientationX, float sceneOrientationY, float sceneOrientationZ, float phase, int RotOrder)
+	Vector3 GET_ANIM_INITIAL_OFFSET_POSITION_Export(const char* pAnimDictName, const char* pAnimName, float scenePositionX, float scenePositionY, float scenePositionZ, float sceneOrientationX, float sceneOrientationY, float sceneOrientationZ, float phase, int RotOrder)
 	{
 		return PED::GET_ANIM_INITIAL_OFFSET_POSITION(pAnimDictName, pAnimName, scenePositionX, scenePositionY, scenePositionZ, sceneOrientationX, sceneOrientationY, sceneOrientationZ, phase, RotOrder);
 	}
-	scrVector GET_ANIM_INITIAL_OFFSET_ROTATION_Export(const char* pAnimDictName, const char* pAnimName, float scenePositionX, float scenePositionY, float scenePositionZ, float sceneOrientationX, float sceneOrientationY, float sceneOrientationZ, float phase, int RotOrder)
+	Vector3 GET_ANIM_INITIAL_OFFSET_ROTATION_Export(const char* pAnimDictName, const char* pAnimName, float scenePositionX, float scenePositionY, float scenePositionZ, float sceneOrientationX, float sceneOrientationY, float sceneOrientationZ, float phase, int RotOrder)
 	{
 		return PED::GET_ANIM_INITIAL_OFFSET_ROTATION(pAnimDictName, pAnimName, scenePositionX, scenePositionY, scenePositionZ, sceneOrientationX, sceneOrientationY, sceneOrientationZ, phase, RotOrder);
 	}
@@ -15841,7 +15843,7 @@ extern "C"
 	{
 		return PED::REMOVE_PED_DEFENSIVE_AREA(PedIndex, bRemoveSecondaryDefensiveArea);
 	}
-	scrVector GET_PED_DEFENSIVE_AREA_POSITION_Export(Ped PedIndex, BOOL bApplyToSecondaryDefensiveArea)
+	Vector3 GET_PED_DEFENSIVE_AREA_POSITION_Export(Ped PedIndex, BOOL bApplyToSecondaryDefensiveArea)
 	{
 		return PED::GET_PED_DEFENSIVE_AREA_POSITION(PedIndex, bApplyToSecondaryDefensiveArea);
 	}
@@ -16025,7 +16027,7 @@ extern "C"
 	{
 		return PED::WAS_PED_SKELETON_UPDATED(PedIndex);
 	}
-	scrVector GET_PED_BONE_COORDS_Export(Ped PedIndex, int bone, float vecOffsetX, float vecOffsetY, float vecOffsetZ)
+	Vector3 GET_PED_BONE_COORDS_Export(Ped PedIndex, int bone, float vecOffsetX, float vecOffsetY, float vecOffsetZ)
 	{
 		return PED::GET_PED_BONE_COORDS(PedIndex, bone, vecOffsetX, vecOffsetY, vecOffsetZ);
 	}
@@ -18197,7 +18199,7 @@ extern "C"
 	{
 		return PERSCHAR::_DELETE_PERSCHAR(persChar);
 	}
-	scrVector _0x5EE6FCCC9C832CA2_Export(Any p0)
+	Vector3 _0x5EE6FCCC9C832CA2_Export(Any p0)
 	{
 		return PERSCHAR::_0x5EE6FCCC9C832CA2(p0);
 	}
@@ -18209,7 +18211,7 @@ extern "C"
 	{
 		return PERSCHAR::_0xBB68908CD11AEBDC(persChar);
 	}
-	scrVector _0x94995829ED15A598_Export(Any p0)
+	Vector3 _0x94995829ED15A598_Export(Any p0)
 	{
 		return PERSCHAR::_0x94995829ED15A598(p0);
 	}
@@ -18597,11 +18599,11 @@ extern "C"
 	{
 		return PHYSICS::_CREATE_ROPE_WINDING_ABILITY(ropeId, p1, ropeModelType, length, p4);
 	}
-	scrVector GET_ROPE_LAST_VERTEX_COORD_Export(int ropeID)
+	Vector3 GET_ROPE_LAST_VERTEX_COORD_Export(int ropeID)
 	{
 		return PHYSICS::GET_ROPE_LAST_VERTEX_COORD(ropeID);
 	}
-	scrVector GET_ROPE_VERTEX_COORD_Export(int ropeID, int vtxIndex)
+	Vector3 GET_ROPE_VERTEX_COORD_Export(int ropeID, int vtxIndex)
 	{
 		return PHYSICS::GET_ROPE_VERTEX_COORD(ropeID, vtxIndex);
 	}
@@ -21221,11 +21223,11 @@ extern "C"
 	{
 		return SHAPETEST::START_SHAPE_TEST_SWEPT_SPHERE(scrVecPosX, scrVecPosY, scrVecPosZ, scrVecEndPosX, scrVecEndPosY, scrVecEndPosZ, fRadius, LOSFlags, ExcludeEntityIndex, Options);
 	}
-	ScrHandle START_SHAPE_TEST_MOUSE_CURSOR_LOS_PROBE_Export(scrVector* vProbeStartPosOut, scrVector* vProbeEndPosOut, int LOSFlags, Entity ExcludeEntityIndex, int Options)
+	ScrHandle START_SHAPE_TEST_MOUSE_CURSOR_LOS_PROBE_Export(Vector3* vProbeStartPosOut, Vector3* vProbeEndPosOut, int LOSFlags, Entity ExcludeEntityIndex, int Options)
 	{
 		return SHAPETEST::START_SHAPE_TEST_MOUSE_CURSOR_LOS_PROBE(vProbeStartPosOut, vProbeEndPosOut, LOSFlags, ExcludeEntityIndex, Options);
 	}
-	int GET_SHAPE_TEST_RESULT_Export(ScrHandle shapeTestGuid, int* bHitSomething, scrVector* vPos, scrVector* vNormal, Entity* EntityIndex)
+	int GET_SHAPE_TEST_RESULT_Export(ScrHandle shapeTestGuid, int* bHitSomething, Vector3* vPos, Vector3* vNormal, Entity* EntityIndex)
 	{
 		return SHAPETEST::GET_SHAPE_TEST_RESULT(shapeTestGuid, bHitSomething, vPos, vNormal, EntityIndex);
 	}
@@ -21889,7 +21891,7 @@ extern "C"
 	{
 		return STREAMING::_0x66BC28E50E85270E(p0);
 	}
-	BOOL _GET_IPL_BOUNDING_SPHERE_Export(Hash iplHash, scrVector* position, float* radius)
+	BOOL _GET_IPL_BOUNDING_SPHERE_Export(Hash iplHash, Vector3* position, float* radius)
 	{
 		return STREAMING::_GET_IPL_BOUNDING_SPHERE(iplHash, position, radius);
 	}
@@ -23157,11 +23159,11 @@ extern "C"
 	{
 		return TASK::DOES_SCRIPTED_COVER_POINT_EXIST_AT_COORDS(VecCoorsX, VecCoorsY, VecCoorsZ, p3);
 	}
-	scrVector GET_SCRIPTED_COVER_POINT_COORDS_Export(ScrHandle index)
+	Vector3 GET_SCRIPTED_COVER_POINT_COORDS_Export(ScrHandle index)
 	{
 		return TASK::GET_SCRIPTED_COVER_POINT_COORDS(index);
 	}
-	scrVector _0xE116F6F2DA2D777E_Export(Any p0)
+	Vector3 _0xE116F6F2DA2D777E_Export(Any p0)
 	{
 		return TASK::_0xE116F6F2DA2D777E(p0);
 	}
@@ -23345,11 +23347,11 @@ extern "C"
 	{
 		return TASK::_GET_PED_USING_SCENARIO_POINT(scenario);
 	}
-	scrVector _GET_SCENARIO_POINT_COORDS_Export(int scenario, BOOL p1)
+	Vector3 _GET_SCENARIO_POINT_COORDS_Export(int scenario, BOOL p1)
 	{
 		return TASK::_GET_SCENARIO_POINT_COORDS(scenario, p1);
 	}
-	scrVector _0x91CB5E431F579BA1_Export(Any p0)
+	Vector3 _0x91CB5E431F579BA1_Export(Any p0)
 	{
 		return TASK::_0x91CB5E431F579BA1(p0);
 	}
@@ -23685,7 +23687,7 @@ extern "C"
 	{
 		return TASK::_0x0365000D8BF86531(p0);
 	}
-	scrVector _0x865732725536EE39_Export(Any p0)
+	Vector3 _0x865732725536EE39_Export(Any p0)
 	{
 		return TASK::_0x865732725536EE39(p0);
 	}
@@ -23993,7 +23995,7 @@ extern "C"
 	{
 		return TASK::WAYPOINT_RECORDING_GET_NUM_POINTS(RecordingName, iOutNumPoints);
 	}
-	BOOL WAYPOINT_RECORDING_GET_COORD_Export(const char* RecordingName, int iWaypoint, scrVector* vOutCoord)
+	BOOL WAYPOINT_RECORDING_GET_COORD_Export(const char* RecordingName, int iWaypoint, Vector3* vOutCoord)
 	{
 		return TASK::WAYPOINT_RECORDING_GET_COORD(RecordingName, iWaypoint, vOutCoord);
 	}
@@ -25929,7 +25931,7 @@ extern "C"
 	{
 		return VEHICLE::_DOES_TRAIN_EXIST_ON_TRACK(trackIndex);
 	}
-	scrVector _GET_TRAIN_POSITION_ON_TRACK_Export(int trackIndex)
+	Vector3 _GET_TRAIN_POSITION_ON_TRACK_Export(int trackIndex)
 	{
 		return VEHICLE::_GET_TRAIN_POSITION_ON_TRACK(trackIndex);
 	}
@@ -26005,7 +26007,7 @@ extern "C"
 	{
 		return VEHICLE::_GET_TRACK_INDEX_FROM_COORDS(x, y, z);
 	}
-	scrVector _GET_NEAREST_TRAIN_TRACK_POSITION_Export(float x, float y, float z)
+	Vector3 _GET_NEAREST_TRAIN_TRACK_POSITION_Export(float x, float y, float z)
 	{
 		return VEHICLE::_GET_NEAREST_TRAIN_TRACK_POSITION(x, y, z);
 	}
@@ -26093,11 +26095,11 @@ extern "C"
 	{
 		return VEHICLE::REMOVE_VEHICLE_RECORDING(FileNumber, pRecordingName);
 	}
-	scrVector GET_POSITION_OF_VEHICLE_RECORDING_AT_TIME_Export(int iRecordingNumber, float fTime, const char* pRecordingName)
+	Vector3 GET_POSITION_OF_VEHICLE_RECORDING_AT_TIME_Export(int iRecordingNumber, float fTime, const char* pRecordingName)
 	{
 		return VEHICLE::GET_POSITION_OF_VEHICLE_RECORDING_AT_TIME(iRecordingNumber, fTime, pRecordingName);
 	}
-	scrVector GET_ROTATION_OF_VEHICLE_RECORDING_AT_TIME_Export(int iRecordingNumber, float fTime, const char* pRecordingName)
+	Vector3 GET_ROTATION_OF_VEHICLE_RECORDING_AT_TIME_Export(int iRecordingNumber, float fTime, const char* pRecordingName)
 	{
 		return VEHICLE::GET_ROTATION_OF_VEHICLE_RECORDING_AT_TIME(iRecordingNumber, fTime, pRecordingName);
 	}
@@ -26281,7 +26283,7 @@ extern "C"
 	{
 		return VEHICLE::_0xD9BF3ED8EFB67EA3(p0, p1, p2, p3, p4);
 	}
-	scrVector _0x785639D89F8451AB_Export(Any p0, Any p1)
+	Vector3 _0x785639D89F8451AB_Export(Any p0, Any p1)
 	{
 		return VEHICLE::_0x785639D89F8451AB(p0, p1);
 	}
@@ -26353,7 +26355,7 @@ extern "C"
 	{
 		return VEHICLE::_GET_CURRENT_TRACK_FOR_TRAIN(train);
 	}
-	scrVector _GET_STATION_COORDS_FROM_TRAIN_STATION_DATA_Export(int trackIndex, int stationIndex)
+	Vector3 _GET_STATION_COORDS_FROM_TRAIN_STATION_DATA_Export(int trackIndex, int stationIndex)
 	{
 		return VEHICLE::_GET_STATION_COORDS_FROM_TRAIN_STATION_DATA(trackIndex, stationIndex);
 	}
@@ -26801,7 +26803,7 @@ extern "C"
 	{
 		return VEHICLE::_GET_NUM_DRAFT_VEHICLE_HARNESS_PED(modelHash);
 	}
-	scrVector _GET_CHECKPOINT_TRAIN_SPAWN_LOCATION_Export(int trackIndex, float x, float y, float z, float distance, BOOL direction)
+	Vector3 _GET_CHECKPOINT_TRAIN_SPAWN_LOCATION_Export(int trackIndex, float x, float y, float z, float distance, BOOL direction)
 	{
 		return VEHICLE::_GET_CHECKPOINT_TRAIN_SPAWN_LOCATION(trackIndex, x, y, z, distance, direction);
 	}
@@ -27309,7 +27311,7 @@ extern "C"
 	{
 		return VOLUME::IS_POINT_IN_VOLUME(volume, x, y, z);
 	}
-	scrVector GET_VOLUME_COORDS_Export(Volume volume)
+	Vector3 GET_VOLUME_COORDS_Export(Volume volume)
 	{
 		return VOLUME::GET_VOLUME_COORDS(volume);
 	}
@@ -27317,7 +27319,7 @@ extern "C"
 	{
 		return VOLUME::SET_VOLUME_COORDS(volume, posX, posY, posZ);
 	}
-	scrVector GET_VOLUME_ROTATION_Export(Volume volume)
+	Vector3 GET_VOLUME_ROTATION_Export(Volume volume)
 	{
 		return VOLUME::GET_VOLUME_ROTATION(volume);
 	}
@@ -27325,7 +27327,7 @@ extern "C"
 	{
 		return VOLUME::SET_VOLUME_ROTATION(volume, rotX, rotY, rotZ);
 	}
-	scrVector GET_VOLUME_SCALE_Export(Volume volume)
+	Vector3 GET_VOLUME_SCALE_Export(Volume volume)
 	{
 		return VOLUME::GET_VOLUME_SCALE(volume);
 	}
@@ -27333,7 +27335,7 @@ extern "C"
 	{
 		return VOLUME::SET_VOLUME_SCALE(volume, scaleX, scaleY, scaleZ);
 	}
-	void _GET_VOLUME_BOUNDS_Export(Volume volume, scrVector* min, scrVector* max)
+	void _GET_VOLUME_BOUNDS_Export(Volume volume, Vector3* min, Vector3* max)
 	{
 		return VOLUME::_GET_VOLUME_BOUNDS(volume, min, max);
 	}
@@ -27349,7 +27351,7 @@ extern "C"
 	{
 		return VOLUME::_0x40F769D31A00D5A0(p0, p1);
 	}
-	scrVector _0xD882C5B3991575B7_Export(Any p0, Any p1, Any p2, Any p3, Any p4)
+	Vector3 _0xD882C5B3991575B7_Export(Any p0, Any p1, Any p2, Any p3, Any p4)
 	{
 		return VOLUME::_0xD882C5B3991575B7(p0, p1, p2, p3, p4);
 	}
@@ -27417,7 +27419,7 @@ extern "C"
 	{
 		return VOLUME::_IS_VOLUME_LOCK_REQUEST_VALID_2(volLockRequestId);
 	}
-	scrVector _0xC4019CF9AE8E931A_Export(int volLockRequestId)
+	Vector3 _0xC4019CF9AE8E931A_Export(int volLockRequestId)
 	{
 		return VOLUME::_0xC4019CF9AE8E931A(volLockRequestId);
 	}
@@ -27549,7 +27551,7 @@ extern "C"
 	{
 		return WATER::GET_WATER_HEIGHT_NO_WAVES(PosX, PosY, PosZ, Height);
 	}
-	int TEST_PROBE_AGAINST_ALL_WATER_Export(float StartPosX, float StartPosY, float StartPosZ, float EndPosX, float EndPosY, float EndPosZ, int BlockingFlags, scrVector* IntersectionPos)
+	int TEST_PROBE_AGAINST_ALL_WATER_Export(float StartPosX, float StartPosY, float StartPosZ, float EndPosX, float EndPosY, float EndPosZ, int BlockingFlags, Vector3* IntersectionPos)
 	{
 		return WATER::TEST_PROBE_AGAINST_ALL_WATER(StartPosX, StartPosY, StartPosZ, EndPosX, EndPosY, EndPosZ, BlockingFlags, IntersectionPos);
 	}
@@ -27937,7 +27939,7 @@ extern "C"
 	{
 		return WEAPON::_0x16D9841A85FA627E(ped, toggle);
 	}
-	BOOL GET_PED_LAST_WEAPON_IMPACT_COORD_Export(Ped PedIndex, scrVector* ImpactCoord)
+	BOOL GET_PED_LAST_WEAPON_IMPACT_COORD_Export(Ped PedIndex, Vector3* ImpactCoord)
 	{
 		return WEAPON::GET_PED_LAST_WEAPON_IMPACT_COORD(PedIndex, ImpactCoord);
 	}
