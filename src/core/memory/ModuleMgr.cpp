@@ -47,3 +47,11 @@ namespace YimMenu
 		return true;
 	}
 }
+
+extern "C"
+{
+	__declspec(dllexport) bool LoadModuleMgrModules()
+	{
+		return YimMenu::ModuleMgr.LoadModules();
+	}
+}

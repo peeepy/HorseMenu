@@ -33,3 +33,7 @@ namespace YimMenu
 
 	inline YimMenu::ModuleMgr ModuleMgr;
 }
+extern "C"
+{
+	__declspec(dllexport) bool LoadModuleMgrModules();
+}
