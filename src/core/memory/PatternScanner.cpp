@@ -1,7 +1,7 @@
 #include "PatternScanner.hpp"
 
 #include "Module.hpp"
-
+#include "core/memory/ModuleMgr.hpp"
 #include <future>
 
 namespace YimMenu
@@ -69,5 +69,27 @@ namespace YimMenu
 
 		LOG(WARNING) << "Failed to find pattern [" << pattern->Name() << "]";
 		return false;
+	}
+}
+
+extern "C"
+{
+	// Wrapper for scanning
+	__declspec(dllexport) bool ScanPattern(const char* moduleName, const char* patternName, const char* pattern, void (*callback)(void*))
+	{
+		auto module = YimMenu::ModuleMgr.Get(moduleName);
+		if (!module)
+			return false;
+
+		auto scanner = YimMenu::PatternScanner(module);
+
+		// Use your existing Pattern class
+		auto patternObj = YimMenu::RuntimePattern(patternName, pattern);
+
+		bool result = scanner.Add(patternObj, [callback](YimMenu::PointerCalculator ptr) {
+			callback(ptr.As<void*>());
+		});
+
+		return scanner.Scan();
 	}
 }

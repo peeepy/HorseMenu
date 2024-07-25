@@ -151,4 +151,42 @@ namespace YimMenu
 
 		std::vector<std::optional<uint8_t>> m_Bytes;
 	};
+
+	class RuntimePattern : public IPattern
+	{
+	private:
+		std::string_view m_Name;
+		std::vector<std::optional<std::uint8_t>> m_Signature;
+
+	public:
+		RuntimePattern(std::string_view name, std::string_view pattern) :
+		    m_Name(name)
+		{
+			ParsePattern(pattern);
+		}
+
+		const std::string_view Name() const override
+		{
+			return m_Name;
+		}
+
+		std::span<const std::optional<std::uint8_t>> Signature() const override
+		{
+			return m_Signature;
+		}
+
+	private:
+		void ParsePattern(std::string_view pattern)
+		{
+			std::istringstream iss(pattern.data());
+			std::string byte;
+			while (iss >> byte)
+			{
+				if (byte == "?")
+					m_Signature.push_back(std::nullopt);
+				else
+					m_Signature.push_back(static_cast<std::uint8_t>(std::stoul(byte, nullptr, 16)));
+			}
+		}
+	};
 }
