@@ -1,5 +1,5 @@
 #include "PatternScanner.hpp"
-
+#include "util/Joaat.hpp"
 #include "Module.hpp"
 #include "core/memory/ModuleMgr.hpp"
 #include <future>
@@ -77,7 +77,8 @@ extern "C"
 	// Wrapper for scanning
 	__declspec(dllexport) bool ScanPattern(const char* moduleName, const char* patternName, const char* pattern, void (*callback)(void*))
 	{
-		auto module = YimMenu::ModuleMgr.Get(moduleName);
+
+		YimMenu::Module* module = YimMenu::ModuleMgr.Get(YimMenu::Joaat(moduleName));
 		if (!module)
 			return false;
 
@@ -86,7 +87,7 @@ extern "C"
 		// Use your existing Pattern class
 		auto patternObj = YimMenu::RuntimePattern(patternName, pattern);
 
-		bool result = scanner.Add(patternObj, [callback](YimMenu::PointerCalculator ptr) {
+		scanner.AddRT(patternObj, [callback](YimMenu::PointerCalculator ptr) {
 			callback(ptr.As<void*>());
 		});
 

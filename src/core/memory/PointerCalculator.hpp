@@ -104,3 +104,10 @@ namespace YimMenu
 		return a.m_InternalPtr != b.m_InternalPtr;
 	}
 }
+
+extern "C"
+{
+	__declspec(dllexport) void* PointerCalculator_Add(void* ptr, intptr_t offset);
+	
+	__declspec(dllexport) void* PointerCalculator_Rip(void* ptr);
+}

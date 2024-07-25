@@ -152,7 +152,7 @@ namespace YimMenu
 		std::vector<std::optional<uint8_t>> m_Bytes;
 	};
 
-	class RuntimePattern : public IPattern
+	class RuntimePattern final : public IPattern
 	{
 	private:
 		std::string_view m_Name;
@@ -178,14 +178,22 @@ namespace YimMenu
 	private:
 		void ParsePattern(std::string_view pattern)
 		{
-			std::istringstream iss(pattern.data());
-			std::string byte;
-			while (iss >> byte)
+			for (size_t i = 0; i < pattern.length(); i++)
 			{
-				if (byte == "?")
+				if (pattern[i] == ' ')
+					continue;
+				if (pattern[i] == '?')
+				{
+					if (i + 1 < pattern.length() && pattern[i + 1] == '?')
+						i++;
 					m_Signature.push_back(std::nullopt);
+				}
 				else
-					m_Signature.push_back(static_cast<std::uint8_t>(std::stoul(byte, nullptr, 16)));
+				{
+					std::uint8_t byte = static_cast<std::uint8_t>(StrToHex(pattern[i]) * 0x10 + StrToHex(pattern[i + 1]));
+					m_Signature.push_back(byte);
+					i++;
+				}
 			}
 		}
 	};

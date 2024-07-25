@@ -21,6 +21,7 @@ namespace YimMenu
 
 		template<Signature S>
 		void Add(const Pattern<S>& pattern, const PatternFunc& func);
+		void AddRT(const RuntimePattern& pattern, const PatternFunc& func);
 		bool Scan();
 
 	private:
@@ -32,4 +33,15 @@ namespace YimMenu
 	{
 		m_Patterns.push_back(std::move(std::make_pair(&pattern, func)));
 	}
+
+	//template<Signature S>
+	inline void PatternScanner::AddRT(const RuntimePattern& pattern, const PatternFunc& func)
+	{
+		m_Patterns.push_back(std::move(std::make_pair(&pattern, func)));
+	}
+}
+
+extern "C"
+{
+	__declspec(dllexport) bool ScanPattern(const char* moduleName, const char* patternName, const char* pattern, void (*callback)(void*));
 }
