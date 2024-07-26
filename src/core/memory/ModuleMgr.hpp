@@ -1,7 +1,7 @@
 #pragma once
 #include "Module.hpp"
 #include "common.hpp"
-
+#define EXPORT __declspec(dllexport)
 namespace YimMenu
 {
 	using joaat_t = std::uint32_t;
@@ -35,5 +35,6 @@ namespace YimMenu
 }
 extern "C"
 {
-	__declspec(dllexport) bool LoadModuleMgrModules();
+	EXPORT bool LoadModuleMgrModules();
+	EXPORT void* GetModuleByHash(uint32_t hash);
 }

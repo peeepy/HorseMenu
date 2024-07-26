@@ -61,3 +61,35 @@ namespace YimMenu
 		return m_Base.Add(offset).As<IMAGE_NT_HEADERS*>();
 	}
 }
+extern "C"
+{
+	EXPORT const char* GetModuleName(void* modulePtr)
+	{
+		auto mod = static_cast<YimMenu::Module*>(modulePtr);
+		return mod->Name().data();
+	}
+
+	EXPORT uintptr_t GetModuleSize(void* modulePtr)
+	{
+		auto mod = static_cast<YimMenu::Module*>(modulePtr);
+		return mod->Size();
+	}
+
+	EXPORT uintptr_t GetModuleEnd(void* modulePtr)
+	{
+		auto mod = static_cast<YimMenu::Module*>(modulePtr);
+		return mod->End();
+	}
+
+	EXPORT uintptr_t GetModuleBase(void* modulePtr)
+	{
+		auto mod = static_cast<YimMenu::Module*> (modulePtr);
+		return mod->Base();
+	}
+
+	EXPORT bool IsModuleValid(void* modulePtr)
+	{
+		auto mod = static_cast<YimMenu::Module*>(modulePtr);
+		return mod->Valid();
+	}
+}

@@ -1,7 +1,7 @@
 #include "ModuleMgr.hpp"
 
 #include "util/Joaat.hpp"
-
+#define EXPORT __declspec(dllexport)
 namespace YimMenu
 {
 	Module* ModuleMgr::Get(const std::string_view name)
@@ -50,8 +50,14 @@ namespace YimMenu
 
 extern "C"
 {
-	__declspec(dllexport) bool LoadModuleMgrModules()
+	EXPORT bool LoadModuleMgrModules()
 	{
 		return YimMenu::ModuleMgr.LoadModules();
 	}
+
+	EXPORT void* GetModuleByHash(uint32_t hash)
+	{
+		return YimMenu::ModuleMgr.Get(hash);
+	}
+	
 }

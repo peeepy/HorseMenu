@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <string_view>
-
+#define EXPORT __declspec(dllexport)
 namespace YimMenu
 {
 	using joaat_t = std::uint32_t;
@@ -29,4 +29,8 @@ namespace YimMenu
 
 		return result;
 	}
+}
+extern "C"
+{
+	EXPORT uint32_t CalculateJoaat(const char* str);
 }

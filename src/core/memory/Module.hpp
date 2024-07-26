@@ -3,7 +3,7 @@
 #include "common.hpp"
 
 #include <winternl.h>
-
+#define EXPORT __declspec(dllexport)
 namespace YimMenu
 {
 	class Module
@@ -111,4 +111,13 @@ namespace YimMenu
 		LOG(FATAL) << "Cannot find export: " << ordinal;
 		return nullptr;
 	}
+}
+
+extern "C"
+{
+	EXPORT const char* GetModuleName(void* modulePtr);
+	EXPORT uintptr_t GetModuleSize(void* modulePtr);
+	EXPORT uintptr_t GetModuleEnd(void* modulePtr);
+	EXPORT uintptr_t GetModuleBase(void* modulePtr);
+	EXPORT bool IsModuleValid(void* modulePtr);
 }
